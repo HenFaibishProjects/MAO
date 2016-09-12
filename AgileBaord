@@ -1,0 +1,36 @@
+Things to do:
+
+Sprint 1:
+1.add modification to all DAO
+
+Sprint 2:
+2.implement modification to all DAO implement
+
+Sprint3:
+Manage Items with:
+Abstract class + inheritance to items according to BASHGAL (Enums and new data types) 
+
+Sprint 4:
+Manage Items with:
+Method to manage items
+
+Sprint 5:
+1.data layer to items
+
+Sprint 6:
+2.add and implement add/Delete to all DAO implement
+
+Sprint 7:
+add and implement modification to all DAO implement
+
+Backlog:
+1.add special methods to items
+2.add special methods to people
+3.add payments system
+4.add special events
+5.add comments
+6.support for multiple schools
+7.support for permission instructors
+
+
+

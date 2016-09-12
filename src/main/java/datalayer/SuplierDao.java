@@ -1,5 +1,7 @@
 package datalayer;
 
+import java.io.IOException;
+
 import people.Supplier;
 
 public interface SuplierDao {
@@ -7,21 +9,13 @@ public interface SuplierDao {
 	
 	void save(Supplier supplier);
 	
+	void ModifyWorkingDays(String id, char[] newWorkingDays) throws IOException ;
 	
-	/*  modification : TO BE DEFINED
-	 * 
-	void ModifyWorkingDays(VirtualSupplier virtualsupplier);
+	void ModifySuplyCode(String id , int newsuppliyerCode) throws IOException ;	
 	
-	void ModifySuplyCode(VirtualSupplier virtualsupplier);	
+	void ModifyName(String id , String newName) throws IOException;
 	
-	void ModifyName(VirtualSupplier virtualsupplier);
-	
-	void ModifyId(VirtualSupplier virtualsupplier);
-	
-	void ModifyPhone(VirtualSupplier virtualsupplier);
-	
-	
-	
-    */
+	void ModifyPhone(String id , String NewPhone) throws IOException;
+
 
 }

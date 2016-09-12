@@ -97,5 +97,37 @@ public class Customers implements Person, CustomerAction {
 
 	}
 
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public int getHigh() {
+		return high;
+	}
+
+	public void setHigh(int high) {
+		this.high = high;
+	}
+
+	public char getGender() {
+		return gender;
+	}
+
+	public void setGender(char gender) {
+		this.gender = gender;
+	}
+
 	}
 

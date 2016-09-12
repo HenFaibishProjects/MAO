@@ -4,13 +4,15 @@ import people.InterFaces.Person;
 import people.InterFaces.WorkingDays;
 
 public class Supplier implements Person, WorkingDays{
-	private final char[] WorkingDays;
-	private final int SuplyCode;
+	private char[] WorkingDays;
+	private int SuplyCode;
 	private String name;
 	private String id;
 	private String phone;
 
 	
+	public Supplier() {
+	}
 
 	public Supplier(char[] workingDays, int suplyCode, String name, String id, String phone) {
 		WorkingDays = workingDays;
@@ -52,6 +54,13 @@ public class Supplier implements Person, WorkingDays{
 	public void setPhone(String phone) {
 		this.phone = phone;
 
+	}
+	public void setWorkingDays(char[] workingDays) {
+		WorkingDays = workingDays;
+	}
+
+	public void setSuplyCode(int suplyCode) {
+		SuplyCode = suplyCode;
 	}
 
 }

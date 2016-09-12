@@ -1,5 +1,7 @@
 package datalayer;
 
+import java.io.IOException;
+
 import people.VirtualSupplier;
 
 public interface VirtualSupplierDao {
@@ -8,25 +10,19 @@ public interface VirtualSupplierDao {
 	    VirtualSupplier read(String id);
 		
 		void addnewVsupp(VirtualSupplier virtualsupplier);
-		void deleteVsupp(VirtualSupplier virtualsupplier);
 		
+		void deleteVsupp(String id) throws IOException;
+
+		void ModifyWorkingDays(String id, char[] newWorkingDays) throws IOException;
 		
+		void ModifySuplyCode(String id , int newsuppliyerCode) throws IOException;	
 		
-		/*  modification : TO BE DEFINED
-		void ModifyWorkingDays(VirtualSupplier virtualsupplier);
+		void ModifyName(String id , String newName) throws IOException;
 		
-		void ModifySuplyCode(VirtualSupplier virtualsupplier);	
+		void ModifyPhone(String id , String NewPhone) throws IOException;
 		
-		void ModifyName(VirtualSupplier virtualsupplier);
-		
-		void ModifyId(VirtualSupplier virtualsupplier);
-		
-		void ModifyPhone(VirtualSupplier virtualsupplier);
-		
-		void ModifyOwnershipType(VirtualSupplier virtualsupplier);
-		
-		
-        */
+		void ModifyOwnershipType(String id , int newOwnershipType) throws IOException;
+
 		
 		
 
