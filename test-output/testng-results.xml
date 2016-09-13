@@ -1,38 +1,229 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" total="9" passed="9">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="81" started-at="2016-09-12T13:06:54Z" finished-at="2016-09-12T13:06:54Z">
+  <suite name="Default suite" duration-ms="103" started-at="2016-09-12T19:14:31Z" finished-at="2016-09-12T19:14:31Z">
     <groups>
       <group name="AddVirtualSupplier">
-        <method signature="VirtualSupplierDaoImpla.addNewVsupp()[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@27efef64]" name="addNewVsupp" class="addNewEmployee.VirtualSupplierDaoImpla"/>
         <method signature="VirtualSupplierDaoImpla.addNewVsupp1([C, int, java.lang.String, java.lang.String, java.lang.String, int)[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@27efef64]" name="addNewVsupp1" class="addNewEmployee.VirtualSupplierDaoImpla"/>
       </group> <!-- AddVirtualSupplier -->
     </groups>
-    <test name="Default test" duration-ms="81" started-at="2016-09-12T13:06:54Z" finished-at="2016-09-12T13:06:54Z">
+    <test name="Default test" duration-ms="103" started-at="2016-09-12T19:14:31Z" finished-at="2016-09-12T19:14:31Z">
       <class name="addNewEmployee.VirtualSupplierDaoImpla">
-        <test-method status="PASS" signature="printTestStarted()[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@27efef64]" name="printTestStarted" is-config="true" duration-ms="6" started-at="2016-09-12T15:06:54Z" finished-at="2016-09-12T15:06:54Z">
+        <test-method status="PASS" signature="printTestStarted()[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@27efef64]" name="printTestStarted" is-config="true" duration-ms="6" started-at="2016-09-12T21:14:31Z" finished-at="2016-09-12T21:14:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- printTestStarted -->
-        <test-method status="PASS" signature="addNewVsupp()[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@27efef64]" name="addNewVsupp" duration-ms="48" started-at="2016-09-12T15:06:54Z" finished-at="2016-09-12T15:06:54Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addNewVsupp -->
-        <test-method status="PASS" signature="printTestStarted()[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@27efef64]" name="printTestStarted" is-config="true" duration-ms="1" started-at="2016-09-12T15:06:54Z" finished-at="2016-09-12T15:06:54Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- printTestStarted -->
-        <test-method status="PASS" signature="addNewVsupp1([C, int, java.lang.String, java.lang.String, java.lang.String, int)[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@27efef64]" name="addNewVsupp1" duration-ms="5" started-at="2016-09-12T15:06:54Z" data-provider="AddVirtualSupplier" finished-at="2016-09-12T15:06:54Z">
+        <test-method status="PASS" signature="addNewVsupp1([C, int, java.lang.String, java.lang.String, java.lang.String, int)[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@27efef64]" name="addNewVsupp1" duration-ms="20" started-at="2016-09-12T21:14:31Z" data-provider="AddVirtualSupplier" finished-at="2016-09-12T21:14:31Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[C@2a17b7b6]]>
+                <![CDATA[[C@1d16f93d]]>
               </value>
             </param>
             <param index="1">
               <value>
                 <![CDATA[0]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OfficeDepo]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[0034556]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[050-5235455]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[343]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addNewVsupp1 -->
+        <test-method status="PASS" signature="printTestStarted()[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@27efef64]" name="printTestStarted" is-config="true" duration-ms="1" started-at="2016-09-12T21:14:31Z" finished-at="2016-09-12T21:14:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- printTestStarted -->
+        <test-method status="PASS" signature="addNewVsupp1([C, int, java.lang.String, java.lang.String, java.lang.String, int)[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@27efef64]" name="addNewVsupp1" duration-ms="2" started-at="2016-09-12T21:14:31Z" data-provider="AddVirtualSupplier" finished-at="2016-09-12T21:14:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[C@1d16f93d]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[HomeCenter]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[0034556]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[077-1545455]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[3323]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addNewVsupp1 -->
+        <test-method status="PASS" signature="printTestStarted()[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@27efef64]" name="printTestStarted" is-config="true" duration-ms="0" started-at="2016-09-12T21:14:31Z" finished-at="2016-09-12T21:14:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- printTestStarted -->
+        <test-method status="PASS" signature="addNewVsupp1([C, int, java.lang.String, java.lang.String, java.lang.String, int)[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@27efef64]" name="addNewVsupp1" duration-ms="2" started-at="2016-09-12T21:14:31Z" data-provider="AddVirtualSupplier" finished-at="2016-09-12T21:14:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[C@1d16f93d]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Binat]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[0034556]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[051-5545455]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[3423423]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addNewVsupp1 -->
+        <test-method status="PASS" signature="addNewVsupp1([C, int, java.lang.String, java.lang.String, java.lang.String, int)[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@27efef64]" name="addNewVsupp1" duration-ms="1" started-at="2016-09-12T21:14:31Z" data-provider="AddVirtualSupplier" finished-at="2016-09-12T21:14:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[C@1d16f93d]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[first]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[0034556]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[050-5545455]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[342343]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addNewVsupp1 -->
+        <test-method status="PASS" signature="printTestStarted()[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@27efef64]" name="printTestStarted" is-config="true" duration-ms="0" started-at="2016-09-12T21:14:31Z" finished-at="2016-09-12T21:14:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- printTestStarted -->
+        <test-method status="PASS" signature="printTestStarted()[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@27efef64]" name="printTestStarted" is-config="true" duration-ms="0" started-at="2016-09-12T21:14:31Z" finished-at="2016-09-12T21:14:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- printTestStarted -->
+        <test-method status="PASS" signature="addNewVsupp1([C, int, java.lang.String, java.lang.String, java.lang.String, int)[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@27efef64]" name="addNewVsupp1" duration-ms="3" started-at="2016-09-12T21:14:31Z" data-provider="AddVirtualSupplier" finished-at="2016-09-12T21:14:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[C@1d16f93d]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[4]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[first]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[0034556]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[054-5532455]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[23423]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addNewVsupp1 -->
+        <test-method status="PASS" signature="printTestStarted()[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@27efef64]" name="printTestStarted" is-config="true" duration-ms="0" started-at="2016-09-12T21:14:31Z" finished-at="2016-09-12T21:14:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- printTestStarted -->
+        <test-method status="PASS" signature="addNewVsupp1([C, int, java.lang.String, java.lang.String, java.lang.String, int)[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@27efef64]" name="addNewVsupp1" duration-ms="2" started-at="2016-09-12T21:14:31Z" data-provider="AddVirtualSupplier" finished-at="2016-09-12T21:14:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[C@1d16f93d]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[5]]>
               </value>
             </param>
             <param index="2">
@@ -59,6 +250,126 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addNewVsupp1 -->
+        <test-method status="PASS" signature="printTestStarted()[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@27efef64]" name="printTestStarted" is-config="true" duration-ms="1" started-at="2016-09-12T21:14:31Z" finished-at="2016-09-12T21:14:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- printTestStarted -->
+        <test-method status="PASS" signature="addNewVsupp1([C, int, java.lang.String, java.lang.String, java.lang.String, int)[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@27efef64]" name="addNewVsupp1" duration-ms="3" started-at="2016-09-12T21:14:31Z" data-provider="AddVirtualSupplier" finished-at="2016-09-12T21:14:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[C@1d16f93d]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[6]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[first]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[0034556]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[054-5545455]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addNewVsupp1 -->
+        <test-method status="PASS" signature="printTestStarted()[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@27efef64]" name="printTestStarted" is-config="true" duration-ms="2" started-at="2016-09-12T21:14:31Z" finished-at="2016-09-12T21:14:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- printTestStarted -->
+        <test-method status="PASS" signature="addNewVsupp1([C, int, java.lang.String, java.lang.String, java.lang.String, int)[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@27efef64]" name="addNewVsupp1" duration-ms="4" started-at="2016-09-12T21:14:31Z" data-provider="AddVirtualSupplier" finished-at="2016-09-12T21:14:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[C@1d16f93d]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[7]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[first]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[0034556]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[054-5545455]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addNewVsupp1 -->
+        <test-method status="PASS" signature="addNewVsupp1([C, int, java.lang.String, java.lang.String, java.lang.String, int)[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@27efef64]" name="addNewVsupp1" duration-ms="8" started-at="2016-09-12T21:14:31Z" data-provider="AddVirtualSupplier" finished-at="2016-09-12T21:14:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[C@1d16f93d]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[8]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[first]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[0034556]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[054-5545455]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addNewVsupp1 -->
+        <test-method status="PASS" signature="printTestStarted()[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@27efef64]" name="printTestStarted" is-config="true" duration-ms="0" started-at="2016-09-12T21:14:31Z" finished-at="2016-09-12T21:14:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- printTestStarted -->
       </class> <!-- addNewEmployee.VirtualSupplierDaoImpla -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

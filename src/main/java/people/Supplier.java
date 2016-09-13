@@ -9,6 +9,7 @@ public class Supplier implements Person, WorkingDays{
 	private String name;
 	private String id;
 	private String phone;
+	String StringWorkingDays;
 
 	
 	public Supplier() {
@@ -20,6 +21,7 @@ public class Supplier implements Person, WorkingDays{
 		this.name = name;
 		this.id = id;
 		this.phone = phone;
+		StringWorkingDays = String.valueOf(WorkingDays);
 	}
 
 	public int getSuplyCode() {
@@ -61,6 +63,14 @@ public class Supplier implements Person, WorkingDays{
 
 	public void setSuplyCode(int suplyCode) {
 		SuplyCode = suplyCode;
+	}
+
+	public String getStringWorkingDays() {
+		return StringWorkingDays;
+	}
+
+	public void setStringWorkingDays(String stringWorkingDays) {
+		StringWorkingDays = stringWorkingDays;
 	}
 
 }
