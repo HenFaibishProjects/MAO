@@ -1,27 +1,19 @@
 package datalayer;
 
+import java.io.IOException;
+
 import people.Supplier;
 
 public interface SuplierDao {
 	Supplier read(String id);
 	
-	void save(Supplier supplier);
+	void addNewSupliyer(Supplier supplier);
 	
+	void ModifySuplyCode(String id , int newsuppliyerCode) throws IOException ;	
 	
-	/*  modification : TO BE DEFINED
-	 * 
-	void ModifyWorkingDays(VirtualSupplier virtualsupplier);
+	void ModifyName(String id , String newName) throws IOException;
 	
-	void ModifySuplyCode(VirtualSupplier virtualsupplier);	
-	
-	void ModifyName(VirtualSupplier virtualsupplier);
-	
-	void ModifyId(VirtualSupplier virtualsupplier);
-	
-	void ModifyPhone(VirtualSupplier virtualsupplier);
-	
-	
-	
-    */
+	void ModifyPhone(String id , String NewPhone) throws IOException;
+
 
 }

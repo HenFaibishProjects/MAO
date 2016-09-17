@@ -2,27 +2,24 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="56" started-at="2016-09-06T14:22:28Z" finished-at="2016-09-06T14:22:28Z">
+  <suite name="Default suite" duration-ms="6824" started-at="2016-09-15T14:48:19Z" finished-at="2016-09-15T14:48:26Z">
     <groups>
-      <group name="aGroup">
-        <method signature="abc.multipleStoragePolicyUpgrade()[pri:0, instance:addNewEmployee.abc@6f7fd0e6]" name="multipleStoragePolicyUpgrade" class="addNewEmployee.abc"/>
-      </group> <!-- aGroup -->
     </groups>
-    <test name="Default test" duration-ms="56" started-at="2016-09-06T14:22:28Z" finished-at="2016-09-06T14:22:28Z">
-      <class name="addNewEmployee.abc">
-        <test-method status="PASS" signature="printTestStarted()[pri:0, instance:addNewEmployee.abc@6f7fd0e6]" name="printTestStarted" is-config="true" duration-ms="5" started-at="2016-09-06T16:22:28Z" finished-at="2016-09-06T16:22:28Z">
+    <test name="Default test" duration-ms="6824" started-at="2016-09-15T14:48:19Z" finished-at="2016-09-15T14:48:26Z">
+      <class name="addNewEmployee.VirtualSupplierDaoImpla">
+        <test-method status="PASS" signature="printTestStarted()[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@6f7fd0e6]" name="printTestStarted" is-config="true" duration-ms="6" started-at="2016-09-15T16:48:19Z" finished-at="2016-09-15T16:48:19Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- printTestStarted -->
-        <test-method status="PASS" signature="multipleStoragePolicyUpgrade()[pri:0, instance:addNewEmployee.abc@6f7fd0e6]" name="multipleStoragePolicyUpgrade" duration-ms="13" started-at="2016-09-06T16:22:28Z" finished-at="2016-09-06T16:22:28Z">
+        <test-method status="PASS" signature="addNewVsupp2()[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@6f7fd0e6]" name="addNewVsupp2" duration-ms="6806" started-at="2016-09-15T16:48:19Z" finished-at="2016-09-15T16:48:26Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- multipleStoragePolicyUpgrade -->
-        <test-method status="PASS" signature="printTestCompleted()[pri:0, instance:addNewEmployee.abc@6f7fd0e6]" name="printTestCompleted" is-config="true" duration-ms="1" started-at="2016-09-06T16:22:28Z" finished-at="2016-09-06T16:22:28Z">
+        </test-method> <!-- addNewVsupp2 -->
+        <test-method status="PASS" signature="printTestCompleted()[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@6f7fd0e6]" name="printTestCompleted" is-config="true" duration-ms="0" started-at="2016-09-15T16:48:26Z" finished-at="2016-09-15T16:48:26Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- printTestCompleted -->
-      </class> <!-- addNewEmployee.abc -->
+      </class> <!-- addNewEmployee.VirtualSupplierDaoImpla -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
