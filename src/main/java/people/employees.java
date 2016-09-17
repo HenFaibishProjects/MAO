@@ -6,7 +6,7 @@ import people.InterFaces.WorkingDays;
 public class employees implements Person, WorkingDays{
 
 	private final char[] WorkingDays;
-	private final int SuplyCode;
+	private int empCode;
 	private String name;
 	private String id;
 	private String phone;
@@ -15,14 +15,14 @@ public class employees implements Person, WorkingDays{
 
 	public employees(char[] workingDays, int suplyCode, String name, String id, String phone) {
 		WorkingDays = workingDays;
-		SuplyCode = suplyCode;
+		empCode = suplyCode;
 		this.name = name;
 		this.id = id;
 		this.phone = phone;
 	}
 
 	public int getSuplyCode() {
-		return SuplyCode;
+		return empCode;
 	}
 
 	public String getName() {
@@ -54,6 +54,14 @@ public class employees implements Person, WorkingDays{
 	public void setPhone(String phone) {
 		this.phone = phone;
 
+	}
+
+	public int getEmpCode() {
+		return empCode;
+	}
+
+	public void setEmpCode(int empCode) {
+		this.empCode = empCode;
 	}
 
 	}

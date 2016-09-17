@@ -49,11 +49,6 @@ public class VirtualSupplierDaoImpl implements VirtualSupplierDao{
 
 	}
 
-	public void ModifyWorkingDays(String id  , char[] newWorkingDays) throws IOException {
-		vsuppliers.get(findIndex(id)).setWorkingDays(newWorkingDays);
-
-	}
-
 	public void ModifySuplyCode(String id, int newsuppliyerCode) throws IOException {
 		vsuppliers.get(findIndex(id)).setSuplyCode(newsuppliyerCode);
 

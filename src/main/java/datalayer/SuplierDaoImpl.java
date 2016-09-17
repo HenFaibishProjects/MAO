@@ -19,7 +19,7 @@ public class SuplierDaoImpl implements SuplierDao {
 		}).findAny().get();
 	}
 
-	public void save(Supplier supplier) {
+	public void addNewSupliyer(Supplier supplier) {
 		suppliers.add(supplier);
 		
 		
@@ -44,10 +44,7 @@ public class SuplierDaoImpl implements SuplierDao {
 }
 
 
-	public void ModifyWorkingDays(String id  , char[] newWorkingDays) throws IOException {
-		suppliers.get(findIndex(id)).setWorkingDays(newWorkingDays);
-		
-	}
+
 
 	public void ModifySuplyCode(String id, int newsuppliyerCode) throws IOException {
 		suppliers.get(findIndex(id)).setSuplyCode(newsuppliyerCode);
@@ -68,15 +65,49 @@ public class SuplierDaoImpl implements SuplierDao {
 
 
 
-	@Override
-	public String toString() {
-		return "VirtualSupplierDaoImpl [vsuppliers=" + suppliers + "]";
-	}
-
 
 	public List<Supplier> getSuppliers() {
 		return suppliers;
 	}
+
+	@Override
+	public String toString() {
+		int i=0;
+		return
+
+"|+    id"  + "   "+ 	suppliers.get(i).getId() + "     " + "|" + 
+
+"|+    suppliyerCode" + "   "+	suppliers.get(i).getSuplyCode() + "     " + "|" +
+
+"|+    name" + 	"   "+suppliers.get(i).getName() + "               " +  "|" +
+
+"|+    Working days" + 	"     "+ suppliers.get(i).getStringWorkingDays() + "     "+  "|" +
+
+"|+    phone" + 	"     "+suppliers.get(i).getPhone() + "     "+  "|" ;
+
+
+
+
+	} 
+
+	public void printResultofTheList() {
+    for (int i=0 ; i< suppliers.size() ; i++) {
+    	
+    	System.out.println(
+    	"|+    id"  + "   "+ 	suppliers.get(i).getId() + "     " + "|" + 
+
+    	"|+    suppliyerCode" + "   "+	suppliers.get(i).getSuplyCode() + "     " + "|" +
+
+    	"|+    name" + 	"   "+suppliers.get(i).getName() + "               " +  "|" +
+
+    	"|+    Working days" + 	"     "+ suppliers.get(i).getStringWorkingDays() + "     "+  "|" +
+
+    	"|+    phone" + 	"     "+suppliers.get(i).getPhone() + "     "+  "|" +
+
+    	"|+    OwnershipType" + "     ") ;
+    }
+    	
+    }
 
 
 

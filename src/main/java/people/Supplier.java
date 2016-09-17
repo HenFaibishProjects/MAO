@@ -1,31 +1,45 @@
 package people;
 
+import java.util.Scanner;
+
 import people.InterFaces.Person;
 import people.InterFaces.WorkingDays;
 
-public class Supplier implements Person, WorkingDays{
-	private char[] WorkingDays;
-	private int SuplyCode;
+public class Supplier implements Person{
+	private int suplyCode;
 	private String name;
 	private String id;
 	private String phone;
 	String StringWorkingDays;
 
 	
-	public Supplier() {
-	}
 
-	public Supplier(char[] workingDays, int suplyCode, String name, String id, String phone) {
-		WorkingDays = workingDays;
-		SuplyCode = suplyCode;
+	public Supplier scanSupplier() {
+		Scanner sc = new Scanner(System.in);
+		suplyCode = sc.nextInt();
+		name = sc.next();
+		id = sc.next();
+		phone = sc.next();
+		Supplier supplierFromScan = new Supplier(suplyCode, name, id, phone);
+		//sc.close();
+		return supplierFromScan;
+		
+	}
+	
+	
+	public Supplier() {
+	
+	}
+	
+	public Supplier(int suplyCode, String name, String id, String phone) {
+		this.suplyCode = suplyCode;
 		this.name = name;
 		this.id = id;
 		this.phone = phone;
-		StringWorkingDays = String.valueOf(WorkingDays);
 	}
 
 	public int getSuplyCode() {
-		return SuplyCode;
+		return suplyCode;
 	}
 
 	public String getName() {
@@ -40,9 +54,6 @@ public class Supplier implements Person, WorkingDays{
 		return this.phone;
 	}
 
-	public char[] getWorkingDays() {		
-		return this.WorkingDays;
-	}
 
 	public void setName(String name) {
 		this.name = name;
@@ -57,12 +68,9 @@ public class Supplier implements Person, WorkingDays{
 		this.phone = phone;
 
 	}
-	public void setWorkingDays(char[] workingDays) {
-		WorkingDays = workingDays;
-	}
 
 	public void setSuplyCode(int suplyCode) {
-		SuplyCode = suplyCode;
+		this.suplyCode = suplyCode;
 	}
 
 	public String getStringWorkingDays() {

@@ -1,12 +1,14 @@
 package people;
 
+import java.sql.Date;
+
 import people.InterFaces.CustomerAction;
 import people.InterFaces.Person;
 
 public class Customers implements Person, CustomerAction {
 	String title;
 	int MemberType;
-	int age;
+	Date birthDay;
 	int high;
 	char gender;
 	public static int ClientsCounter = 0;
@@ -105,12 +107,12 @@ public class Customers implements Person, CustomerAction {
 		this.title = title;
 	}
 
-	public int getAge() {
-		return age;
+	public Date getAge() {
+		return birthDay;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
+	public void setAge(Date birthDay) {
+		this.birthDay = birthDay;
 	}
 
 	public int getHigh() {

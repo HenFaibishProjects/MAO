@@ -12,8 +12,6 @@ public interface VirtualSupplierDao {
 		void addnewVsupp(VirtualSupplier virtualsupplier);
 		
 		void deleteVsupp(String id) throws IOException;
-
-		void ModifyWorkingDays(String id, char[] newWorkingDays) throws IOException;
 		
 		void ModifySuplyCode(String id , int newsuppliyerCode) throws IOException;	
 		

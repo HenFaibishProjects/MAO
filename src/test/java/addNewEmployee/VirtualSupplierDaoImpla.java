@@ -2,52 +2,64 @@ package addNewEmployee;
 
 import org.testng.annotations.*;
 
+import UI.VSuppOnTable;
+import datalayer.SuplierDaoImpl;
 import datalayer.VirtualSupplierDaoImpl;
+import people.Supplier;
 import people.VirtualSupplier;
 
 public class VirtualSupplierDaoImpla   {
-	private VirtualSupplierDaoImpl configurevirtualSupplier;
+	private SuplierDaoImpl configurevirtualSupplier;
 
 	@BeforeMethod(alwaysRun = true)
 	protected void printTestStarted(){
-		 configurevirtualSupplier = new VirtualSupplierDaoImpl();
+		 configurevirtualSupplier = new SuplierDaoImpl();
 		 
 	}
 		
-//	}
 
 
-	@Test(groups = { "AddVirtualSupplier" },dataProviderClass = DataProviderAddingPeople.class, dataProvider = "AddVirtualSupplier", enabled = true)
+	@Test(groups = { "AddVirtualSupplier" },dataProviderClass = DataProviderAddingPeople.class, dataProvider = "AddVirtualSupplier", enabled = false)
 	public void addNewVsupp1(char[] workingDays, int suplyCode, String name, String id, String phone, int OwnershipType) throws Exception 
 	{ 
-		VirtualSupplier v = new VirtualSupplier( workingDays, suplyCode, name, id,  phone, OwnershipType);
-		configurevirtualSupplier.addnewVsupp(v);
+		Supplier v = new Supplier(suplyCode, name, id,  phone);
+		configurevirtualSupplier.addNewSupliyer(v);
 		configurevirtualSupplier.printResultofTheList();
-		//System.out.println(configurevirtualSupplier.toString());
+		//;
+
 	}
 
 	@Test(enabled = false)
 	public void addNewVsupp1() throws Exception 
 	{ 
 		char[] days = {'a','b','c'};
-		VirtualSupplier a = new VirtualSupplier( days, 123, "name1", "abcd",  "aaa", 1111);
-		VirtualSupplier b = new VirtualSupplier( days, 456, "name2", "efgh",  "bbb", 2222);
-		VirtualSupplier c = new VirtualSupplier( days, 789, "name3", "ijkl",  "ccc", 3333);
-		VirtualSupplier d = new VirtualSupplier( days, 190, "name4", "mnop",  "ddd", 4444);
-		VirtualSupplier e = new VirtualSupplier( days, 222, "name5", "qrst",  "eee", 5555);
-		configurevirtualSupplier.addnewVsupp(a);
-		configurevirtualSupplier.addnewVsupp(b);
-		configurevirtualSupplier.addnewVsupp(c);
-		configurevirtualSupplier.addnewVsupp(d);
-		configurevirtualSupplier.addnewVsupp(e);
+		Supplier a = new Supplier( 123, "name1", "abcd",  "aaa");
+		Supplier b = new Supplier( 456, "name2", "efgh",  "bbb");
+		Supplier c = new Supplier( 789, "name3", "ijkl",  "ccc");
+		Supplier d = new Supplier( 190, "name4", "mnop",  "ddd");
+		Supplier e = new Supplier( 222, "name5", "qrst",  "eee");
+		configurevirtualSupplier.addNewSupliyer(a);
+		configurevirtualSupplier.addNewSupliyer(b);
+		configurevirtualSupplier.addNewSupliyer(c);
+		configurevirtualSupplier.addNewSupliyer(d);
+		configurevirtualSupplier.addNewSupliyer(e);
 		configurevirtualSupplier.printResultofTheList();
-		//System.out.println(configurevirtualSupplier.toString());
 	}
 	
-//	@AfterMethod(alwaysRun = true)
-//	protected void printTestCompleted(){
-//		System.out.println("after");
-//
-//	}
+	
+	
+	@Test(enabled = true)
+	public void addNewVsupp2() throws Exception 
+	{ 
+		Supplier a = new Supplier();
+		configurevirtualSupplier.addNewSupliyer(a.scanSupplier());
+		configurevirtualSupplier.printResultofTheList();
+	}
+	
+	@AfterClass(alwaysRun = true)
+	protected void printTestCompleted(){
+		//VSuppOnTable.bain.runTables();
+
+	}
 
 }

@@ -6,7 +6,8 @@
       <class name="addNewEmployee.VirtualSupplierDaoImpla">
         <methods>
           <include name="printTestStarted"/>
-          <include name="addNewVsupp1" invocation-numbers="0"/>
+          <include name="printTestCompleted"/>
+          <include name="addNewVsupp2"/>
         </methods>
       </class> <!-- addNewEmployee.VirtualSupplierDaoImpla -->
     </classes>

@@ -7,9 +7,7 @@ import people.Supplier;
 public interface SuplierDao {
 	Supplier read(String id);
 	
-	void save(Supplier supplier);
-	
-	void ModifyWorkingDays(String id, char[] newWorkingDays) throws IOException ;
+	void addNewSupliyer(Supplier supplier);
 	
 	void ModifySuplyCode(String id , int newsuppliyerCode) throws IOException ;	
 	

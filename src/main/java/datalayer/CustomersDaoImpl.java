@@ -1,6 +1,7 @@
 package datalayer;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
@@ -65,8 +66,8 @@ public class CustomersDaoImpl implements CustomersDao {
 		
 	}
 
-	public void ModifyAge(String id, int Newage) throws IOException {
-		customers.get(findIndex(id)).setAge(Newage);
+	public void ModifyAge(String id, Date NeeBirthDay) throws IOException {
+		customers.get(findIndex(id)).setAge(NeeBirthDay);
 		
 	}
 
@@ -93,11 +94,67 @@ public class CustomersDaoImpl implements CustomersDao {
 	}
 
 
-
 	@Override
 	public String toString() {
-		return "CustomersDaoImpl [Customers=" + customers + "]";
-	}
+		int i=0;
+		return
+
+
+"|+    title"  + "   "+ 	customers.get(i).getTitle() + "     " + "|" + 
+
+"|+    name"  + "   "+ 	customers.get(i).getName() + "     " + "|" + 
+
+"|+    id"  + "   "+ 	customers.get(i).getId() + "     " + "|" + 
+
+"|+    MemberType"  + "   "+ 	customers.get(i).getMemberType() + "     " + "|" + 
+
+"|+    birthDay"  + "   "+ 	customers.get(i).getAge()+ "     " + "|" + 
+
+"|+    high"  + "   "+ 	customers.get(i).getHigh() + "     " + "|" + 
+
+
+"|+    gender"  + "   "+ 	customers.get(i).getGender() + "     " + "|" + 
+
+
+"|+    name" + 	"   "+customers.get(i).getName() + "               " +  "|" +
+
+
+"|+    phone" + 	"     "+customers.get(i).getPhone() + "     "+  "|" ;
+
+
+
+
+	} 
+
+	public void printResultofTheList() {
+    for (int i=0 ; i< customers.size() ; i++) {
+    	
+    	System.out.println(
+
+    			"|+    title"  + "   "+ 	customers.get(i).getTitle() + "     " + "|" + 
+
+    			"|+    name"  + "   "+ 	customers.get(i).getName() + "     " + "|" + 
+
+    			"|+    id"  + "   "+ 	customers.get(i).getId() + "     " + "|" + 
+
+    			"|+    MemberType"  + "   "+ 	customers.get(i).getMemberType() + "     " + "|" + 
+
+    			"|+    birthDay"  + "   "+ 	customers.get(i).getAge()+ "     " + "|" + 
+
+    			"|+    high"  + "   "+ 	customers.get(i).getHigh() + "     " + "|" + 
+
+
+    			"|+    gender"  + "   "+ 	customers.get(i).getGender() + "     " + "|" + 
+
+
+    			"|+    name" + 	"   "+customers.get(i).getName() + "               " +  "|" +
+
+
+    			"|+    phone" + 	"     "+customers.get(i).getPhone() + "     "+  "|") ;
+    }
+    	
+    }
+
 
 
 
