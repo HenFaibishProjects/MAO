@@ -81,7 +81,7 @@ public class SuplierDaoImpl implements SuplierDao {
 
 "|+    name" + 	"   "+suppliers.get(i).getName() + "               " +  "|" +
 
-"|+    Working days" + 	"     "+ suppliers.get(i).getStringWorkingDays() + "     "+  "|" +
+"|+    Working days" + 	"     "+ suppliers.get(i).getDaysOfTheWeek() + "     "+  "|" +
 
 "|+    phone" + 	"     "+suppliers.get(i).getPhone() + "     "+  "|" ;
 
@@ -100,7 +100,7 @@ public class SuplierDaoImpl implements SuplierDao {
 
     	"|+    name" + 	"   "+suppliers.get(i).getName() + "               " +  "|" +
 
-    	"|+    Working days" + 	"     "+ suppliers.get(i).getStringWorkingDays() + "     "+  "|" +
+    	"|+    Working days" + 	"     "+ suppliers.get(i).getDaysOfTheWeek() + "     "+  "|" +
 
     	"|+    phone" + 	"     "+suppliers.get(i).getPhone() + "     "+  "|" +
 

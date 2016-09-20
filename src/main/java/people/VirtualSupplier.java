@@ -1,5 +1,6 @@
 package people;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import people.InterFaces.CustomerAction;
@@ -22,8 +23,8 @@ public final class VirtualSupplier extends Supplier implements Person, CustomerA
 	
 
 			
-	public VirtualSupplier(int suplyCode, String name, String id, String phone, int OwnershipType) {
-		super(suplyCode, name, id, phone);
+	public VirtualSupplier(int suplyCode, String name, String id, String phone, ArrayList<DaysOfTheWeek> daysOfTheWeek , int OwnershipType) {
+		super(suplyCode, name, id, phone , daysOfTheWeek);
 		this.OwnershipType = OwnershipType;
  		VirtualSupliersCounter += 1;
 

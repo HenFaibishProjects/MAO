@@ -9,6 +9,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import people.DaysOfTheWeek;
 import people.Supplier;
 import people.VirtualSupplier;
 
@@ -67,11 +68,11 @@ public class VSuppOnTable {
 	    //Get all of the products
 	    public ObservableList<Supplier> getProduct(){
 	        ObservableList<Supplier> vp = FXCollections.observableArrayList();
-			vp.add(new Supplier( 123, "name1", "abcd",  "aaa"));
-			vp.add(new Supplier( 456, "name2", "efgh",  "bbb"));
-			vp.add(new Supplier( 789, "name3", "ijkl",  "ccc"));
-			vp.add(new Supplier( 190, "name4", "mnop",  "ddd"));
-			vp.add(new Supplier( 222, "name5", "qrst",  "eee"));
+			vp.add(new Supplier( 123, "name1", "abcd",  "aaa",DaysOfTheWeek.daysOfTheWeek));
+			vp.add(new Supplier( 456, "name2", "efgh",  "bbb", DaysOfTheWeek.daysOfTheWeek));
+			vp.add(new Supplier( 789, "name3", "ijkl",  "ccc", DaysOfTheWeek.daysOfTheWeek));
+			vp.add(new Supplier( 190, "name4", "mnop",  "ddd" , DaysOfTheWeek.daysOfTheWeek));
+			vp.add(new Supplier( 222, "name5", "qrst",  "eee" , DaysOfTheWeek.daysOfTheWeek));
 	        
 	        
 	        return vp;

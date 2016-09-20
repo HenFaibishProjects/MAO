@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.testng.annotations.DataProvider;
 
+import people.DaysOfTheWeek;
+
 
 
 public class DataProviderAddingPeople {
@@ -13,7 +15,14 @@ public class DataProviderAddingPeople {
 	@DataProvider(name = "AddVirtualSupplier")
 	public static Object[][] dataProviderAddVirtualSupplier() {
 		char[] days = {'a','b','c'};
-		return new Object[][] {
+		 ArrayList<DaysOfTheWeek> daysOfTheWeekforDP = new ArrayList<DaysOfTheWeek>();
+		 daysOfTheWeekforDP.set(0, DaysOfTheWeek.SUNDAY);
+		 daysOfTheWeekforDP.set(1, DaysOfTheWeek.MONDAY);
+		 daysOfTheWeekforDP.set(2, DaysOfTheWeek.TUESDAY);
+		 daysOfTheWeekforDP.set(3, DaysOfTheWeek.WEDNESDAY);
+		 daysOfTheWeekforDP.set(4, DaysOfTheWeek.FRIDAY);
+		 
+		 return new Object[][] {
 			
 			
 
@@ -26,7 +35,8 @@ public class DataProviderAddingPeople {
 				"OfficeDepo",
 				"0034556", 
 				"050-5235455",
-				343
+				343 ,
+				daysOfTheWeekforDP,
 			},
 			
 			{
@@ -35,7 +45,8 @@ public class DataProviderAddingPeople {
 				"HomeCenter",
 				"0034556", 
 				"077-1545455",
-				3323
+				3323,
+				daysOfTheWeekforDP,
 			},
 			
 			{
@@ -44,7 +55,8 @@ public class DataProviderAddingPeople {
 				"Binat",
 				"0034556", 
 				"051-5545455",
-				3423423
+				3423423,
+				daysOfTheWeekforDP,
 			},
 			
 			{
@@ -53,7 +65,8 @@ public class DataProviderAddingPeople {
 				"first",
 				"0034556", 
 				"050-5545455",
-				342343
+				342343,
+				daysOfTheWeekforDP,
 			},
 			
 			{
@@ -62,7 +75,8 @@ public class DataProviderAddingPeople {
 				"first",
 				"0034556", 
 				"054-5532455",
-				23423
+				23423,
+				daysOfTheWeekforDP,
 			},
 			
 			{
@@ -71,7 +85,8 @@ public class DataProviderAddingPeople {
 				"first",
 				"0034556", 
 				"054-5545455",
-				3
+				3,
+				daysOfTheWeekforDP,
 			},
 			
 			{
@@ -80,7 +95,8 @@ public class DataProviderAddingPeople {
 				"first",
 				"0034556", 
 				"054-5545455",
-				3
+				3,
+				daysOfTheWeekforDP,
 			},
 			
 			{
@@ -89,7 +105,8 @@ public class DataProviderAddingPeople {
 				"first",
 				"0034556", 
 				"054-5545455",
-				3
+				3,
+				daysOfTheWeekforDP,
 			},
 			
 			{
@@ -98,7 +115,8 @@ public class DataProviderAddingPeople {
 				"first",
 				"0034556", 
 				"054-5545455",
-				3
+				3,
+				daysOfTheWeekforDP,
 			},
 		};
 	} }

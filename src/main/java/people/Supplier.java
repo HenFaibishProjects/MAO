@@ -1,5 +1,6 @@
 package people;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import people.InterFaces.Person;
@@ -10,7 +11,7 @@ public class Supplier implements Person{
 	private String name;
 	private String id;
 	private String phone;
-	String StringWorkingDays;
+	private ArrayList<DaysOfTheWeek> daysOfTheWeek = new ArrayList<DaysOfTheWeek>();
 
 	
 
@@ -20,22 +21,23 @@ public class Supplier implements Person{
 		name = sc.next();
 		id = sc.next();
 		phone = sc.next();
-		Supplier supplierFromScan = new Supplier(suplyCode, name, id, phone);
-		//sc.close();
+		DaysOfTheWeek.setByScannerTheWorkingDaysOfTheWeek();
+		Supplier supplierFromScan = new Supplier(suplyCode, name, id, phone, daysOfTheWeek);
 		return supplierFromScan;
 		
 	}
-	
+
 	
 	public Supplier() {
 	
 	}
 	
-	public Supplier(int suplyCode, String name, String id, String phone) {
+	public Supplier(int suplyCode, String name, String id, String phone , ArrayList<DaysOfTheWeek> daysOfTheWeek) {
 		this.suplyCode = suplyCode;
 		this.name = name;
 		this.id = id;
 		this.phone = phone;
+		this.daysOfTheWeek = daysOfTheWeek;
 	}
 
 	public int getSuplyCode() {
@@ -73,12 +75,15 @@ public class Supplier implements Person{
 		this.suplyCode = suplyCode;
 	}
 
-	public String getStringWorkingDays() {
-		return StringWorkingDays;
+
+
+	public ArrayList<DaysOfTheWeek> getDaysOfTheWeek() {
+		return daysOfTheWeek;
 	}
 
-	public void setStringWorkingDays(String stringWorkingDays) {
-		StringWorkingDays = stringWorkingDays;
+
+	public void setDaysOfTheWeek(ArrayList<DaysOfTheWeek> daysOfTheWeek) {
+		this.daysOfTheWeek = daysOfTheWeek;
 	}
 
 }

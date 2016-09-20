@@ -104,7 +104,7 @@ public class VirtualSupplierDaoImpl implements VirtualSupplierDao{
 
 "|+    name" + 	"   "+vsuppliers.get(i).getName() + "               " +  "|" +
 
-"|+    Working days" + 	"     "+ vsuppliers.get(i).getStringWorkingDays() + "     "+  "|" +
+"|+    Working days" + 	"     "+ vsuppliers.get(i).getDaysOfTheWeek() + "     "+  "|" +
 
 "|+    phone" + 	"     "+vsuppliers.get(i).getPhone() + "     "+  "|" +
 
@@ -123,7 +123,7 @@ public class VirtualSupplierDaoImpl implements VirtualSupplierDao{
 
     	"|+    name" + 	"   "+vsuppliers.get(i).getName() + "               " +  "|" +
 
-    	"|+    Working days" + 	"     "+ vsuppliers.get(i).getStringWorkingDays() + "     "+  "|" +
+    	"|+    Working days" + 	"     "+ vsuppliers.get(i).getDaysOfTheWeek() + "     "+  "|" +
 
     	"|+    phone" + 	"     "+vsuppliers.get(i).getPhone() + "     "+  "|" +
 
