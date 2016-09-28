@@ -1,13 +1,17 @@
 package datalayer;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
+import com.mysql.cj.api.jdbc.Statement;
+
 import people.Supplier;
 
-public class SuplierDaoImpl implements SuplierDao {
+public class SuplierDaoImpl extends FirstExample implements SuplierDao {
 	
 	private List<Supplier> suppliers = new ArrayList<Supplier>();
 
@@ -19,8 +23,43 @@ public class SuplierDaoImpl implements SuplierDao {
 		}).findAny().get();
 	}
 
+	
+	
+	public void seealla() throws ClassNotFoundException, SQLException {
+		getTheDataByIndex(1);
+		
+	}
+	
+	public void deleteSpecific() throws ClassNotFoundException, SQLException {
+		deleteByIndex(1);
+	}
+		
+		
+		public void add() throws ClassNotFoundException, SQLException {
+			
+			//setAddress("address1","address2","city",55244,"region","country");
+			setAddress("address1","address2","city",5555,"region","country");
+			//setDaysOfTheWeek(true,true,true,true,false,false,false);
+			//setCerrency(true,true,true,true);
+		
+		
+	}
+	
+	@SuppressWarnings("null")
 	public void addNewSupliyer(Supplier supplier) {
+		
 		suppliers.add(supplier);
+		
+		String sql;
+	      sql = "SELECT * FROM vsupplier";
+	      ResultSet rs = null;
+		try {
+			Statement stmt=null;
+			rs = stmt.executeQuery(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 	}
@@ -108,6 +147,16 @@ public class SuplierDaoImpl implements SuplierDao {
     }
     	
     }
+
+
+
+	@Override
+	public void addNewSupliyer() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 
 
 
