@@ -1,13 +1,17 @@
 package datalayer;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
+import com.mysql.cj.api.jdbc.Statement;
+
 import people.Supplier;
 
-public class SuplierDaoImpl implements SuplierDao {
+public class SuplierDaoImpl extends SuppliyerDBTranssactions implements SuplierDao {
 	
 	private List<Supplier> suppliers = new ArrayList<Supplier>();
 
@@ -19,8 +23,47 @@ public class SuplierDaoImpl implements SuplierDao {
 		}).findAny().get();
 	}
 
+	
+	
+	public void seealla() throws ClassNotFoundException, SQLException {
+		getTheDataByIndex(1);
+		
+	}
+	
+	public void deleteSpecific() throws ClassNotFoundException, SQLException {
+		deleteByIndex(1);
+	}
+		
+		
+		public void add(String address1 , String address2 , String city , int zipCode , String region , String country ,
+				        int sunday, int monday, int tuesday, int wednesday, int thursday, int friday, int saturday ,
+				        int USDollars, int NIS, int Euro, int AUDollars ,
+				        String date , String name, String supplierID , String phone, String website, String email, int taxscan , String notes   
+				        ) throws ClassNotFoundException, SQLException {
+			 
+			setAddress(address1,address2,city,zipCode,region,country);
+			setDaysOfTheWeek( sunday,  monday,  tuesday,  wednesday,  thursday,  friday,  saturday);
+			setCerrency( USDollars,  NIS,  Euro,  AUDollars);
+			setSuppliyer( date ,  name,  supplierID ,  phone,  website,  email,  taxscan ,  notes );
+		
+		
+	}
+	
+	@SuppressWarnings("null")
 	public void addNewSupliyer(Supplier supplier) {
+		
 		suppliers.add(supplier);
+		
+		String sql;
+	      sql = "SELECT * FROM vsupplier";
+	      ResultSet rs = null;
+		try {
+			Statement stmt=null;
+			rs = stmt.executeQuery(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 	}
@@ -108,6 +151,16 @@ public class SuplierDaoImpl implements SuplierDao {
     }
     	
     }
+
+
+
+	@Override
+	public void addNewSupliyer() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 
 
 

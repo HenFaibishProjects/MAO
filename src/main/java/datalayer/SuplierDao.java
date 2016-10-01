@@ -7,7 +7,7 @@ import people.Supplier;
 public interface SuplierDao {
 	Supplier read(String id);
 	
-	void addNewSupliyer(Supplier supplier);
+	void addNewSupliyer();
 	
 	void ModifySuplyCode(String id , int newsuppliyerCode) throws IOException ;	
 	
