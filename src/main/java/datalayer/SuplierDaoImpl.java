@@ -25,14 +25,19 @@ public class SuplierDaoImpl extends SuppliyerDBTranssactions implements SuplierD
 
 	
 	
-	public void seealla() throws ClassNotFoundException, SQLException {
-		getTheDataByIndex(1);
+	public void seealla(int i) throws ClassNotFoundException, SQLException {
+		getTheDataByIndex(i);
 		
 	}
 	
-	public void deleteSpecific() throws ClassNotFoundException, SQLException {
-		deleteByIndex(1);
+	public void deleteSpecific(int i) throws ClassNotFoundException, SQLException {
+		deleteByIndex(i);
 	}
+	
+	public void Modifyname(int i,String name) throws ClassNotFoundException, SQLException {
+	ModidyNameSuppliyer(i , name);
+}
+	
 		
 		
 		public void add(String address1 , String address2 , String city , int zipCode , String region , String country ,
