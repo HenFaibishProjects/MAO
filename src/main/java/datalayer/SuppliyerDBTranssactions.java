@@ -2,24 +2,20 @@ package datalayer;
 
 import java.sql.*;
 
-import org.hibernate.SQLQuery;
-
-import people.Address;
-
-public class FirstExample {
-	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-	static final String DB_URL = "jdbc:mysql://localhost/mao";
-	static final String USER = "henf";
-	static final String PASS = "itmaster"; 
-
+public class SuppliyerDBTranssactions extends DBAbstructInfo {
 
 	public static void deleteByIndex(int i) throws ClassNotFoundException, SQLException {
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
 		Statement stmt = conn.createStatement();
-		String sql= "DELETE FROM supplier where vsupplier.Index = "  + i ;
-		stmt.executeUpdate(sql);
-
+		String sqlAddress= "DELETE FROM supplier where defaultaddress.ID = "  + i ;
+		stmt.executeUpdate(sqlAddress);
+		String sqlCurrency= "DELETE FROM supplier where daysoftheweek.ID = "  + i ;
+		stmt.executeUpdate(sqlCurrency);
+		String sqlDaysOfWork= "DELETE FROM supplier where curency.ID = "  + i ;
+		stmt.executeUpdate(sqlDaysOfWork);
+		String sqlSuppliyer= "DELETE FROM supplier where supplier.ID = "  + i ;
+		stmt.executeUpdate(sqlSuppliyer);
 
 	}
 
@@ -43,7 +39,6 @@ public class FirstExample {
 
 		
 	public static void setAddress(String address1,String address2,String city,int zipCode,String region,String country) throws ClassNotFoundException, SQLException {
-	//public static void setAddress(String name) throws ClassNotFoundException, SQLException {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
 			Statement stmt = conn.createStatement();
@@ -62,22 +57,54 @@ public class FirstExample {
 			
 	}
 
-		public static void setDaysOfTheWeek(boolean sunday,boolean monday,boolean tuesday,boolean wednesday,boolean thursday,boolean friday,boolean saturday) throws ClassNotFoundException, SQLException {
+		public static void setDaysOfTheWeek(int sunday,int monday,int tuesday,int wednesday,int thursday,int friday,int saturday) throws ClassNotFoundException, SQLException {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
 			Statement stmt = conn.createStatement();
-			String sql=  "INSERT INTO daysoftheweek ( sunday, monday, tuesday, wednesday, thursday, friday, saturday) VALUES(" +sunday + monday + tuesday + wednesday + thursday + friday + saturday + ")";
-			stmt.executeUpdate(sql);
+			String sql=  "INSERT INTO daysoftheweek ( sunday, monday, tuesday, wednesday, thursday, friday, saturday) values (?,?,?,?,?,?,?)";
+			PreparedStatement insertQuery = conn.prepareStatement(sql);
+            insertQuery.setInt(1, sunday);
+            insertQuery.setInt(2, monday);
+            insertQuery.setInt(3, tuesday);
+            insertQuery.setInt(4, wednesday);
+            insertQuery.setInt(5, thursday);
+            insertQuery.setInt(6, friday);
+            insertQuery.setInt(7, saturday);
+            insertQuery.executeUpdate();
             
 			
 	}
 
-		public static void setCerrency(boolean USDollars,boolean NIS,boolean Euro,boolean AUDollars) throws ClassNotFoundException, SQLException {
+		public static void setCerrency(int USDollars,int NIS,int Euro,int AUDollars) throws ClassNotFoundException, SQLException {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
 			Statement stmt = conn.createStatement();
-			String sql=  "INSERT INTO daysoftheweek ( US-Dollars, NIS, Euro, AU-Dollars) VALUES(" +USDollars + NIS + Euro + AUDollars + ")";
-			stmt.executeUpdate(sql);
+			String sql=  "INSERT INTO curency (USDollars, NIS, Euro, AUDollars) values (?,?,?,?)";
+			PreparedStatement insertQuery = conn.prepareStatement(sql);
+            insertQuery.setInt(1, USDollars);
+            insertQuery.setInt(2, NIS);
+            insertQuery.setInt(3, Euro);
+            insertQuery.setInt(4, AUDollars);
+            insertQuery.executeUpdate();
+            
+			
+	}
+		
+		public static void setSuppliyer(String time ,String name,String supplierID,String phone,String website,String email, int taxscan , String notes) throws ClassNotFoundException, SQLException {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
+			Statement stmt = conn.createStatement();
+			String sql=  "INSERT INTO supplier (dateadded , name ,  supplierID , phone, website, email,  taxscan , notes) values (?,?,?,?,?,?,?,?)";
+			PreparedStatement insertQuery = conn.prepareStatement(sql);
+            insertQuery.setString(1, time);
+            insertQuery.setString(2, name);
+            insertQuery.setString(3, supplierID);
+            insertQuery.setString(4, phone);
+            insertQuery.setString(5, website);
+            insertQuery.setString(6, email);
+            insertQuery.setInt(7, taxscan);
+            insertQuery.setString(8, notes);
+            insertQuery.executeUpdate();
             
 			
 	}

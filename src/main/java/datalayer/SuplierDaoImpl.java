@@ -11,7 +11,7 @@ import com.mysql.cj.api.jdbc.Statement;
 
 import people.Supplier;
 
-public class SuplierDaoImpl extends FirstExample implements SuplierDao {
+public class SuplierDaoImpl extends SuppliyerDBTranssactions implements SuplierDao {
 	
 	private List<Supplier> suppliers = new ArrayList<Supplier>();
 
@@ -35,12 +35,16 @@ public class SuplierDaoImpl extends FirstExample implements SuplierDao {
 	}
 		
 		
-		public void add() throws ClassNotFoundException, SQLException {
-			
-			//setAddress("address1","address2","city",55244,"region","country");
-			setAddress("address1","address2","city",5555,"region","country");
-			//setDaysOfTheWeek(true,true,true,true,false,false,false);
-			//setCerrency(true,true,true,true);
+		public void add(String address1 , String address2 , String city , int zipCode , String region , String country ,
+				        int sunday, int monday, int tuesday, int wednesday, int thursday, int friday, int saturday ,
+				        int USDollars, int NIS, int Euro, int AUDollars ,
+				        String date , String name, String supplierID , String phone, String website, String email, int taxscan , String notes   
+				        ) throws ClassNotFoundException, SQLException {
+			 
+			setAddress(address1,address2,city,zipCode,region,country);
+			setDaysOfTheWeek( sunday,  monday,  tuesday,  wednesday,  thursday,  friday,  saturday);
+			setCerrency( USDollars,  NIS,  Euro,  AUDollars);
+			setSuppliyer( date ,  name,  supplierID ,  phone,  website,  email,  taxscan ,  notes );
 		
 		
 	}
