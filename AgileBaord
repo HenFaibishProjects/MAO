@@ -2,25 +2,18 @@ Things to do:
 
 Next Sprint:
 ------------
-add tables to DB :
-1.tax number (existing)
-2.days code
-3.number of changes data (static vars) including implement in the code
-4.add Virtual Suppliers to DAO (entering and change)
-
-
-
-
-
+Employee
 
 
 
 BackLog:
 ----------
+add Virtual Suppliers to DAO (entering and change)
 fix now();
 fix all row for customer/employee
 Manage Items with: Abstract class + inheritance to items according to BASHGAL (Enums and new data types) 
 Manage Items with:Method to manage items
+number of changes data (static vars) including implement in the code
 data layer to items
 add special methods to items
 add special methods to people
@@ -29,6 +22,14 @@ add special events
 add comments
 support for multiple schools
 support for permission instructors
+customers payments (how much , when , type, until)
+forms
+how customer arrived
+potential customers
+
+
+
+
 
 
 
