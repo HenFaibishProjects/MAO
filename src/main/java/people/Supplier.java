@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import people.InterFaces.Person;
-import people.InterFaces.WorkingDays;
 
-public class Supplier implements Person{
+public class Supplier {
 	protected int suplyCode;
 	protected String name;
 	protected String id;

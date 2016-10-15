@@ -65,7 +65,7 @@
 //	        window.show();
 //	    }
 //
-//	    //Get all of the products
+//	    Get all of the products
 //	    public ObservableList<Supplier> getProduct(){
 //	        ObservableList<Supplier> vp = FXCollections.observableArrayList();
 //			vp.add(new Supplier( 123, "name1", "abcd",  "aaa",DaysOfTheWeek.daysOfTheWeek));

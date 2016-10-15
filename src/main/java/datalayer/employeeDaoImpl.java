@@ -1,103 +1,113 @@
 package datalayer;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.function.Predicate;
 
 import people.employees;
 
 public class employeeDaoImpl implements employeeDao {
-	
-	private final List<employees> employeesl = new ArrayList<employees>();
 
-	public employees read(final String id) {
-		return employeesl.stream().filter(new Predicate<employees>() {
-			public boolean test(employees emp) {
-				return emp.getId().equals(id);
-			}
-		}).findAny().get();
+	public employees read(String id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	public void save(employees emp) {
-		employeesl.add(emp);
-		
+	public void deleteByid(int id) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
 		
 	}
 
-	
-	public  int  findIndex(String idforfunction) throws IOException{	
-	    int index=-1;
-
-          for (int i = 0; (i < employeesl.size()) && (index == -1); i++) {
-             if (employeesl.get(i).getId() == idforfunction) {
-             index = i;
-    }
-          }
-
-              if (index == -1) {
-              System.err.println("No Such ID"); 
-              throw new IOException("No Such ID");       
-              } 
-              else            
-	           return index;
-	
-}
-	
-
-	public void ModifyEmpCode(String id, int empCode) throws IOException {
-		employeesl.get(findIndex(id)).setEmpCode(empCode);
+	public void getTheDataByIndex(int i) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
 		
 	}
 
-
-	public void ModifyEmpName(String id, String newName) throws IOException {
-		employeesl.get(findIndex(id)).setName(newName);
+	public void add(String address1, String address2, String city, int zipCode, String region, String country,
+			String date, String name, long EmployeeID, String phone, String email, String notes)
+			throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
 		
 	}
 
-
-	public void ModifyEmpPhone(String id, String NewPhone) throws IOException {
-		employeesl.get(findIndex(id)).setPhone(NewPhone);
+	public void ModidyNameEmployee(int id, String name) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
 		
 	}
 
+	public void ModidyPhoneEmployee(int id, String phone) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void ModifyEndWorkingDateEmployee(int id, Date date) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void ModidyEmailEmployee(int id, String email) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void ModidyEmailEmployee(int id, int salaryRate) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void ModidyMAtypeEmployee(int id, int MAtype) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void ModidyDegreeEmployee(int id, int degree) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void ModidyDimplomaEmployee(int id, int dimploma) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void ModidyNotesEmployee(int id, String notes) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void ModidyAddressOneEmployee(int id, String addressOne) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void ModidyAddressTwoEmployee(int id, String addressTwo) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void ModidyZipCodeEmployee(int id, int zip) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void ModidyRegionEmployee(int id, String region) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void ModidyCityEmployee(int id, String city) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void ModidyConutryEmployee(int id, String country) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		
+	}
 	
-	@Override
-	public String toString() {
-		int i=0;
-		return
 
-
-"|+    empCode"  + "   "+ 	employeesl.get(i).getEmpCode() + "     " + "|" + 
-
-"|+    name"  + "   "+ 	employeesl.get(i).getName() + "     " + "|" + 
-
-"|+    id"  + "   "+ 	employeesl.get(i).getId() + "     " + "|" + 
-
-"|+    phone"  + "   "+ 	employeesl.get(i).getPhone()+ "     " + "|" ;
-
-
-
-
-
-
-	} 
-
-	public void printResultofTheList() {
-    for (int i=0 ; i< employeesl.size() ; i++) {
-    	
-    	System.out.println(
-
-    			"|+    empCode"  + "   "+ 	employeesl.get(i).getEmpCode() + "     " + "|" + 
-
-    			"|+    name"  + "   "+ 	employeesl.get(i).getName() + "     " + "|" + 
-
-    			"|+    id"  + "   "+ 	employeesl.get(i).getId() + "     " + "|" + 
-
-    			"|+    phone"  + "   "+ 	employeesl.get(i).getPhone()+ "     " + "|" );
-    }
-    	
-    }
 
 }
