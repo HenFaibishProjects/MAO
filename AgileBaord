@@ -2,7 +2,37 @@ Things to do:
 
 Next Sprint:
 ------------
-Employee
+customers
+
+add tables:
+------------
+
+
+
+Payment
+   PaymentId
+   memberid
+   Amount
+   DatePaid
+	
+Subscription
+   SubscriptionId
+   PaymentId
+   MemberId
+   trainigProgram 
+   StartDate
+   EndDate
+
+insurance
+  id
+  PaymentId
+  MemberId
+  StartDate
+  EndDate
+	         
+
+
+   String notes
 
 
 
@@ -10,7 +40,6 @@ BackLog:
 ----------
 add Virtual Suppliers to DAO (entering and change)
 fix now();
-fix all row for customer/employee
 Manage Items with: Abstract class + inheritance to items according to BASHGAL (Enums and new data types) 
 Manage Items with:Method to manage items
 number of changes data (static vars) including implement in the code
