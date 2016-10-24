@@ -2,38 +2,22 @@ Things to do:
 
 Next Sprint:
 ------------
-customers
 
-add tables:
-------------
-
-
-
-Payment
-   PaymentId
-   memberid
-   Amount
-   DatePaid
-	
-Subscription
-   SubscriptionId
-   PaymentId
-   MemberId
-   trainigProgram 
-   StartDate
-   EndDate
-
-insurance
-  id
-  PaymentId
-  MemberId
-  StartDate
-  EndDate
-	         
-
-
-   String notes
-
+Add the class for each of those tables to be able to edit/delete/modify (mark by the user type permissions:  MaoSystemManager/SchoolManager )
+age,
+arrivefrom,
+curency,
+diploma,
+durationmembership,
+durationpaycheck,
+insurance,
+level,
+matype,
+payment,
+salaryrate,
+subscription,
+textsystem,
+trainigprogram
 
 
 BackLog:

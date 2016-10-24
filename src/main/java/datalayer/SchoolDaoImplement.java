@@ -1,7 +1,11 @@
 package datalayer;
 
 import java.io.File;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import WorkoutStileplace.MATypes;
 
@@ -16,45 +20,101 @@ public class SchoolDaoImplement  extends DBAbstructInfo implements SchoolDao{
 	}
 
 	@Override
-	public void deleteByid(int id) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		
+	public void deleteByid(int schooID) throws ClassNotFoundException, SQLException {
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
+		Statement stmt = conn.createStatement();
+		String addIndexQuerty = "UPDATE school  SET active = 0 where schooID = " + schooID;
+		stmt.executeUpdate(addIndexQuerty);
+
 	}
 
-	@Override
-	public void ModidyManagerNameSchool(int id, String managerName) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 	@Override
-	public void ModidyNumberOfChaptersSchool(int id, int numberOfChapters) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		
+	public void ModidyManagerNameSchool(int schooID, String managerName) throws ClassNotFoundException, SQLException {
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
+		String sql=  "UPDATE school SET managerName= ? where customerID = ? ";
+		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		insertQuery.setString(1, managerName);
+		insertQuery.setInt(2, schooID);
+		insertQuery.executeUpdate();
+
 	}
+		
+	
 
 	@Override
-	public void ModidyEmailSchool(int id, String email) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		
+	public void ModidyNumberOfChaptersSchool(int schooID, int numberOfChapters) throws ClassNotFoundException, SQLException {
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
+		String sql=  "UPDATE school SET numberOfChapters= ? where customerID = ? ";
+		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		insertQuery.setInt(1, numberOfChapters);
+		insertQuery.setInt(2, schooID);
+		insertQuery.executeUpdate();
+
 	}
+		
+	
 
 	@Override
-	public void ModidyWebsiteSchool(int id, String wbesite) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		
+	public void ModidyEmailSchool(int schooID, String email) throws ClassNotFoundException, SQLException {
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
+		String sql=  "UPDATE school SET email= ? where customerID = ? ";
+		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		insertQuery.setString(1, email);
+		insertQuery.setInt(2, schooID);
+		insertQuery.executeUpdate();
+
 	}
+		
+	
 
 	@Override
-	public void ModidyMATypesSchool(int id, MATypes mainMAtype) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		
+	public void ModidyWebsiteSchool(int schooID, String wbesite) throws ClassNotFoundException, SQLException {
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
+		String sql=  "UPDATE school SET wbesite= ? where customerID = ? ";
+		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		insertQuery.setString(1, wbesite);
+		insertQuery.setInt(2, schooID);
+		insertQuery.executeUpdate();
+
 	}
+		
+	
 
 	@Override
-	public void ModidyLogoSchool(int id, File logo) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		
+	public void ModidyMATypesSchool(int schooID, MATypes mainMAtype) throws ClassNotFoundException, SQLException {
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
+		String sql=  "UPDATE school SET mainMAtype= ? where customerID = ? ";
+		String ma = mainMAtype.name();
+		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		insertQuery.setString(1, ma);
+		insertQuery.setInt(2, schooID);
+		insertQuery.executeUpdate();
+
 	}
+		
+	
+
+	@Override
+	public void ModidyLogoSchool(int schooID, File logo) throws ClassNotFoundException, SQLException {
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
+		String sql=  "UPDATE school SET name= ? where customerID = ? ";
+		String file = logo.toString();
+		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		insertQuery.setString(1, file);
+		insertQuery.setInt(2, schooID);
+		insertQuery.executeUpdate();
+
+	}
+		
+	
 
 }
