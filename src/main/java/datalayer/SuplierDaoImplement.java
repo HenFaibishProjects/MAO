@@ -2,7 +2,7 @@ package datalayer;
 
 import java.sql.*;
 
-public class SuplierDaoImplement extends DBAbstructInfo implements SuplierDao {
+public class SuplierDaoImplement extends PersonAddressDaoImplement implements SuplierDao {
 	
 	
 	static int timesSuppliierDetailsHasChanged = 0;
@@ -10,11 +10,11 @@ public class SuplierDaoImplement extends DBAbstructInfo implements SuplierDao {
 	static int timesSuppliierCurencyHasChanged = 0;
 	static int timesSuppliierWorkingDaysHasChanged = 0;
 
-	
+	@Override
 	public void add(String address1 , String address2 , String city , int zipCode , String region , String country ,
 	        int sunday, int monday, int tuesday, int wednesday, int thursday, int friday, int saturday ,
 	        int USDollars, int NIS, int Euro, int AUDollars ,
-	        String date , String name, long supplierID , String phone, String website, String email, int taxscan , String notes   
+	        String date , String name, float supplierID , String phone, String website, String email, int taxscan , String notes   
 	        ) throws ClassNotFoundException, SQLException {
  
 setAddress(supplierID,address1,address2,city,zipCode,region,country);
@@ -25,21 +25,14 @@ setSuppliyer( date ,  name,  supplierID ,  phone,  website,  email,  taxscan ,1 
 
 }
 	
-
+	@Override
 	public void deleteByid(int supplierID) throws ClassNotFoundException, SQLException {
-		
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		Statement stmt = conn.createStatement();
-		String addIndexQuerty = "UPDATE supplier  SET active=0 where supplierID = " + supplierID;
-		stmt.executeUpdate(addIndexQuerty);
+		PreparedStatement insertQuery =   executeTheQuerty ("UPDATE supplier  SET active=0 where supplierID = " + supplierID);
+		insertQuery.executeUpdate();
 	}
 
-	public void setDaysOfTheWeek(long supplierID,int sunday,int monday,int tuesday,int wednesday,int thursday,int friday,int saturday) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "INSERT INTO daysoftheweek ( supplierID,sunday, monday, tuesday, wednesday, thursday, friday, saturday) values (?,?,?,?,?,?,?,?)";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+	public void setDaysOfTheWeek(float supplierID,int sunday,int monday,int tuesday,int wednesday,int thursday,int friday,int saturday) throws ClassNotFoundException, SQLException {
+		PreparedStatement insertQuery =   executeTheQuerty ("INSERT INTO daysoftheweek ( supplierID,sunday, monday, tuesday, wednesday, thursday, friday, saturday) values (?,?,?,?,?,?,?,?)");
 		insertQuery.setFloat(1, supplierID);
 		insertQuery.setInt(2, sunday);
 		insertQuery.setInt(3, monday);
@@ -53,11 +46,8 @@ setSuppliyer( date ,  name,  supplierID ,  phone,  website,  email,  taxscan ,1 
 
 	}
 
-	public void setCerrency(long supplierID,int USDollars,int NIS,int Euro,int AUDollars) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "INSERT INTO curency (supplierID , USDollars, NIS, Euro, AUDollars) values (?,?,?,?,?)";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+	public void setCerrency(float supplierID,int USDollars,int NIS,int Euro,int AUDollars) throws ClassNotFoundException, SQLException {
+		PreparedStatement insertQuery =   executeTheQuerty ("INSERT INTO curency (supplierID , USDollars, NIS, Euro, AUDollars) values (?,?,?,?,?)");
 		insertQuery.setFloat(1, supplierID);
 		insertQuery.setInt(2, USDollars);
 		insertQuery.setInt(3, NIS);
@@ -68,11 +58,8 @@ setSuppliyer( date ,  name,  supplierID ,  phone,  website,  email,  taxscan ,1 
 
 	}
 
-	public void setSuppliyer(String time ,String name,long supplierID,String phone,String website,String email, int taxscan ,int active, String notes,int schoolID) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "INSERT INTO supplier (dateadded , name ,  supplierID , phone, website, email,  taxscan ,active, notes,schoolID) values (?,?,?,?,?,?,?,?,?,?)";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+	public void setSuppliyer(String time ,String name,float supplierID,String phone,String website,String email, int taxscan ,int active, String notes,int schoolID) throws ClassNotFoundException, SQLException {
+		PreparedStatement insertQuery =   executeTheQuerty ("INSERT INTO supplier (dateadded , name ,  supplierID , phone, website, email,  taxscan ,active, notes,schoolID) values (?,?,?,?,?,?,?,?,?,?)");
 		insertQuery.setString(1, time);
 		insertQuery.setString(2, name);
 		insertQuery.setFloat(3, supplierID);
@@ -88,185 +75,143 @@ setSuppliyer( date ,  name,  supplierID ,  phone,  website,  email,  taxscan ,1 
 
 	}
 	
+	@Override
 	public  void ModidyNameSuppliyer(int supplierID ,String name) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE supplier SET name= ? where supplierID = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty (("UPDATE supplier SET name= ? where supplierID = ? "));	
 		insertQuery.setString(1, name);
 		insertQuery.setInt(2, supplierID);
 		insertQuery.executeUpdate();
 
 	}
 
+	@Override
 	public  void ModidyPhoneSuppliyer(int supplierID ,String phone) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE supplier SET phone= ? where supplierID = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty ("UPDATE supplier SET phone= ? where supplierID = ? ");
 		insertQuery.setString(1, phone);
 		insertQuery.setInt(2, supplierID);
 		insertQuery.executeUpdate();
 
 	}
 
+	@Override
 	public  void ModidyWebsiteSuppliyer(int supplierID ,String website) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE supplier SET website= ? where id = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty ("UPDATE supplier SET website= ? where id = ? ");	
 		insertQuery.setString(1, website);
 		insertQuery.setInt(2, supplierID);
 		insertQuery.executeUpdate();
 
 	}
 	
+	@Override
 	public  void ModidyEmailSuppliyer(int supplierID ,String email) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE supplier SET email= ? where id = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty ("UPDATE supplier SET email= ? where id = ? ");
 		insertQuery.setString(1, email);
 		insertQuery.setInt(2, supplierID);
 		insertQuery.executeUpdate();
 
 	}
 	
+	@Override
 	public  void ModidyTaxScanSuppliyer(int supplierID ,int tax) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE supplier SET tax= ? where id = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty ("UPDATE supplier SET tax= ? where id = ? ");
 		insertQuery.setInt(1, tax);
 		insertQuery.setInt(2, supplierID);
 		insertQuery.executeUpdate();
 
 	}
 	
+	@Override
 	public  void ModidyNotesSuppliyer(int supplierID ,String notes) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE supplier SET notes = ? where id = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty ("UPDATE supplier SET notes = ? where id = ? ");
 		insertQuery.setString(1, notes);
 		insertQuery.setInt(2, supplierID);
 		insertQuery.executeUpdate();
 
 	}
 	
+	@Override
 	public  void ModidySundaySuppliyer(int supplierID ,int sunday) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE daysoftheweek SET sunday= ? where supplierID = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty ("UPDATE daysoftheweek SET sunday= ? where supplierID = ? ");
 		insertQuery.setInt(1, sunday);
 		insertQuery.setInt(2, supplierID);
 		insertQuery.executeUpdate();
 
 	}
+	@Override
 	public  void ModidyMondaySuppliyer(int supplierID ,int monday) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE daysoftheweek SET monday = ? where supplierID = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty ("UPDATE daysoftheweek SET monday = ? where supplierID = ? ");
 		insertQuery.setInt(1, monday);
 		insertQuery.setInt(2, supplierID);
 		insertQuery.executeUpdate();
 
 	}
-	
+	@Override
 	public  void ModidyTuesdaySuppliyer(int supplierID ,int tuesday) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE daysoftheweek SET tuesday = ? where supplierID = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty ("UPDATE daysoftheweek SET tuesday = ? where supplierID = ? ");
 		insertQuery.setInt(1, tuesday);
 		insertQuery.setInt(2, supplierID);
 		insertQuery.executeUpdate();
 
 	}
-	
+	@Override
 	public  void ModidyWednesdaySuppliyer(int supplierID ,int wednesday) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE daysoftheweek SET wednesday= ? where supplierID = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty ("UPDATE daysoftheweek SET wednesday= ? where supplierID = ? ");
 		insertQuery.setInt(1, wednesday);
 		insertQuery.setInt(2, supplierID);
 		insertQuery.executeUpdate();
 
 	}
-	
+	@Override
 	public  void ModidyThursdaySuppliyer(int supplierID ,int thursday) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE daysoftheweek SET thursday= ? where supplierID = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty ("UPDATE daysoftheweek SET thursday= ? where supplierID = ? ");
 		insertQuery.setInt(1, thursday);
 		insertQuery.setInt(2, supplierID);
 		insertQuery.executeUpdate();
 
 	}
+	@Override
 	public  void ModidyFridaySuppliyer(int supplierID ,int firday) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE daysoftheweek SET firday= ? where supplierID = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty ("UPDATE daysoftheweek SET firday= ? where supplierID = ? ");
 		insertQuery.setInt(1, firday);
 		insertQuery.setInt(2, supplierID);
 		insertQuery.executeUpdate();
 
 	}
-	
+	@Override
 	public  void ModidySaturdaySuppliyer(int supplierID ,int saturday) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE daysoftheweek SET saturday= ? where supplierID = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty ("UPDATE daysoftheweek SET saturday= ? where supplierID = ? ");
 		insertQuery.setInt(1, saturday);
 		insertQuery.setInt(2, supplierID);
 		insertQuery.executeUpdate();
 
 	}
-	
+	@Override
 	public  void ModidyUSDollarSuppliyer(int supplierID ,int us) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE curency SET USDollars= ? where supplierID = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty ("UPDATE curency SET USDollars= ? where supplierID = ? ");
 		insertQuery.setInt(1, us);
 		insertQuery.setInt(2, supplierID);
 		insertQuery.executeUpdate();
 
 	}
-	
+	@Override
 	public  void ModidyNisSuppliyer(int supplierID ,int nis) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE curency SET nis= ? where supplierID = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty ("UPDATE curency SET nis= ? where supplierID = ? ");
 		insertQuery.setInt(1, nis);
 		insertQuery.setInt(2, supplierID);
 		insertQuery.executeUpdate();
 
 	}
-	
+	@Override
 	public  void ModidyEUROSuppliyer(int supplierID ,int euro) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE curency SET euro= ? where supplierID = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty ("UPDATE curency SET euro= ? where supplierID = ? ");
 		insertQuery.setInt(1, euro);
 		insertQuery.setInt(2, supplierID);
 		insertQuery.executeUpdate();
 
 	}
-	
+	@Override
 	public  void ModidyAUDollarSuppliyer(int supplierID ,int au) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE curency SET AUDollars= ? where supplierID = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty ("UPDATE curency SET AUDollars= ? where supplierID = ? ");
 		insertQuery.setInt(1, au);
 		insertQuery.setInt(2, supplierID);
 		insertQuery.executeUpdate();

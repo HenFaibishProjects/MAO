@@ -1,5 +1,6 @@
 import java.sql.SQLException;
 
+import datalayer.PersonAddressDaoImplement;
 import datalayer.SuplierDaoImplement;
 
 
@@ -8,6 +9,9 @@ public class Main {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		SuplierDaoImplement supplierDao = new SuplierDaoImplement();
+		
+		PersonAddressDaoImplement a = new PersonAddressDaoImplement();
+		a.setAddress(313123213, "addwwwwwwwwress1", "ad33ess2", "city", 423423, "region", "country");
 
 		//supplierDao.seealla(1);
 		//supplierDao.deleteByid(2);

@@ -9,7 +9,7 @@ public interface SuplierDao {
 	 void add(String address1 , String address2 , String city , int zipCode , String region , String country ,
 		        int sunday, int monday, int tuesday, int wednesday, int thursday, int friday, int saturday ,
 		        int USDollars, int NIS, int Euro, int AUDollars ,
-		        String date , String name, long supplierID , String phone, String website, String email, int taxscan , String notes   
+		        String date , String name, float supplierID , String phone, String website, String email, int taxscan , String notes   
 		        ) throws ClassNotFoundException, SQLException ;
 	 
 	 void deleteByid(int id) throws ClassNotFoundException, SQLException ;

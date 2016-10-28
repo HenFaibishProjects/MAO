@@ -6,37 +6,48 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Random;
 
 import WorkoutStileplace.MATypes;
 
-public class SchoolDaoImplement  extends DBAbstructInfo implements SchoolDao{
+public class SchoolDaoImplement  extends PersonAddressDaoImplement implements SchoolDao{
 
 	@Override
 	public void add(String address1, String address2, String city, int zipCode, String region, String country,
 			String name, String managerName, int numberOfChapters, String email, String wbesite, MATypes mainMAtype,
 			File logo) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
+  	
+		float personID = zipCode +RandID();
+		setAddress(personID, address1, address2, city, zipCode, region, country);
+		setSchool(personID, name,  managerName,  numberOfChapters,  email,  wbesite,  mainMAtype, logo);
 		
 	}
-
-	@Override
+   private void setSchool(float id ,String name, String managerName, int numberOfChapters, String email, String wbesite, MATypes mainMAtype,File logo) throws SQLException {
+	   
+        String mainMAtypeName = mainMAtype.toString();	
+        String fileName = logo.toString();
+		PreparedStatement insertQuery =   executeTheQuerty("INSERT INTO school ( id ,name,  managerName,  numberOfChapters,  email,  wbesite,  mainMAtype, logo) values (?,?,?,?,?,?,?,?)");
+		insertQuery.setFloat(1, id);
+		insertQuery.setString(2, name);
+		insertQuery.setString(3, managerName);
+		insertQuery.setInt(4, numberOfChapters);
+		insertQuery.setString(5, email);
+		insertQuery.setString(6, wbesite);
+		insertQuery.setString(7, mainMAtypeName);
+		insertQuery.setString(7, fileName);
+		insertQuery.executeUpdate();
+		
+	}
+@Override
 	public void deleteByid(int schooID) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		Statement stmt = conn.createStatement();
-		String addIndexQuerty = "UPDATE school  SET active = 0 where schooID = " + schooID;
-		stmt.executeUpdate(addIndexQuerty);
+		PreparedStatement insertQuery =   executeTheQuerty("UPDATE school  SET active = 0 where schooID = " + schooID);
+		insertQuery.executeUpdate();
 
 	}
 
-
-
-	@Override
-	public void ModidyManagerNameSchool(int schooID, String managerName) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE school SET managerName= ? where customerID = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+   @Override
+   public void ModidyManagerNameSchool(int schooID, String managerName) throws ClassNotFoundException, SQLException {
+		PreparedStatement insertQuery =   executeTheQuerty("UPDATE school SET managerName= ? where customerID = ? ");
 		insertQuery.setString(1, managerName);
 		insertQuery.setInt(2, schooID);
 		insertQuery.executeUpdate();
@@ -44,77 +55,69 @@ public class SchoolDaoImplement  extends DBAbstructInfo implements SchoolDao{
 	}
 		
 	
-
-	@Override
+   @Override
 	public void ModidyNumberOfChaptersSchool(int schooID, int numberOfChapters) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE school SET numberOfChapters= ? where customerID = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty("UPDATE school SET numberOfChapters= ? where customerID = ? ");
 		insertQuery.setInt(1, numberOfChapters);
 		insertQuery.setInt(2, schooID);
 		insertQuery.executeUpdate();
 
 	}
 		
-	
-
-	@Override
+   @Override
 	public void ModidyEmailSchool(int schooID, String email) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE school SET email= ? where customerID = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty("UPDATE school SET email= ? where customerID = ? ");
 		insertQuery.setString(1, email);
 		insertQuery.setInt(2, schooID);
 		insertQuery.executeUpdate();
 
 	}
 		
-	
-
-	@Override
+   @Override
 	public void ModidyWebsiteSchool(int schooID, String wbesite) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE school SET wbesite= ? where customerID = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty("UPDATE school SET wbesite= ? where customerID = ? ");
 		insertQuery.setString(1, wbesite);
 		insertQuery.setInt(2, schooID);
 		insertQuery.executeUpdate();
 
 	}
 		
-	
-
-	@Override
+   @Override
 	public void ModidyMATypesSchool(int schooID, MATypes mainMAtype) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE school SET mainMAtype= ? where customerID = ? ";
+		PreparedStatement insertQuery =   executeTheQuerty("UPDATE school SET mainMAtype= ? where customerID = ? ");
 		String ma = mainMAtype.name();
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
 		insertQuery.setString(1, ma);
 		insertQuery.setInt(2, schooID);
 		insertQuery.executeUpdate();
 
 	}
 		
-	
-
-	@Override
+   @Override
 	public void ModidyLogoSchool(int schooID, File logo) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE school SET name= ? where customerID = ? ";
+		PreparedStatement insertQuery =   executeTheQuerty("UPDATE school SET name= ? where customerID = ? ");
 		String file = logo.toString();
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
 		insertQuery.setString(1, file);
 		insertQuery.setInt(2, schooID);
 		insertQuery.executeUpdate();
 
 	}
 		
-	
+   public float RandID(){
+		  float LOWER_RANGE = 1000000001; 
+		  float UPPER_RANGE = 1999999999; 
+		  int intRand1;
+		  int intRand2;
+		  int intRand3;
+		  int intRand4;
+		  Random random = new Random();
+		  intRand1 = random.nextInt();
+		  intRand2 = random.nextInt();
+		  intRand3 = random.nextInt();
+		  intRand4 = random.nextInt();
+		  int FainalRand = ((intRand1 + intRand2)/2)+intRand3-intRand4;
+		  float randomValue = LOWER_RANGE + (float)(random.nextDouble()*(UPPER_RANGE - LOWER_RANGE));
+		  float finalRandomValue = randomValue - FainalRand; 
+       return finalRandomValue;
 
+}
 }

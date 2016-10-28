@@ -37,4 +37,23 @@
    <url-pattern>/helloWorld</url-pattern>
 </servlet-mapping>
 
+
+   <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>servlet.Login</servlet-class>
+    </servlet>
+
+   <servlet>
+        <servlet-name>Welcome</servlet-name>
+        <servlet-class>servlet.Welcome</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Welcome</servlet-name>
+        <url-pattern>/Welcome</url-pattern>
+    </servlet-mapping>
+
 </web-app>

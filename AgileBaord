@@ -2,29 +2,14 @@ Things to do:
 
 Next Sprint:
 ------------
+Manage Items with: Abstract class + inheritance to items according to BASHGAL (Enums and new data types) 
 
-Add the class for each of those tables to be able to edit/delete/modify (mark by the user type permissions:  MaoSystemManager/SchoolManager )
-age,
-arrivefrom,
-curency,
-diploma,
-durationmembership,
-durationpaycheck,
-insurance,
-level,
-matype,
-payment,
-salaryrate,
-subscription,
-textsystem,
-trainigprogram
 
 
 BackLog:
 ----------
 add Virtual Suppliers to DAO (entering and change)
 fix now();
-Manage Items with: Abstract class + inheritance to items according to BASHGAL (Enums and new data types) 
 Manage Items with:Method to manage items
 number of changes data (static vars) including implement in the code
 data layer to items
@@ -39,7 +24,8 @@ customers payments (how much , when , type, until)
 forms
 how customer arrived
 potential customers
-
+Add the class for each of those tables to be able to edit/delete/modify (mark by the user type permissions:  MaoSystemManager/SchoolManager: 
+(age,arrivefrom,curency,diploma,durationmembership,durationpaycheck,insurance,level,matype,payment,salaryrate,subscription,textsystem,trainigprogram)
 
 
 

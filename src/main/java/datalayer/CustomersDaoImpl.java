@@ -1,17 +1,15 @@
 package datalayer;
 
-import java.sql.Connection;
 import java.sql.Date;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 
-public class CustomersDaoImpl extends DBAbstructInfo implements CustomersDao {
+public class CustomersDaoImpl extends PersonAddressDaoImplement implements CustomersDao {
 
+	@Override
 	public void add(String address1, String address2, String city, int zipCode, String region, String country,
-			Date Rdate, String name, Date birthday, long customerID, String phone, String email, int degree,
+			Date Rdate, String name, Date birthday, float customerID, String phone, String email, int degree,
 			int trainigProgram, int paymets, int arriveFrom, int insurance, String notes)
 			throws ClassNotFoundException, SQLException {
 
@@ -21,12 +19,9 @@ public class CustomersDaoImpl extends DBAbstructInfo implements CustomersDao {
 		
 	}
 
-	public void setCustomer (Date Rdate, String name, Date birthday, long customerID, String phone, String email, int degree,
+	public void setCustomer (Date Rdate, String name, Date birthday, float customerID, String phone, String email, int degree,
 	int trainigProgram, int paymets, int arriveFrom, int insurance, String notes, int schoolID)  throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "INSERT INTO customers ( Rdate, name, birthday, customerID,  phone,  email,  degree,trainigProgram,  paymets,  arriveFrom,  insurance,  notes,  schoolID) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty("INSERT INTO customers ( Rdate, name, birthday, customerID,  phone,  email,  degree,trainigProgram,  paymets,  arriveFrom,  insurance,  notes,  schoolID) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
 		insertQuery.setDate(1, Rdate);
 		insertQuery.setString(2, name);
 		insertQuery.setDate(3, birthday);
@@ -43,20 +38,15 @@ public class CustomersDaoImpl extends DBAbstructInfo implements CustomersDao {
 	}
 
 	
-	
+	@Override
 	public void deleteByid(int customerID) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		Statement stmt = conn.createStatement();
-		String addIndexQuerty = "UPDATE customers  SET active=0 where customerID = " + customerID;
-		stmt.executeUpdate(addIndexQuerty);
+		PreparedStatement insertQuery =   executeTheQuerty("UPDATE customers  SET active=0 where customerID = " + customerID);
+		insertQuery.executeUpdate();
 	}
 
-	public void ModidyNameCustomer(int customerID, String name) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE customers SET name= ? where customerID = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+	@Override
+	public void ModidyNameCustomer(int customerID, String name) throws ClassNotFoundException, SQLException {	
+		PreparedStatement insertQuery =   executeTheQuerty("UPDATE customers SET name= ? where customerID = ? ");
 		insertQuery.setString(1, name);
 		insertQuery.setInt(2, customerID);
 		insertQuery.executeUpdate();
@@ -64,11 +54,9 @@ public class CustomersDaoImpl extends DBAbstructInfo implements CustomersDao {
 	}
 
 
+	@Override
 	public void ModidyPhoneCustomer(int customerID, String phone) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE customers SET phone= ? where customerID = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty("UPDATE customers SET phone= ? where customerID = ? ");
 		insertQuery.setString(1, phone);
 		insertQuery.setInt(2, customerID);
 		insertQuery.executeUpdate();
@@ -76,10 +64,7 @@ public class CustomersDaoImpl extends DBAbstructInfo implements CustomersDao {
 	}
 
 	public void ModidyDatebirthdayCustomer(int customerID, Date birthday) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE customers SET birthday = ? where customerID = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty("UPDATE customers SET birthday = ? where customerID = ? ");
 		insertQuery.setDate(1, birthday);
 		insertQuery.setInt(2, customerID);
 		insertQuery.executeUpdate();
@@ -87,10 +72,7 @@ public class CustomersDaoImpl extends DBAbstructInfo implements CustomersDao {
 	}
 
 	public void ModidyEmailCustomer(int customerID, String email) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE customers SET email = ? where customerID = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty("UPDATE customers SET email = ? where customerID = ? ");
 		insertQuery.setString(1, email);
 		insertQuery.setInt(2, customerID);
 		insertQuery.executeUpdate();
@@ -98,10 +80,7 @@ public class CustomersDaoImpl extends DBAbstructInfo implements CustomersDao {
 	}
 
 	public void ModidyPhoneCustomer(int customerID, int degree) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE customers SET degree = ? where customerID = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty("UPDATE customers SET degree = ? where customerID = ? ");
 		insertQuery.setInt(1, degree);
 		insertQuery.setInt(2, customerID);
 		insertQuery.executeUpdate();
@@ -109,10 +88,7 @@ public class CustomersDaoImpl extends DBAbstructInfo implements CustomersDao {
 	}
 
 	public void ModidyTrainigProgramCustomer(int customerID, int trainigProgram) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE customers SET trainigProgram = ? where customerID = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty("UPDATE customers SET trainigProgram = ? where customerID = ? ");
 		insertQuery.setInt(1, trainigProgram);
 		insertQuery.setInt(2, customerID);
 		insertQuery.executeUpdate();
@@ -120,10 +96,7 @@ public class CustomersDaoImpl extends DBAbstructInfo implements CustomersDao {
 	}
 
 	public void ModidyPaymetsCustomer(int customerID, int paymets) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE customers SET paymets = ? where customerID = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty("UPDATE customers SET paymets = ? where customerID = ? ");
 		insertQuery.setInt(1, paymets);
 		insertQuery.setInt(2, customerID);
 		insertQuery.executeUpdate();
@@ -131,10 +104,7 @@ public class CustomersDaoImpl extends DBAbstructInfo implements CustomersDao {
 	}
 
 	public void ModidyArriveFromCustomer(int customerID, int arriveFrom) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE customers SET arriveFrom = ? where customerID = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty("UPDATE customers SET arriveFrom = ? where customerID = ? ");
 		insertQuery.setInt(1, arriveFrom);
 		insertQuery.setInt(2, customerID);
 		insertQuery.executeUpdate();
@@ -142,10 +112,7 @@ public class CustomersDaoImpl extends DBAbstructInfo implements CustomersDao {
 	}
 
 	public void ModidyInsuranceCustomer(int customerID, int insurance) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE customers SET insurance = ? where customerID = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty("UPDATE customers SET insurance = ? where customerID = ? ");
 		insertQuery.setInt(1, insurance);
 		insertQuery.setInt(2, customerID);
 		insertQuery.executeUpdate();
@@ -153,10 +120,7 @@ public class CustomersDaoImpl extends DBAbstructInfo implements CustomersDao {
 	}
 
 	public void ModidyNotesCustomer(int customerID, String notes) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		String sql=  "UPDATE customers SET notes = ? where customerID = ? ";
-		PreparedStatement insertQuery = conn.prepareStatement(sql);
+		PreparedStatement insertQuery =   executeTheQuerty("UPDATE customers SET notes = ? where customerID = ? ");
 		insertQuery.setString(1, notes);
 		insertQuery.setInt(2, customerID);
 		insertQuery.executeUpdate();

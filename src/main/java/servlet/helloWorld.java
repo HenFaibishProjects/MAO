@@ -1,3 +1,5 @@
+package servlet;
+
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -5,7 +7,7 @@ import javax.servlet.http.*;
 public class helloWorld extends HttpServlet {
 
 
-	private static final long serialVersionUID = 8104111854588004799L;
+	private static final float serialVersionUID = 8104111854588004799L;
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException

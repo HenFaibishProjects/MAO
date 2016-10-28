@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public interface CustomersDao  {
 
 	 void add(String address1, String address2, String city, int zipCode, String region, String country,
-				Date Rdate  , String name,Date birthday, long employeeID, String phone, String email, int  degree, int trainigProgram  , int paymets,int arriveFrom,int insurance , String notes) 
+				Date Rdate  , String name,Date birthday, float employeeID, String phone, String email, int  degree, int trainigProgram  , int paymets,int arriveFrom,int insurance , String notes) 
 	            throws ClassNotFoundException, SQLException;
 	 
      void deleteByid(int id) throws ClassNotFoundException, SQLException ;

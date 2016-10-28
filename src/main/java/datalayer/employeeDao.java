@@ -9,7 +9,7 @@ public interface employeeDao {
 
 
 	 void add(String address1, String address2, String city, int zipCode, String region, String country,
-				Date Sdate , Date Edate , String name, long employeeID, String phone, String email,int salaryrate,int  degree, int Dimploma , String notes)
+				Date Sdate , Date Edate , String name, float employeeID, String phone, String email,int salaryrate,int  degree, int Dimploma , String notes)
 				throws ClassNotFoundException, SQLException;		
 				
 	 void deleteByid(int id) throws ClassNotFoundException, SQLException ;
