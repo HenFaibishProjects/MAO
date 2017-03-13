@@ -2,23 +2,34 @@ package servlet;
 
 import java.sql.*;
 
-import datalayer.DBAbstructInfo;
 
-public class Validate extends DBAbstructInfo
+import datalayer.JDBCDBDATA;
+
+public class Validate extends JDBCDBDATA
 {
 
+	
+	     public static boolean checkUser(String name,String password) 
+	     {
+	      boolean st =false;
+	      try{
 
-	public static void checkUser(String name,String password) throws SQLException 
-	{
-        
-		
-		PreparedStatement ps = executeTheQuerty("select id from register where name=? and password=?");
-			ps.setString(1, name);
-			ps.setString(2, password);
-			ResultSet rs =ps.executeQuery();
-		
-			
-		
-              
-}   
-}
+	    	  PreparedStatement ps = prepareQuery("select id from register where name=? and password=?");
+	    	  
+	    	    ps.setString(1, name);
+				ps.setString(2, password);
+	            ResultSet rs =ps.executeQuery();
+	            st = rs.next();
+	        
+	      }catch(Exception e)
+	      {
+	          e.printStackTrace();
+	      }
+	         return st;                 
+	  }
+
+		private static PreparedStatement prepareQuery(String string) {
+			// TODO Auto-generated method stub
+			return null;
+		}   
+	}

@@ -5,12 +5,10 @@ import java.sql.SQLException;
 
 
 
-public interface employeeDao {
+public interface EmployeeDao {
 
 
-	 void add(String address1, String address2, String city, int zipCode, String region, String country,
-				Date Sdate , Date Edate , String name, float employeeID, String phone, String email,int salaryrate,int  degree, int Dimploma , String notes)
-				throws ClassNotFoundException, SQLException;		
+	 void addEmployeeWithHibernate(String name, Date startDate ,Date endDate,String officialID, String phone ,int salType,int MAType, int degree,int diploma ,String notes,String email ,String address1 , String address2 , String city , String country , String region , int zipCode);		
 				
 	 void deleteByid(int id) throws ClassNotFoundException, SQLException ;
 	 

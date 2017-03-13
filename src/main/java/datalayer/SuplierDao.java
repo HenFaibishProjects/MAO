@@ -6,11 +6,7 @@ import java.sql.SQLException;
 public interface SuplierDao {
   
 	 
-	 void add(String address1 , String address2 , String city , int zipCode , String region , String country ,
-		        int sunday, int monday, int tuesday, int wednesday, int thursday, int friday, int saturday ,
-		        int USDollars, int NIS, int Euro, int AUDollars ,
-		        String date , String name, float supplierID , String phone, String website, String email, int taxscan , String notes   
-		        ) throws ClassNotFoundException, SQLException ;
+	 void addSuppliyerWithHibernate(int suplyCode, String name, String id, String phone ,String website,String email ,String address1 , String address2 , String city , String country , String region , int zipCode);
 	 
 	 void deleteByid(int id) throws ClassNotFoundException, SQLException ;
 	 

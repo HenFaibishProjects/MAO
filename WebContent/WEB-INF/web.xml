@@ -32,6 +32,18 @@
    <servlet-class>helloWorld</servlet-class>
 </servlet>
 
+
+<servlet>
+   <servlet-name>singup</servlet-name>
+   <servlet-class>singup.html</servlet-class>
+ 
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>singup</servlet-name>
+    <url-pattern>/app/singup</url-pattern>
+</servlet-mapping>
+
 <servlet-mapping>
    <servlet-name>helloWorld</servlet-name>
    <url-pattern>/helloWorld</url-pattern>

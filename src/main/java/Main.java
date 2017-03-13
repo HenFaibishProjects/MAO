@@ -1,17 +1,59 @@
+import java.awt.List;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Random;
 
-import datalayer.PersonAddressDaoImplement;
+import datalayer.EmployeeDaoImpl;
+import datalayer.MaTypeImplement;
 import datalayer.SuplierDaoImplement;
+import people.Curency;
+import people.DaysOfTheWeek;
 
 
 
 public class Main {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		SuplierDaoImplement supplierDao = new SuplierDaoImplement();
+		addMAtype();
+		addSuppliyer();
+		addEmployee();
+
+	}
+
+
+
+	public static void addMAtype() {
+		MaTypeImplement maTypeImplement = new MaTypeImplement(); 
+		maTypeImplement.addMaTypenewWithHibernate(randNumber(),"faaassf",new Date(),"description");
+	}
+
+
+
+	public static void addSuppliyer() {
+		SuplierDaoImplement suplierDaoImplement = new SuplierDaoImplement();
+		suplierDaoImplement.addSuppliyerWithHibernate(0, "Hen",  "34534543", "054-2689621", "www.mmm.com" ,"Faibsih@gmail.com", "hmada", null, "Tel-Aviv", "Israel", null, randNumber());
+	}
+
+
+
+	public static void addEmployee() {
+		EmployeeDaoImpl employeeDaoImpl = new EmployeeDaoImpl();
+		employeeDaoImpl.addEmployeeWithHibernate("Hen", null, null, "45345345", "054-268339621", 1, 3, 1, 3, "just notes", "mail@mail.com", "GEgoz", null, "P-Hana", "israel", "hasharon", randNumber());
+	}
 		
-		PersonAddressDaoImplement a = new PersonAddressDaoImplement();
-		a.setAddress(313123213, "addwwwwwwwwress1", "ad33ess2", "city", 423423, "region", "country");
+	
+	
+public static int  randNumber() {
+	
+	Random ran = new Random();
+	int x = ran.nextInt(100) + 10;
+	return x;
+}
+		
+		
+		//suplierDaoImplement.addWithHibernate(1234, null, null, null, null, null, null, null, null);
+		
 
 		//supplierDao.seealla(1);
 		//supplierDao.deleteByid(2);
@@ -50,4 +92,4 @@ public class Main {
 		
 	}
 
-}
+

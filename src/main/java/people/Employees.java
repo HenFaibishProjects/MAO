@@ -1,11 +1,22 @@
 package people;
 
 import java.util.Date;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 
-public class employees  {
-
+@Entity
+@Table(name = "EmployeesNew")
+public class Employees  {
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int empID;
+	private String officialID;
 	private Date startDate;
 	private Date endDate;
 	private String name;
@@ -16,13 +27,18 @@ public class employees  {
 	private int degree;
 	private int dimploma;
 	private String notes;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "addressID")
+	protected Address employees_default_address;
 	
 	
 	
-	public employees(int empID, Date startDate, Date endDate, String name, String phone, String email, int salType,
+	public Employees(String address1,String address2,String city,int zipCode,String region,String country , Date startDate, Date endDate,String officialID, String name, String phone, String email, int salType,
 			int mAType, int degree, int dimploma, String notes) {
+		
 		super();
-		this.empID = empID;
+		this.employees_default_address = new Address(address1,address2,city,zipCode,region,country);
+		this.setOfficialID(officialID);
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.name = name;
@@ -165,6 +181,18 @@ public class employees  {
 
 	public void setNotes(String notes) {
 		this.notes = notes;
+	}
+
+
+
+	public String getOfficialID() {
+		return officialID;
+	}
+
+
+
+	public void setOfficialID(String officialID) {
+		this.officialID = officialID;
 	}
 	
 	

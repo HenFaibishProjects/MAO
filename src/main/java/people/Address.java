@@ -2,18 +2,40 @@ package people;
 
 import java.util.Scanner;
 
-public class Address {
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name = "defaultaddress")
+public class Address  {
 	
+	   @Column(name="addressID")
+	   @Id @GeneratedValue
+	   public int addressID;
+	   @Column(name="address1")
 	   public String address1;	
+	   @Column(name="address2")
 	   public String address2;
+	   @Column(name="city")
 	   public String city;
+	   @Column(name="zipCode")
 	   public int zipCode;
+	   @Column(name="region")
 	   public String region;
+	   @Column(name="country")
 	   public String country;
+
 
 	   
 	public Address(String address1, String address2, String city, int zipCode, String region, String country) {
 		super();
+		//this.addressID = addressID;
 		this.address1 = address1;
 		this.address2 = address2;
 		this.city = city;
@@ -73,6 +95,8 @@ public class Address {
 	public void setCountry(String country) {
 		this.country = country;
 	}
+	
+	
 	@Override
 	public String toString() {
 		return "Address [address1=" + address1 + ", address2=" + address2 + ", city=" + city + ", zipCode=" + zipCode

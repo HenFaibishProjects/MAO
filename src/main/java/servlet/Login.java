@@ -8,6 +8,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
+
+
 
 public class Login extends HttpServlet {
  
@@ -21,16 +24,21 @@ public class Login extends HttpServlet {
         String name = request.getParameter("name");
         String password = request.getParameter("password");
         
-//        if(Validate.checkUser(name, password))
-//        {
-//            RequestDispatcher rs = request.getRequestDispatcher("Welcome");
-//            rs.forward(request, response);
-//        }
-//        else
+        if(Validate.checkUser(name, password))
+        {
+
+             RequestDispatcher rs = request.getRequestDispatcher("starthere.html");
+             rs.include(request, response);
+        }
         
-           //out.println("Username or Password incorrect , try again");
-           RequestDispatcher rs = request.getRequestDispatcher("NewFile.html");
+       else
+       {
+           //out.println("Username or Password");
+    	   JOptionPane.showConfirmDialog(null, "Are you sure about your request?", "Request", 
+    			    JOptionPane.CLOSED_OPTION, JOptionPane.QUESTION_MESSAGE);
+           RequestDispatcher rs = request.getRequestDispatcher("index.html");
            rs.include(request, response);
         
     }  
+}
 }
