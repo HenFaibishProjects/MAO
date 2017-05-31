@@ -7,13 +7,10 @@ Next Sprint:
 
 BackLog:
 ----------
-add Virtual Suppliers to DAO (entering and change)
 fix now();
 Manage Items with:Method to manage items
 number of changes data (static vars) including implement in the code
 data layer to items
-add special methods to items
-add special methods to people
 add payments system
 add special events
 add comments
