@@ -2,6 +2,8 @@ Things to do:
 
 Next Sprint:
 ------------
+initialValues
+API
 
 
 
@@ -9,19 +11,18 @@ BackLog:
 ----------
 fix now();
 Manage Items with:Method to manage items
-number of changes data (static vars) including implement in the code
+
 data layer to items
-add payments system
+
 add special events
-add comments
+
 support for multiple schools
 support for permission instructors
-customers payments (how much , when , type, until)
+
 forms
-how customer arrived
+
 potential customers
-Add the class for each of those tables to be able to edit/delete/modify (mark by the user type permissions:  MaoSystemManager/SchoolManager: 
-(age,arrivefrom,curency,diploma,durationmembership,durationpaycheck,insurance,level,matype,payment,salaryrate,subscription,textsystem,trainigprogram)
+
 
 
 

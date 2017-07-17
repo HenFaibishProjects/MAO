@@ -29,12 +29,21 @@
    <property name="hbm2ddl.auto">update</property>
 
    <!-- Names the annotated entity class  -->
-   <mapping class = "businessObjects.hr.PeopleContent.Employee"/>
-   <mapping class = "businessObjects.additionalData.otherContents.MaTypenew"/>
-   <mapping class = "businessObjects.hr.PeopleContent.Supplier"/>
-   <mapping class = "businessObjects.hr.PeopleContent.Address"/>
-   <mapping class = "businessObjects.hr.PeopleContent.SalType"/>
-   <mapping class = "businessObjects.hr.PeopleContent.Salary"/>
+   <mapping class = "com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Employee"/>
+   <mapping class = "com.Mao.BackEndDev.businessObjects.additionalData.otherContents.MaTypenew"/>
+   <mapping class = "com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Supplier"/>
+   <mapping class = "com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Address"/>
+   <mapping class = "com.Mao.BackEndDev.businessObjects.hr.PeopleContent.SalType"/>
+   <mapping class = "com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Salary"/>
+   <mapping class = "com.Mao.BackEndDev.businessObjects.additionalData.otherContents.Currency"/>
+   <mapping class = "com.Mao.BackEndDev.businessObjects.additionalData.otherContents.DaysOfTheWeek"/>
+   <mapping class = "com.Mao.BackEndDev.businessObjects.additionalData.otherContents.Degree"/>
+   <mapping class = "com.Mao.BackEndDev.businessObjects.additionalData.otherContents.Diploma"/>
+   <mapping class = "com.Mao.BackEndDev.businessObjects.additionalData.otherContents.Arrivefrom"/>
+   <mapping class = "com.Mao.BackEndDev.businessObjects.hr.PeopleContent.SalType"/>
+   <mapping class = "com.Mao.BackEndDev.businessObjects.additionalData.otherContents.ClassLevel"/>
+   
+   
    
    
    
