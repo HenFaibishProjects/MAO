@@ -2,12 +2,18 @@ package com.Mao.BackEndDev.businessObjects.hr.PeopleContent;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.PaymentMembership;
+import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.PaymentSystem;
 
 @Entity
 @Table(name = "MemberType")
@@ -21,10 +27,9 @@ public class MemberType {
 	protected String notes;
 	
 	
-	public MemberType(int memberTypeID, Durationmembership durationmembership, Date startDate,
+	public MemberType(Durationmembership durationmembership, Date startDate,
 			ParticipateClasses participateClasses, String notes) {
 		super();
-		this.memberTypeID = memberTypeID;
 		this.durationmembership = durationmembership;
 		this.startDate = startDate;
 		this.participateClasses = participateClasses;
@@ -85,6 +90,8 @@ public class MemberType {
 	public void setNotes(String notes) {
 		this.notes = notes;
 	}
+
+
 	
 	
 	

@@ -2,24 +2,16 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="6824" started-at="2016-09-15T14:48:19Z" finished-at="2016-09-15T14:48:26Z">
+  <suite name="Default suite" duration-ms="3209" started-at="2017-08-15T08:10:31Z" finished-at="2017-08-15T08:10:34Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="6824" started-at="2016-09-15T14:48:19Z" finished-at="2016-09-15T14:48:26Z">
-      <class name="addNewEmployee.VirtualSupplierDaoImpla">
-        <test-method status="PASS" signature="printTestStarted()[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@6f7fd0e6]" name="printTestStarted" is-config="true" duration-ms="6" started-at="2016-09-15T16:48:19Z" finished-at="2016-09-15T16:48:19Z">
+    <test name="Default test" duration-ms="3209" started-at="2017-08-15T08:10:31Z" finished-at="2017-08-15T08:10:34Z">
+      <class name="StartNG">
+        <test-method status="PASS" signature="mainng()[pri:0, instance:StartNG@3e6fa38a]" name="mainng" duration-ms="3192" started-at="2017-08-15T11:10:31Z" finished-at="2017-08-15T11:10:34Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- printTestStarted -->
-        <test-method status="PASS" signature="addNewVsupp2()[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@6f7fd0e6]" name="addNewVsupp2" duration-ms="6806" started-at="2016-09-15T16:48:19Z" finished-at="2016-09-15T16:48:26Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addNewVsupp2 -->
-        <test-method status="PASS" signature="printTestCompleted()[pri:0, instance:addNewEmployee.VirtualSupplierDaoImpla@6f7fd0e6]" name="printTestCompleted" is-config="true" duration-ms="0" started-at="2016-09-15T16:48:26Z" finished-at="2016-09-15T16:48:26Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- printTestCompleted -->
-      </class> <!-- addNewEmployee.VirtualSupplierDaoImpla -->
+        </test-method> <!-- mainng -->
+      </class> <!-- StartNG -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -2,15 +2,23 @@ package com.Mao.BackEndDev.businessObjects.Materials.itemsEnums;
 
 public enum ItemList {
 	
-	
-    Pants("Clothes"),
+    Pants("Pants"),
+    Shirts("Shirts"),
     Shoes("Shoes"),
-	Protectors("Protectors"),
-	Hrebs("Hrebs"),
+	HeadProtectors("Head-Protectors"),
+	TeethProtectors("TeethProtectors"),
+	ChestProtectors("ChestProtectors"),
+	GroinProtectors("GroinProtectors"),
+	LegsProtectors("LegsProtectors"),
+	Vitamins("Vitamins"),
+	PainKillers("PainKillers"),
+	Suites("Suites"),
 	Belts("Belts"),
-	Gloves("Gloves");
-
-	
+    BoxingGloves("BoxingGloves"),
+    BagsGloves("BagsGloves"),
+    warpsGloves("warpsGloves"),
+    MMAGloves("MMAGloves"),
+	MMaTrainingGloves("MMaTrainingGloves");
 	
  
 

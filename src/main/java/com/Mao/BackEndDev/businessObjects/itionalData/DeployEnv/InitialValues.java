@@ -1,23 +1,36 @@
-package com.Mao.BackEndDev.businessObjects.additionalData.otherContents;
+package com.Mao.BackEndDev.businessObjects.itionalData.DeployEnv;
 
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import org.hibernate.HibernateException;
-import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.SalType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.Mao.BackEndDev.API.publicAPI.rest.AbstractController;
+import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.Arrivefrom;
+import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.ClassLevel;
+import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.Degree;
+import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.DegreeName;
+import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.MaTypenew;
+import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.Stripes;
+import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Durationmembership;
+import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.ParticipateClasses;
 import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.SalTypeEnum;
+import com.Mao.BackEndDev.datalayer.DaoImplements.CustomersDaoImplement;
 import com.Mao.BackEndDev.datalayer.DaoImplements.EmployeeDaoImpl;
 import com.Mao.BackEndDev.datalayer.DaoImplements.SuplierDaoImplement;
 import com.Mao.BackEndDev.datalayer.DbConnections.HibernateStructInfo;
 
 public class InitialValues extends HibernateStructInfo{
 
-
-	public InitialValues() {
-		//log
-		initialValuesIntoDB();
-	}
+	static final Logger LOG = LoggerFactory.getLogger(InitialValues.class);
+//
+//	public InitialValues() {
+//		//log
+//		
+//	}
 
 
 	
@@ -29,30 +42,59 @@ public class InitialValues extends HibernateStructInfo{
 		try {
 			addArivedFrom();
 		} catch (Exception e) {
+			LOG.error("Can not populate table ArivedFrom");
 			e.printStackTrace();
 		}
-		try {
-			addSalaryType();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	
 		try {
 			addClassLevel();
 		} catch (Exception e) {
+			LOG.error("Can not populate table ClassLevel");
 			e.printStackTrace();
 		}
 		try {
 			addDegrees();
 		} catch (Exception e) {
+			LOG.error("Can not populate table Degrees");
 			e.printStackTrace();
 		}
 
 		try {
 			addmatype();
 		} catch (Exception e) {
+			LOG.error("Can not populate table atype");
 			e.printStackTrace();
 		}
 
+		try {
+			addInitialSuppliyer();
+		} catch (Exception e) {
+			LOG.error("Can not Suppliyer table atype");
+			e.printStackTrace();
+		}
+		
+		try {
+			addInitiaEmployee();
+		} catch (Exception e) {
+			LOG.error("Can not populate Employee atype");
+			e.printStackTrace();
+		}
+		
+		try {
+			addInitiaCustomer();
+		} catch (Exception e) {
+			LOG.error("Can not populate Customer atype");
+			e.printStackTrace();
+		}
+		
+		try {
+			addInitiaAnOccasionalCustomer();
+		} catch (Exception e) {
+			LOG.error("Can not add InitiaAnOccasionalCustomer");
+			e.printStackTrace();
+		}
+		
+		
 
 
 	}
@@ -253,25 +295,8 @@ public class InitialValues extends HibernateStructInfo{
 
 	}
 
-	public Set<SalType> allTypes = new HashSet<>();
 
 
-	public void addSalaryType() throws HibernateException, SQLException {
-		SalType salType1 = new SalType(SalTypeEnum.ByClass);
-		SalType salType2 = new SalType(SalTypeEnum.ByHouer);
-		SalType salType3 = new SalType(SalTypeEnum.ByMounth);
-		SalType salType4 = new SalType(SalTypeEnum.ByWeek);
-		SalType salType5 = new SalType(SalTypeEnum.ByYear);
-		allTypes.add(salType1);
-		allTypes.add(salType2);
-		allTypes.add(salType3);
-		allTypes.add(salType4);
-		allTypes.add(salType5);
-
-		for (SalType salType : allTypes) {
-			super.saveObject(salType);
-		}
-	}
 	
 	public static void addInitialSuppliyer() {
 		SuplierDaoImplement suplierDaoImplement = new SuplierDaoImplement();
@@ -283,10 +308,20 @@ public class InitialValues extends HibernateStructInfo{
 		Date date = new Date();
 		date.setTime(1497096009);
 		EmployeeDaoImpl employeeDaoImpl = new EmployeeDaoImpl();
-		employeeDaoImpl.addEmployee(SalTypeEnum.ByClass, "Vingate", DegreeName.black1,Stripes.None, "Karate", "",343f, date, "harduf36", "hatzav", "23", 34234, "TelAviv", "Israel",date, date, "234234", "Toni Manda", "789789", "tonimanda@gmail.com", "");
+		employeeDaoImpl.addEmployee( "harduf36", "hatzav", "TelAviv", 34234, "Center", "Israel", "3321414123", "tonimanda@gmail.com", "Miss", "Femail", "Toni", "Laura", "Manda", "052-52525252", DegreeName.black1,Stripes.None, "Exemple-Employee", "Karate", "test The System", "GCenter", SalTypeEnum.ByHouer, 85f, date, date, date);
 	
 	}
 
+	public static void addInitiaCustomer() {
+		Date date = new Date();
+		date.setTime(1497096009);
+		CustomersDaoImplement customersDaoImplement = new CustomersDaoImplement();
+		customersDaoImplement.add("Lea-David", null, "Haifa", 2342342, "Haifa-Krayot", "Israel", "234234234423", "Roy.Dekel@solaredge.com", "MR", "Male", "Roy", "TheRock", "Dekel", "052-858745847", DegreeName.white, Stripes.None, "An exemple Customer", Durationmembership.Semester, date, ParticipateClasses.TwoTimesPerWeek, "An exemple Customer", date, date, 1.78f, 85f, 160, 80, 85, 18f);
+	}
+		public static void addInitiaAnOccasionalCustomer() throws ClassNotFoundException, SQLException {
+		CustomersDaoImplement customersDaoImplement = new CustomersDaoImplement();
+		customersDaoImplement.addAnOccasionalCustomer();
+	}
 }
 
 

@@ -9,8 +9,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public abstract class JdbcDbData  {
 
+	
+	static final Logger LOG = LoggerFactory.getLogger(JdbcDbData.class);
+	
 	protected static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
 	protected static final String DB_URL = "jdbc:mysql://localhost/mao";
 	protected static final String USER = "dbuser";

@@ -2,8 +2,12 @@ package com.Mao.BackEndDev.datalayer.DbConnections;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ObjectSession {
+	
+	static final Logger LOG = LoggerFactory.getLogger(ObjectSession.class);
 	
 	Session session;
     Transaction tx;

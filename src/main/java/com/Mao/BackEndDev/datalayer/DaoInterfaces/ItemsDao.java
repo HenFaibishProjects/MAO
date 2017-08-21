@@ -9,13 +9,13 @@ import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.EnumCatergoty;
 import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.EnumColor;
 import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.EnumsizesItems;
 import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.ItemList;
-import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.SubItemList;
+import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.ItemList;
 
 public interface ItemsDao {
 	
 	void addItem();
 	
-	void ModidySubitemlistItem(int id ,SubItemList subItemList) throws ClassNotFoundException, SQLException ;
+	void ModidySubitemlistItem(int id ,ItemList subItemList) throws ClassNotFoundException, SQLException ;
 	
 	void ModidyietmListItem(int id ,ItemList ietmlist) throws ClassNotFoundException, SQLException ;
 	

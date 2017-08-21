@@ -3,13 +3,11 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="addNewEmployee.VirtualSupplierDaoImpla">
+      <class name="StartNG">
         <methods>
-          <include name="printTestStarted"/>
-          <include name="printTestCompleted"/>
-          <include name="addNewVsupp2"/>
+          <include name="mainng"/>
         </methods>
-      </class> <!-- addNewEmployee.VirtualSupplierDaoImpla -->
+      </class> <!-- StartNG -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

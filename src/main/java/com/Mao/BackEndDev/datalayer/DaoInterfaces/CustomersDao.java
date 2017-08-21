@@ -3,7 +3,6 @@ package com.Mao.BackEndDev.datalayer.DaoInterfaces;
 import java.sql.Date;
 import java.sql.SQLException;
 
-import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.SalType;
 
 
 public interface CustomersDao  {

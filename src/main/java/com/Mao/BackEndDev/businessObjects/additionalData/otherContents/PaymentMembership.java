@@ -15,28 +15,27 @@ import javax.persistence.Table;
 import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Customers;
 
 @Entity
-@Table(name = "Payment")
+@Table(name = "CustomerPayments")
 public class PaymentMembership {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="paymnetID")
 	public int paymnetID;
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "customerID")
-    public Customers customers;
+    public String customerID;
     public float mount;
 	public Date DatePaid;
-	PaymentSystem paymentSystem;
+	public PaymentSystem paymentSystem;
+	public PaymentConception paymentConception;
 
 
 
-public PaymentMembership(int paymnetID, Customers customers, float mount, Date datePaid, PaymentSystem paymentSystem) {
+public PaymentMembership(String customerID, float mount, Date datePaid, PaymentSystem paymentSystem,PaymentConception paymentConception) {
 	super();
-	this.paymnetID = paymnetID;
-	this.customers = customers;
+	this.customerID = customerID;
 	this.mount = mount;
-	DatePaid = datePaid;
+	this.DatePaid = datePaid;
 	this.paymentSystem = paymentSystem;
+	this.paymentConception = paymentConception; 
 }
 
 
@@ -57,14 +56,14 @@ public void setPaymnetID(int paymnetID) {
 
 
 
-public Customers getCustomers() {
-	return customers;
+public String getCustomerid() {
+	return customerID;
 }
 
 
 
-public void setCustomers(Customers customers) {
-	this.customers = customers;
+public void setCustomerid(String customerID) {
+	this.customerID = customerID;
 }
 
 
@@ -101,6 +100,30 @@ public PaymentSystem getPaymentSystem() {
 
 public void setPaymentSystem(PaymentSystem paymentSystem) {
 	this.paymentSystem = paymentSystem;
+}
+
+
+
+public String getCustomerID() {
+	return customerID;
+}
+
+
+
+public void setCustomerID(String customerID) {
+	this.customerID = customerID;
+}
+
+
+
+public PaymentConception getPaymentConception() {
+	return paymentConception;
+}
+
+
+
+public void setPaymentConception(PaymentConception paymentConception) {
+	this.paymentConception = paymentConception;
 }
 
 

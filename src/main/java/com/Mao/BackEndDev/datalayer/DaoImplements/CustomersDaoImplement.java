@@ -2,102 +2,247 @@ package com.Mao.BackEndDev.datalayer.DaoImplements;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.DaysOfTheWeek;
+import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.Degree;
+import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.DegreeName;
+import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.PaymentConception;
+import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.PaymentMembership;
+import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.PaymentSystem;
+import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.Stripes;
 import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Address;
 import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Customers;
-import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Supplier;
-import com.Mao.BackEndDev.datalayer.DaoInterfaces.CustomersDao;
+import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Durationmembership;
+import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Indices;
+import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.MemberType;
+import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.ParticipateClasses;
+import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.SalTypeEnum;
+import com.Mao.BackEndDev.datalayer.DbConnections.HibernateStructInfo;
 
-public class CustomersDaoImplement implements CustomersDao{
-	
+
+public class CustomersDaoImplement extends HibernateStructInfo  {
+
+	static final Logger LOG = LoggerFactory.getLogger(CustomersDaoImplement.class);
+
 	public Customers customers ;
 	public Address address;
+	public MemberType memberType;
+	public Indices indices;
+	public PaymentMembership paymentMembership;
+
+
+
+	public Customers getUniqueObjectResultByOfficialId(String customerID){  
+		beginTranscation();
+		Criteria criteria = session.createCriteria(Customers.class);
+		criteria.add(Restrictions.eq("customerID", customerID));
+		return (Customers) criteria.uniqueResult();
+
+	}
+
+	public Address getUniqueObjectResultByOfficialIdAddress(String customerID){  
+		beginTranscation();
+		Criteria criteria = session.createCriteria(Customers.class);
+		Criteria criteriaAddress = session.createCriteria(Address.class);
+		criteria.add(Restrictions.eq("customerID", customerID));
+		Customers tmp = (Customers) criteria.uniqueResult();
+		int tmpAddIdInt = tmp.getDefaultAddress().getAddressID();
+		criteriaAddress.add(Restrictions.eq("addressID" ,tmpAddIdInt));
+		return (Address) criteriaAddress.uniqueResult();
+
+	}
+
+	public Indices getUniqueObjectResultByOfficialIdIndices(String customerID){  
+		beginTranscation();
+		Criteria criteria = session.createCriteria(Customers.class);
+		Criteria criteriaIndices = session.createCriteria(Indices.class);
+		criteria.add(Restrictions.eq("customerID", customerID));
+		Customers tmp = (Customers) criteria.uniqueResult();
+		int tmpAddIdInt = tmp.getIndices().getIndicesID();
+		criteriaIndices.add(Restrictions.eq("indicesID" ,tmpAddIdInt));
+		return (Indices) criteriaIndices.uniqueResult();
+
+	}
+
+	public MemberType getUniqueObjectResultByOfficialIdMemberType(String customerID){  
+		beginTranscation();
+		Criteria criteria = session.createCriteria(Customers.class);
+		Criteria criteriMemberType = session.createCriteria(MemberType.class);
+		criteria.add(Restrictions.eq("customerID", customerID));
+		Customers tmp = (Customers) criteria.uniqueResult();
+		int tmpAddIdInt = tmp.getMemberType().getMemberTypeID();
+		criteriMemberType.add(Restrictions.eq("memberTypeID" ,tmpAddIdInt));
+		return (MemberType) criteriMemberType.uniqueResult();
+
+	}
 
 	public void add(String address1, String address2, String city, int zipCode, String region, String country,
-			Date Rdate, String name, Date birthday, float employeeID, String phone, String email, int degree,
-			int trainigProgram, int paymets, int arriveFrom, int insurance, String notes)
+			String officialID, String email, String title, String gender,String fName, String mName, String lName,String phone, Degree degree, Stripes stripes,String comments
+			 ,Durationmembership durationmembership, Date startDate,ParticipateClasses participateClasses, String notes,
+			 Date birthDay,
+			 Date measurementDate, int high, float weight, int bloodPressureSystolic,int bloodPressureDiastolic, int pulsePressure, float fatPercentage)
+					throws ClassNotFoundException, SQLException {
+		
+			Customers newCustomers = new Customers(address1, address2, city, zipCode, region, country,
+					officialID, email, title, gender, fName, mName, lName, phone, degree, stripes, comments, 
+					durationmembership, startDate, participateClasses, notes, birthDay, measurementDate, high, weight, bloodPressureSystolic,
+					bloodPressureDiastolic,
+					pulsePressure, fatPercentage);
+			super.saveObject(newCustomers);  } 
+	
+	
+	
+	public void addAnOccasionalCustomer() throws ClassNotFoundException, SQLException {
+			Customers newCustomers = new Customers(true);
+			super.saveObject(newCustomers);  } 
+
+	
+	
+	
+	public void deleteByid(String customerID) throws ClassNotFoundException, SQLException {
+		customers = getUniqueObjectResultByOfficialId(customerID);
+		customers.setIsActive((byte)0);
+		super.saveObject(customers);
+
+	}
+
+
+	public void ModidyNameCustomer(String customerID, String firstName , String lastName ) throws ClassNotFoundException, SQLException {
+		customers = getUniqueObjectResultByOfficialId(customerID);
+		customers.setFirstName(firstName);
+		customers.setLastName(lastName);
+		super.saveObject(customers);
+
+	}
+
+
+
+
+
+	public void ModidyDatebirthdayCustomer(String customerID, Date birthday)
 			throws ClassNotFoundException, SQLException {
+		customers = getUniqueObjectResultByOfficialId(customerID);
+		customers.setBirthDay(birthday);
+		super.saveObject(customers);
+
+	}
+
+
+	public void ModidyEmailCustomer(String customerID, String email) throws ClassNotFoundException, SQLException {
+		customers = getUniqueObjectResultByOfficialId(customerID);
+		customers.setEmail(email);
+		super.saveObject(customers);
+
+	}
+
+
+	public void ModidyPhoneCustomer(String customerID, String phone) throws ClassNotFoundException, SQLException {
+		customers = getUniqueObjectResultByOfficialId(customerID);
+		customers.setPhone(phone);
+		super.saveObject(customers);
+
+	}
+
+
+
+	public void ModidyMembershipCustomer(Boolean shouldUpdatePayment , String customerID, PaymentMembership paymets,Durationmembership durationmembership,Date startDate
+			,ParticipateClasses participateClasses,String notes ,
+			float mount, PaymentSystem paymentSystem,PaymentConception paymentConception
+			) throws ClassNotFoundException, SQLException {
+		memberType = getUniqueObjectResultByOfficialIdMemberType(customerID);
+		memberType.setDurationmembership(durationmembership);
+		memberType.setStartDate(startDate);
+		memberType.setNotes(notes);
+		memberType.setParticipateClasses(participateClasses);
+		super.saveObject(memberType);
+		if (shouldUpdatePayment) {
+			PaymentMembership newpay = new PaymentMembership(customerID, mount, startDate, paymentSystem, paymentConception);	
+			super.saveObject(newpay);
+
+		}
+
+
+
+	}
+
+	public void ModidyInsuranceCustomerBP(String customerID , int bloodPressureSystolic , int bloodPressureDiastolic){
+		indices = getUniqueObjectResultByOfficialIdIndices(customerID);
+		indices.setBloodPressureDiastolic(bloodPressureSystolic);
+		indices.setBloodPressureSystolic(bloodPressureDiastolic);
+		super.saveObject(indices);
+
+	}
+	
+	
+
+	public void ModidyInsuranceCustomerFatPercentage(String customerID , float fatPercentage){
+		indices = getUniqueObjectResultByOfficialIdIndices(customerID);
+		indices.setFatPercentage(fatPercentage);
+		super.saveObject(indices);
+
+	}
+
+	public void ModidyInsuranceCustomerHigh(String customerID , int high){
+		indices = getUniqueObjectResultByOfficialIdIndices(customerID);
+		indices.setHigh(high);
+		super.saveObject(indices);
+
+	}
+	public void ModidyInsuranceCustomerPulsePressure(String customerID , int pulsePressure){
+		indices = getUniqueObjectResultByOfficialIdIndices(customerID);
+		indices.setPulsePressure(pulsePressure);
+		super.saveObject(indices);
+
+	}
+	public void ModidyInsuranceCustomereight(String customerID , float weight){
+		indices = getUniqueObjectResultByOfficialIdIndices(customerID);
+		indices.setWeight(weight);
+		super.saveObject(indices);
+
+	}
+
+	public void ModidyCommnetnsCustomer(String customerID, String commnetns) throws ClassNotFoundException, SQLException {
+		customers = getUniqueObjectResultByOfficialId(customerID);
+		customers.setCommentns(commnetns);
+		
+	}
+		
+	public void setNewIndices(Date measurementDate, int high, float weight, int bloodPressureSystolic,
+			int bloodPressureDiastolic, int pulsePressure, float fatPercentage){
+		Indices indicesnew = new Indices(measurementDate, high, weight, bloodPressureSystolic, bloodPressureDiastolic, pulsePressure, fatPercentage);
+		super.saveObject(indicesnew);	
+	}
+
+	public void ModidyAdressCustomer(String customerID, String addressContent,String newaddressContent) throws ClassNotFoundException, SQLException {
+		address = getUniqueObjectResultByOfficialIdAddress(customerID);
+		switch(addressContent){
+		case "address1": address.setAddress1(newaddressContent);break;  
+		case "address2": address.setAddress2(newaddressContent);break;
+		case "city":     address.setCity(newaddressContent); break;
+		case "zipCode":  address.setZipCode(Integer.parseInt(newaddressContent));break; 	
+		case "region":   address.setRegion(newaddressContent); break;
+		case "country":  address.setCountry(newaddressContent); break;}
+		saveOrUpdate(address);
+	}
+
+	public void add(String address1, Object address2, String city, int zipCode, String region, String country,
+			String officialID, String email, String title, String gender, String fName, String mName, String lName,
+			String phone, DegreeName white, Stripes none, String comments, Durationmembership semester,
+			java.util.Date date, ParticipateClasses twotimesperweek, String notes, java.util.Date date2,
+			java.util.Date date3, float f, float weight, int bloodPressureSystolic, int bloodPressureDiastolic,
+			int pulsePressure, float fatPercentage) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	
-	public void deleteByid(String OfficialId) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		
-	}
 
-	
-	public void ModidyNameCustomer(String OfficialId, String name) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		
-	}
 
-	
-	public void ModidyPhoneCustomer(String OfficialId, String phone) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		
-	}
 
-	
-	public void ModidyDatebirthdayCustomer(String OfficialId, Date birthday)
-			throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		
-	}
 
-	
-	public void ModidyEmailCustomer(String OfficialId, String email) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		
-	}
 
-	
-	public void ModidyPhoneCustomer(String OfficialId, int degree) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		
-	}
 
-	
-	public void ModidyTrainigProgramCustomer(String OfficialId, int trainigProgram)
-			throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	public void ModidyPaymetsCustomer(String OfficialId, int paymets) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	public void ModidyArriveFromCustomer(String OfficialId, int arriveFrom)
-			throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	public void ModidyInsuranceCustomer(String OfficialId, int insurance) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	public void ModidyNotesCustomer(String OfficialId, String notes) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	public void ModidyAdressCustomer(String OfficialId, String addressContent, String newaddressContent)
-			throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	
 }

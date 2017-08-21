@@ -1,14 +1,27 @@
 package com.Mao.BackEndDev.businessObjects.Materials.itemsContect;
 
-public class LenthSize {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "LenthSize")
+public class LenthSize {
+	
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int lenthSizeID;
 	float width;
 	float length;
 	float height;
 	
-	
+
+	public LenthSize() {
+	}
+
+
 	public LenthSize(float width, float length, float height) {
-		super();
 		this.width = width;
 		this.length = length;
 		this.height = height;
@@ -45,12 +58,10 @@ public class LenthSize {
 	}
 
 
-	@Override
-	public String toString() {
-		return "LenthSize [width=" + width + ", length=" + length + ", height=" + height + ", getWidth()=" + getWidth()
-				+ ", getLength()=" + getLength() + ", getHeight()=" + getHeight() + ", getClass()=" + getClass()
-				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+	public int getLenthSizeID() {
+		return lenthSizeID;
 	}
+	
 	
 	
 	

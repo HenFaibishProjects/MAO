@@ -15,11 +15,9 @@ import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.DegreeNam
 import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.Diploma;
 import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.MaTypenew;
 import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.Stripes;
-import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.SalType;
 import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.SalTypeEnum;
 import com.Mao.BackEndDev.datalayer.DaoImplements.EmployeeDaoImpl;
 import com.Mao.BackEndDev.datalayer.DaoImplements.MaTypeImplement;
-import com.Mao.BackEndDev.datalayer.DaoImplements.SalaryTypeImlement;
 import com.Mao.BackEndDev.datalayer.DaoImplements.SuplierDaoImplement;
 
 
@@ -41,13 +39,6 @@ import com.Mao.BackEndDev.datalayer.DaoImplements.SuplierDaoImplement;
 		suplierDaoImplement.ModidyAdressSuppliyer(1, "address1", "newaddressContent");
 	}
 
-	public static void addEmployee() {
-		Date date = new Date();
-		date.setTime(1497096009);
-		EmployeeDaoImpl employeeDaoImpl = new EmployeeDaoImpl();
-		employeeDaoImpl.addEmployee(SalTypeEnum.ByClass, "dfgd", DegreeName.black10,Stripes.None, "MAtype", "description",343f, date, "address1", "address2", "23", 34234, "region", "country",date, date, "234234", "hen", "789789", "email", "notes");
-	
-	}
 	
 
 	public static void modifyAddress() throws ClassNotFoundException, SQLException {

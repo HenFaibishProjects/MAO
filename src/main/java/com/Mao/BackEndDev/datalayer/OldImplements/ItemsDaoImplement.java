@@ -9,7 +9,7 @@ import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.EnumCatergoty;
 import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.EnumColor;
 import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.EnumsizesItems;
 import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.ItemList;
-import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.SubItemList;
+import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.ItemList;
 import com.Mao.BackEndDev.datalayer.DaoInterfaces.ItemsDao;
 
 public class ItemsDaoImplement  {
@@ -21,7 +21,7 @@ public class ItemsDaoImplement  {
 	}
 
 	
-	public void ModidySubitemlistItem(int id, SubItemList subItemList) throws ClassNotFoundException, SQLException {
+	public void ModidySubitemlistItem(int id, ItemList subItemList) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		
 	}
