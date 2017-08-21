@@ -2,8 +2,8 @@ package com.Mao.BackEndDev.businessObjects.Materials.itemsEnums;
 
 public enum EnumCatergoty {
 	
-    Amature("GREY"),
-    Standart("RED"),
+    Amature("Amature"),
+    Standart("Standart"),
     Pro("professional");
  
 

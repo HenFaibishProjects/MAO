@@ -8,6 +8,8 @@ import java.util.Map;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.Currency;
 import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.DaysOfTheWeek;
@@ -20,6 +22,8 @@ import com.Mao.BackEndDev.datalayer.DbConnections.HibernateStructInfo;
 
 public class SuplierDaoImplement extends HibernateStructInfo implements SuplierDao {
 
+	static final Logger LOG = LoggerFactory.getLogger(SuplierDaoImplement.class);
+	
 	public Supplier supplier ;
 	public DaysOfTheWeek daysOfTheWeek;
 	public Address address;

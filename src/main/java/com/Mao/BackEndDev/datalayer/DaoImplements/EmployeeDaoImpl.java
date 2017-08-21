@@ -5,23 +5,23 @@ import java.sql.SQLException;
 import java.util.Date;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
-import org.joda.time.DateTime;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.Degree;
 import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.DegreeName;
 import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.Diploma;
-import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.InitialValues;
-import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.MaTypenew;
 import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.Stripes;
 import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Address;
 import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Employee;
-import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.SalType;
 import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.SalTypeEnum;
 import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Salary;
-import com.Mao.BackEndDev.datalayer.DaoInterfaces.EmployeeDao;
+import com.Mao.BackEndDev.businessObjects.itionalData.DeployEnv.InitialValues;
 import com.Mao.BackEndDev.datalayer.DbConnections.HibernateStructInfo;
 
 public class EmployeeDaoImpl extends HibernateStructInfo  {
+	
+	static final Logger LOG = LoggerFactory.getLogger(EmployeeDaoImpl.class);
+	
 	private Diploma diploma;
 	private Employee employee;
 	private Address address;
@@ -30,13 +30,22 @@ public class EmployeeDaoImpl extends HibernateStructInfo  {
 	public InitialValues initialValues = new InitialValues();
 	
 	
-	public void addEmployee (SalTypeEnum salTypeEnum ,String DiplomaName, DegreeName degreeName ,Stripes stripes,String MAtype,String description, float amount, Date  givenDate ,String address1,String address2,String city,int zipCode,String region,String country , Date startDate, Date endDate,String officialID, String name, String phone, String email,
-			 String notes) {
-		Employee createEmployee = new Employee (salTypeEnum , DiplomaName,  degreeName ,stripes, MAtype, description,  amount,   givenDate , address1, address2, city, zipCode, region, country ,  startDate,  endDate, officialID,  name,  phone,  email,
-				  notes);
+	public void addEmployee (String address1, String address2, String city, int zipCode, String region, String country,
+	        String officialID, String email, String title, String gender,String fName, String mName, String lName,String phone,  DegreeName degreeName , Stripes stripes,String comments,
+	        String MAtype,String description,String DiplomaName,
+	        SalTypeEnum salTypeEnum,float amount, Date givenDate,
+	        Date startDate,Date endDate) {
+		
+	    	Employee createEmployee = new Employee(address1,  address2,  city,  zipCode,  region,  country,
+	    	         officialID,  email,  title,  gender, fName,  mName,  lName, phone,  degree,   degreeName ,  stripes, comments,
+	    	         MAtype, description, DiplomaName,
+	    	         salTypeEnum, amount,  givenDate,
+	    	         startDate, endDate);
+		
+		
+	
 		super.saveObject(createEmployee);  } 
-
-
+		
 	public Employee getUniqueObjectResultByOfficialId(String officialID){  
 		beginTranscation();
 		Criteria criteria = session.createCriteria(Employee.class);
@@ -51,7 +60,7 @@ public class EmployeeDaoImpl extends HibernateStructInfo  {
 		Criteria criteriaAddress = session.createCriteria(Address.class);
 		criteria.add(Restrictions.eq("officialID", officialID));
 		Employee tmp = (Employee) criteria.uniqueResult();
-		int tmpAddIdInt = tmp.getEmployees_default_address().getAddressID();
+		int tmpAddIdInt = tmp.getDefaultAddress().getAddressID();
 		criteriaAddress.add(Restrictions.eq("addressID" ,tmpAddIdInt));
 		return (Address) criteriaAddress.uniqueResult();
 
@@ -105,14 +114,26 @@ public class EmployeeDaoImpl extends HibernateStructInfo  {
 
 	
 	
-	public void ModifyNameEmployee(String OfficialId, String name) throws ClassNotFoundException, SQLException {
+	public void ModifyNameEmployeeFirstName(String OfficialId, String firstName) throws ClassNotFoundException, SQLException {
 		employee = getUniqueObjectResultByOfficialId(OfficialId);
-		employee.setName(name);
+		employee.setFirstName(firstName);
 		saveOrUpdate(employee);
 
 	}
 
+	public void ModifyNameEmployeeMiddleName(String OfficialId, String middleName) throws ClassNotFoundException, SQLException {
+		employee = getUniqueObjectResultByOfficialId(OfficialId);
+		employee.setMiddleName(middleName);
+		saveOrUpdate(employee);
+
+	}
 	
+	public void ModifyNameEmployeeLastName(String OfficialId, String lastName) throws ClassNotFoundException, SQLException {
+		employee = getUniqueObjectResultByOfficialId(OfficialId);
+		employee.setLastName(lastName);
+		saveOrUpdate(employee);
+
+	}
 	
 	public void ModifyPhoneEmployee(String OfficialId, String phone) throws ClassNotFoundException, SQLException {
 		employee = getUniqueObjectResultByOfficialId(OfficialId);
@@ -155,9 +176,9 @@ public class EmployeeDaoImpl extends HibernateStructInfo  {
 
 	
 	                                                                                
-	public void ModifyNotesEmployee(String OfficialId, String notes) throws ClassNotFoundException, SQLException {
+	public void ModifyNotesEmployee(String OfficialId, String commnetns) throws ClassNotFoundException, SQLException {
 		employee = getUniqueObjectResultByOfficialId(OfficialId);
-		employee.setNotes(notes);
+		employee.setCommentns(commnetns);
 		saveOrUpdate(employee);
 	}
 
@@ -192,6 +213,11 @@ public class EmployeeDaoImpl extends HibernateStructInfo  {
 		saveOrUpdate(salary);
 		
 	}
+
+
+
+
+
 		
 		
 }

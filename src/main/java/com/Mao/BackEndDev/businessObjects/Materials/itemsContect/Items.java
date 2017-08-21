@@ -3,93 +3,82 @@ package com.Mao.BackEndDev.businessObjects.Materials.itemsContect;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.EnumCatergoty;
-import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.EnumColor;
-import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.EnumsizesItems;
 import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.ItemList;
-import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.SubItemList;
+import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Supplier;
 
-public abstract class Items {
 
-	static int itemnomber;
-	SubItemList subitemlist;
-	ItemList ietmlist;
-	String name;
-	String model;
-	String manufacturer;
-	Date firstArrived;
-	String barode;
-	float purchesPrice;
-	float marketPrice;
-	List<Integer> supliyerShops = new ArrayList<Integer>();
-	List<EnumColor> colors = new ArrayList<EnumColor>();
-	List<EnumsizesItems> size = new ArrayList<EnumsizesItems>();
-	float weight;
-	EnumCatergoty category;
-	String comments;
-	int mounthsWarrenty;
-	int acceptetPayments;
-	LenthSize lenthSize;
-	String madeIn;
-	boolean onStock;
+@Entity
+@Table(name = "Items")
+public class Items  {
+
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	protected int itemnumber;
+	protected ItemList subitemlist;
+	protected String name;
+	protected String model;
+	protected String manufacturer;
+	protected Date firstArrived;
+	protected String barCode;
+	@OneToMany(mappedBy = "supplier")
+	protected List<Supplier> supliyerShops = new ArrayList<Supplier>(); 
+	@OneToMany(mappedBy = "itemtsColors")
+	protected List<ItemtsColors> colors = new ArrayList<ItemtsColors>();
+	@OneToMany(mappedBy = "sizesItems")
+	protected List<SizesItems> size = new ArrayList<SizesItems>();
+	protected float weight;
+	protected EnumCatergoty category;
+	protected String comments;
+	protected int mounthsWarrenty;
+	protected LenthSize lenthSize;
+	protected String madeIn;
 	
 	
-	public Items(SubItemList subitemlist, ItemList ietmlist, String name, String model, String manufacturer,
-			Date firstArrived, String barode, float purchesPrice, float marketPrice, List<Integer> supliyerShops,
-			List<EnumColor> colors, List<EnumsizesItems> size, float weight, EnumCatergoty category, String comments,
-			int mounthsWarrenty, int acceptetPayments, LenthSize lenthSize, String madeIn, boolean onStock) {
+	
+	
+	public Items(ItemList subitemlist, String name, String model, String manufacturer,
+			Date firstArrived, String barCode, 
+			float weight, EnumCatergoty category, String comments,
+			int mounthsWarrenty, LenthSize lenthSize, String madeIn) {
+		
 		super();
 		this.subitemlist = subitemlist;
-		this.ietmlist = ietmlist;
 		this.name = name;
 		this.model = model;
 		this.manufacturer = manufacturer;
 		this.firstArrived = firstArrived;
-		this.barode = barode;
-		this.purchesPrice = purchesPrice;
-		this.marketPrice = marketPrice;
-		this.supliyerShops = supliyerShops;
-		this.colors = colors;
-		this.size = size;
+		this.barCode = barCode;
+		this.supliyerShops = null;
+		this.colors = null;
+		this.size = null;
 		this.weight = weight;
 		this.category = category;
 		this.comments = comments;
 		this.mounthsWarrenty = mounthsWarrenty;
-		this.acceptetPayments = acceptetPayments;
 		this.lenthSize = lenthSize;
 		this.madeIn = madeIn;
-		this.onStock = onStock;
+	}
+	
+	
+	public Items() {
+		
 	}
 
 
-	public static int getItemnomber() {
-		return itemnomber;
-	}
-
-
-	public static void setItemnomber(int itemnomber) {
-		Items.itemnomber = itemnomber;
-	}
-
-
-	public SubItemList getSubitemlist() {
+	public ItemList getSubitemlist() {
 		return subitemlist;
 	}
 
 
-	public void setSubitemlist(SubItemList subitemlist) {
+	public void setSubitemlist(ItemList subitemlist) {
 		this.subitemlist = subitemlist;
-	}
-
-
-	public ItemList getIetmlist() {
-		return ietmlist;
-	}
-
-
-	public void setIetmlist(ItemList ietmlist) {
-		this.ietmlist = ietmlist;
 	}
 
 
@@ -134,61 +123,41 @@ public abstract class Items {
 
 
 	public String getBarode() {
-		return barode;
+		return barCode;
 	}
 
 
 	public void setBarode(String barode) {
-		this.barode = barode;
+		this.barCode = barode;
 	}
 
 
-	public float getPurchesPrice() {
-		return purchesPrice;
-	}
-
-
-	public void setPurchesPrice(float purchesPrice) {
-		this.purchesPrice = purchesPrice;
-	}
-
-
-	public float getMarketPrice() {
-		return marketPrice;
-	}
-
-
-	public void setMarketPrice(float marketPrice) {
-		this.marketPrice = marketPrice;
-	}
-
-
-	public List<Integer> getSupliyerShops() {
+	public List<Supplier> getSupliyerShops() {
 		return supliyerShops;
 	}
 
 
-	public void setSupliyerShops(List<Integer> supliyerShops) {
+	public void setSupliyerShops(List<Supplier> supliyerShops) {
 		this.supliyerShops = supliyerShops;
 	}
 
 
-	public List<EnumColor> getColors() {
+	public List<ItemtsColors> getColors() {
 		return colors;
 	}
 
 
-	public void setColors(List<EnumColor> colors) {
+	public void setColors(List<ItemtsColors> colors) {
 		this.colors = colors;
 	}
 
 
-	public List<EnumsizesItems> getSize() {
+	public List<SizesItems> getSize() {
 		return size;
 	}
 
 
-	public void setSize(List<EnumsizesItems> size) {
+	public void setSize(List<SizesItems> size) {
 		this.size = size;
 	}
 
@@ -233,15 +202,6 @@ public abstract class Items {
 	}
 
 
-	public int getAcceptetPayments() {
-		return acceptetPayments;
-	}
-
-
-	public void setAcceptetPayments(int acceptetPayments) {
-		this.acceptetPayments = acceptetPayments;
-	}
-
 
 	public LenthSize getLenthSize() {
 		return lenthSize;
@@ -263,16 +223,12 @@ public abstract class Items {
 	}
 
 
-	public boolean isOnStock() {
-		return onStock;
+	public int getItemnumber() {
+		return itemnumber;
 	}
-
-
-	public void setOnStock(boolean onStock) {
-		this.onStock = onStock;
-	}
-
-
+	
+	
+	
 	
 	
 }

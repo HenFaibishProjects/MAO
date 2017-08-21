@@ -47,7 +47,7 @@ public class Supplier {
 	public Supplier(short usDollars, short nis , short euro , short auDollars ,short sunday, short monday, short tuesday,short  wednesday, short thursday, short friday, short saturday ,String address1, String address2, String city, int zipCode, String region, String country, String name, String id, String phone ,String website,String email, ArrayList<DaysOfTheWeekEnum> daysOfTheWeek) {
 		this.curency = new Currency(suplyCode, usDollars, nis, euro, auDollars);
 		this.daysOfTheWeek = new DaysOfTheWeek(suplyCode, sunday, monday, tuesday, wednesday, thursday, friday, saturday);
-		this.supplier_default_address = new Address(suplyCode,address1,address2,city,zipCode,region,country);
+		this.supplier_default_address = new Address(address1,address2,city,zipCode,region,country);
 		this.name = name;
 		this.id = id;
 		this.phone = phone;

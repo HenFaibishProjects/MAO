@@ -9,7 +9,7 @@ import org.hibernate.criterion.Restrictions;
 import org.joda.time.DateTime;
 
 import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Employee;
-import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.SalType;
+import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.SalTypeEnum;
 import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Salary;
 
 
@@ -18,7 +18,7 @@ public interface EmployeeDao {
 
 
 
-	 public void addEmployee(SalType type, int empId, float amount, DateTime  givenDate ,String address1,String address2,String city,int zipCode,String region,String country , Date startDate, Date endDate,String officialID, String name, String phone, String email,
+	 public void addEmployee(SalTypeEnum type, int empId, float amount, DateTime  givenDate ,String address1,String address2,String city,int zipCode,String region,String country , Date startDate, Date endDate,String officialID, String name, String phone, String email,
 			int mAType, int degree, int dimploma, String notes);
 	 
 	public void deleteByid(String OfficialId) throws ClassNotFoundException, SQLException;
@@ -31,7 +31,7 @@ public interface EmployeeDao {
 	
 	public void ModifyEmailEmployee(String OfficialId, String email) throws ClassNotFoundException, SQLException;
 	
-	public void ModifySalaryEmployee(String OfficialId,SalType type,float amount ) throws ClassNotFoundException, SQLException;
+	public void ModifySalaryEmployee(String OfficialId,SalTypeEnum type,float amount ) throws ClassNotFoundException, SQLException;
 	
 	public void ModifyMAtypeEmployee(String OfficialId, int MAtype) throws ClassNotFoundException, SQLException;
 	

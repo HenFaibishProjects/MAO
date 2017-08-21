@@ -25,54 +25,34 @@ import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.Stripes;
 
 @Entity
 @Table(name = "Employee")
-public class Employee  {
-	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int empID;
-	private String officialID;
+public class Employee extends Person {
+
 	private Date startDate;
 	private Date endDate;
-	private String name;
-	private String phone;
-	private String email;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "salaryID")
 	private Salary salary;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "mATypeID")
 	private MaTypenew mAType;
-	@OneToOne (cascade = CascadeType.ALL)
-	@JoinColumn(name = "degreeID")
-	private Degree degree;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "diplomaID")
 	private Diploma diploma;
-	private String notes;
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "addressID")
-	protected Address employees_default_address;
-	@Nonnull
-	private byte isActive=1;
 	
-	public Employee() {
-		super();	
-	}
-	
-	
-	public Employee(SalTypeEnum salTypeEnum ,String DiplomaName, DegreeName degreeName ,Stripes stripes,String MAtype,String description, float amount, Date  givenDate ,String address1,String address2,String city,int zipCode,String region,String country , Date startDate, Date endDate,String officialID, String name, String phone, String email,
-		 String notes) {
-		this.mAType = new MaTypenew(MAtype,description);
-		this.degree = new Degree(degreeName, stripes);
-		this.diploma = new Diploma(DiplomaName);
-		this.salary = new Salary(salTypeEnumnumber(salTypeEnum), amount, givenDate);
-		this.employees_default_address = new Address(empID,address1,address2,city,zipCode,region,country);
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.name = name;
-		this.phone = phone;
-		this.email = email;
-		this.notes = notes;
-	}
-
+	public Employee(String address1, String address2, String city, int zipCode, String region, String country,
+			        String officialID, String email, String title, String gender,String fName, String mName, String lName,String phone, Degree degree,  DegreeName degreeName , Stripes stripes,String comments,
+			        String MAtype,String description,String DiplomaName,
+			        SalTypeEnum salTypeEnum,float amount, Date givenDate,
+			        Date startDate,Date endDate)
+                	{
+						super(officialID, email, title, gender, fName, mName, lName, phone, degree, stripes,comments);
+		                super.defaultAddress = new Address(address1, address2, city, zipCode, region, country);
+		    			this.mAType = new MaTypenew(MAtype,description);
+		    			this.diploma = new Diploma(DiplomaName);
+		    			this.salary = new Salary(salTypeEnumnumber(salTypeEnum), amount, givenDate);
+		    			this.startDate = startDate;
+		    			this.endDate = endDate;
+		    		}
 	
 	
 
@@ -80,39 +60,17 @@ public class Employee  {
 		int salTypeById=0;
 		switch (salTypeEnum.toString()) {
 		case ("ByHouer"):
-			salTypeById = 1;
-		break;
-
+			salTypeById = 1;break;
 		case ("ByClass"):
-			salTypeById = 2;
-		break;
-
+			salTypeById = 2;break;
 		case ("ByWeek"):
-			salTypeById = 3;
-		break;
-
+			salTypeById = 3;break;
 		case ("ByMounth"):
-			salTypeById = 4;
-		break;
-
+			salTypeById = 4;break;
 		case ("ByYear"):
-			salTypeById = 5;
-		break;
-
+			salTypeById = 5;break;
 		}
 		return salTypeById;
-
-	}
-
-
-	public int getEmpID() {
-		return empID;
-	}
-
-
-
-	public void setEmpID(int empID) {
-		this.empID = empID;
 	}
 
 
@@ -122,11 +80,9 @@ public class Employee  {
 	}
 
 
-
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
-
 
 
 	public Date getEndDate() {
@@ -134,21 +90,8 @@ public class Employee  {
 	}
 
 
-
 	public void setEndDate(Date   endDate) {
 		this.endDate = endDate;
-	}
-
-
-
-	public String getName() {
-		return name;
-	}
-
-
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 
@@ -164,31 +107,14 @@ public class Employee  {
 	}
 
 
-
 	public String getEmail() {
 		return email;
 	}
 
 
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-
-
-
-	public String getNotes() {
-		return notes;
-	}
-
-
-
-	public void setNotes(String notes) {
-		this.notes = notes;
-	}
-
-
 
 	public String getOfficialID() {
 		return officialID;
@@ -200,29 +126,6 @@ public class Employee  {
 		this.officialID = officialID;
 	}
 
-
-
-	public Address getEmployees_default_address() {
-		return employees_default_address;
-	}
-
-
-
-	public void setEmployees_default_address(Address employees_default_address) {
-		this.employees_default_address = employees_default_address;
-	}
-
-
-
-	public byte getIsActive() {
-		return isActive;
-	}
-
-
-
-	public void setIsActive(byte isActive) {
-		this.isActive = isActive;
-	}
 
 
 	public Salary getSalary() {
@@ -245,14 +148,6 @@ public class Employee  {
 	}
 
 
-	public Degree getDegree() {
-		return degree;
-	}
-
-
-	public void setDegree(Degree degree) {
-		this.degree = degree;
-	}
 
 
 	public Diploma getDiploma() {

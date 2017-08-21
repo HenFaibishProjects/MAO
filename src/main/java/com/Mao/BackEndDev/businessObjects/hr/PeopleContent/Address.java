@@ -37,7 +37,7 @@ public class Address  {
 		
 	   
 	   
-	public Address(int suppliyerID,String address1, String address2, String city, int zipCode, String region, String country) {
+	public Address(String address1, String address2, String city, int zipCode, String region, String country) {
 		super();
 		this.address1 = address1;
 		this.address2 = address2;

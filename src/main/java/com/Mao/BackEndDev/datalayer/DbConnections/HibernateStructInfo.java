@@ -12,11 +12,17 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import com.Mao.BackEndDev.API.publicAPI.rest.AbstractController;
 import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Employee;
 import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Supplier;
 
 public abstract class HibernateStructInfo  {
+	
+	static final Logger LOG = LoggerFactory.getLogger(HibernateStructInfo.class);
+	
 	protected static Session session;
 	protected static Transaction tx = null;
 	protected static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
