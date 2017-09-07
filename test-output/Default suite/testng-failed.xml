@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="StartNG">
+      <class name="com.Mao.BackEndDev.StartNG">
         <methods>
-          <include name="mainng"/>
+          <include name="addSizeToItem" invocation-numbers="0"/>
         </methods>
-      </class> <!-- StartNG -->
+      </class> <!-- com.Mao.BackEndDev.StartNG -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

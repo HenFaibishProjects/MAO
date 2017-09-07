@@ -1,6 +1,6 @@
 package com.Mao.BackEndDev.businessObjects.Materials.itemsEnums;
 
-public enum ItemList {
+public enum EnumItemList {
 	
     Pants("Pants"),
     Shirts("Shirts"),
@@ -22,7 +22,7 @@ public enum ItemList {
 	
  
 
-    private ItemList(final String string) {
+    private EnumItemList(final String string) {
         this.string = string;
     }
 

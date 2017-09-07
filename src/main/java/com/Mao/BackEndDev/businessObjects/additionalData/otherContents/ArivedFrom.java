@@ -8,8 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Arrivefrom")
-public class Arrivefrom {
+@Table(name = "ArivedFrom")
+public class ArivedFrom {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	   @Column(name="ArrivefromID")
@@ -18,7 +18,7 @@ public class Arrivefrom {
 	   String place;
 	   
 	   
-	public Arrivefrom(String place) {
+	public ArivedFrom(String place) {
 		this.place = place;
 	}
 	

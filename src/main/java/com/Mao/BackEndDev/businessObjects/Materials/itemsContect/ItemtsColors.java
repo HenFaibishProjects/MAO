@@ -16,16 +16,23 @@ public class ItemtsColors {
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int itemtsColorId;
-	private EnumColor color;
-	private AdditionalToItemColor AdditionalToItemColor;
+	private int itemId;
+	private String color;
+	private String AdditionalToItemColor;
 	
 	
 	
 	
-	public ItemtsColors(EnumColor color,AdditionalToItemColor additionalToItemColor) {
+	public ItemtsColors(int itemId,String color,String additionalToItemColor) {
 		super();
+		this.itemId = itemId;
 		this.color = color;
-		AdditionalToItemColor = additionalToItemColor;
+		this.AdditionalToItemColor = additionalToItemColor;
+	}
+	
+	public ItemtsColors(ItemtsColors itemtsColors) {
+		this.color = itemtsColors.color;
+		this.AdditionalToItemColor = itemtsColors.AdditionalToItemColor;
 	}
 	
 	public ItemtsColors() {
@@ -40,20 +47,28 @@ public class ItemtsColors {
 		this.itemtsColorId = itemtsColorId;
 	}
 
-	public EnumColor getColor() {
+	public String getColor() {
 		return color;
 	}
 
-	public void setColor(EnumColor color) {
+	public void setColor(String color) {
 		this.color = color;
 	}
 
-	public AdditionalToItemColor getAdditionalToItemColor() {
+	public String getAdditionalToItemColor() {
 		return AdditionalToItemColor;
 	}
 
-	public void setAdditionalToItemColor(AdditionalToItemColor additionalToItemColor) {
+	public void setAdditionalToItemColor(String additionalToItemColor) {
 		AdditionalToItemColor = additionalToItemColor;
+	}
+
+	public int getItemId() {
+		return itemId;
+	}
+
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
 	}
 	
 	

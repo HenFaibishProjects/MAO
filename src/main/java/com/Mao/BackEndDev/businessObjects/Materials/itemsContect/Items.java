@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.EnumCatergoty;
-import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.ItemList;
+import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.EnumItemList;
 import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Supplier;
 
 
@@ -21,34 +22,25 @@ public class Items  {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	protected int itemnumber;
-	protected ItemList subitemlist;
+	protected EnumItemList subitemlist;
 	protected String name;
 	protected String model;
 	protected String manufacturer;
 	protected Date firstArrived;
 	protected String barCode;
-	@OneToMany(mappedBy = "supplier")
+	@OneToMany(mappedBy = "suplyCode")
 	protected List<Supplier> supliyerShops = new ArrayList<Supplier>(); 
-	@OneToMany(mappedBy = "itemtsColors")
-	protected List<ItemtsColors> colors = new ArrayList<ItemtsColors>();
-	@OneToMany(mappedBy = "sizesItems")
-	protected List<SizesItems> size = new ArrayList<SizesItems>();
 	protected float weight;
 	protected EnumCatergoty category;
 	protected String comments;
 	protected int mounthsWarrenty;
-	protected LenthSize lenthSize;
 	protected String madeIn;
 	
-	
-	
-	
-	public Items(ItemList subitemlist, String name, String model, String manufacturer,
-			Date firstArrived, String barCode, 
+
+	public Items(EnumItemList subitemlist, String name, String model, String manufacturer,
+			Date firstArrived, String barCode,
 			float weight, EnumCatergoty category, String comments,
 			int mounthsWarrenty, LenthSize lenthSize, String madeIn) {
-		
-		super();
 		this.subitemlist = subitemlist;
 		this.name = name;
 		this.model = model;
@@ -56,13 +48,10 @@ public class Items  {
 		this.firstArrived = firstArrived;
 		this.barCode = barCode;
 		this.supliyerShops = null;
-		this.colors = null;
-		this.size = null;
 		this.weight = weight;
 		this.category = category;
 		this.comments = comments;
 		this.mounthsWarrenty = mounthsWarrenty;
-		this.lenthSize = lenthSize;
 		this.madeIn = madeIn;
 	}
 	
@@ -72,12 +61,12 @@ public class Items  {
 	}
 
 
-	public ItemList getSubitemlist() {
+	public EnumItemList getSubitemlist() {
 		return subitemlist;
 	}
 
 
-	public void setSubitemlist(ItemList subitemlist) {
+	public void setSubitemlist(EnumItemList subitemlist) {
 		this.subitemlist = subitemlist;
 	}
 
@@ -142,26 +131,6 @@ public class Items  {
 	}
 
 
-	public List<ItemtsColors> getColors() {
-		return colors;
-	}
-
-
-	public void setColors(List<ItemtsColors> colors) {
-		this.colors = colors;
-	}
-
-
-	public List<SizesItems> getSize() {
-		return size;
-	}
-
-
-	public void setSize(List<SizesItems> size) {
-		this.size = size;
-	}
-
-
 	public float getWeight() {
 		return weight;
 	}
@@ -199,17 +168,6 @@ public class Items  {
 
 	public void setMounthsWarrenty(int mounthsWarrenty) {
 		this.mounthsWarrenty = mounthsWarrenty;
-	}
-
-
-
-	public LenthSize getLenthSize() {
-		return lenthSize;
-	}
-
-
-	public void setLenthSize(LenthSize lenthSize) {
-		this.lenthSize = lenthSize;
 	}
 
 

@@ -1,23 +1,13 @@
 package com.Mao.BackEndDev.datalayer.DbConnections;
 
-import java.io.Serializable;
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.criterion.Projections;
-import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.Mao.BackEndDev.API.publicAPI.rest.AbstractController;
-import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Employee;
-import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Supplier;
 
 public abstract class HibernateStructInfo  {
 	
@@ -26,15 +16,16 @@ public abstract class HibernateStructInfo  {
 	protected static Session session;
 	protected static Transaction tx = null;
 	protected static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-	protected static final String DB_URL = "jdbc:mysql://l/mao";
-	protected static final String USER = "dbuser";
-	protected static final String PASS = "123456";
+	protected static final String DB_URL = "jdbc:mysql://localhost/mao";
+	protected static final String USER = "maoadmin";
+	protected static final String PASS = "maoadmin";
 	protected static Connection conn ;
 	protected static SessionFactory sessionFactory ;
 
 	public HibernateStructInfo() {	
-		sessionFactory = new Configuration().configure().buildSessionFactory();
+		sessionFactory = new Configuration().configure("/hibernate.cfg.xml").buildSessionFactory();
 		session = getSession();
+		///myGitRepo/src/main/resources/hibernate.cfg.xml
 	}
 
 	public static Session getSession() {

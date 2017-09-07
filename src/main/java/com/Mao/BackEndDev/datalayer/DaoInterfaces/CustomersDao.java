@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public interface CustomersDao  {
 
 	 public void add(String address1, String address2, String city, int zipCode, String region, String country,
-				Date Rdate  , String name,Date birthday, float employeeID, String phone, String email, int  degree, int trainigProgram  , int paymets,int arriveFrom,int insurance , String notes) 
+				Date Rdate  , String name,Date birthday, float employeeID, String phone, String email, int  degree, int trainigProgram  , int paymets,int arivedFrom,int insurance , String notes) 
 	            throws ClassNotFoundException, SQLException;
 	 
      public void deleteByid(String OfficialId) throws ClassNotFoundException, SQLException ;
@@ -27,7 +27,7 @@ public interface CustomersDao  {
 	 
 	 public void ModidyPaymetsCustomer(String OfficialId ,int paymets) throws ClassNotFoundException, SQLException ;
 	 
-	 public void ModidyArriveFromCustomer(String OfficialId ,int arriveFrom) throws ClassNotFoundException, SQLException ;
+	 public void ModidyArriveFromCustomer(String OfficialId ,int arivedFrom) throws ClassNotFoundException, SQLException ;
 	 
 	 public void ModidyInsuranceCustomer(String OfficialId ,int insurance) throws ClassNotFoundException, SQLException ;
 	 

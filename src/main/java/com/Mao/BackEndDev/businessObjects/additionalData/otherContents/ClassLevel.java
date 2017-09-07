@@ -13,23 +13,26 @@ public class ClassLevel {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ClassLevelID")
-	int arrivefromID;
+	int classLevelID;
 	@Column(name="ClassLevelName")
 	String ClassLevelName;
 
 
+	public ClassLevel() {
+	}
+	
 	public ClassLevel(String ClassLevelName) {
 		this.ClassLevelName = ClassLevelName;
 	}
 
 
-	public int getArrivefromID() {
-		return arrivefromID;
+	public int getclassLevelID() {
+		return classLevelID;
 	}
 
 
-	public void setArrivefromID(int arrivefromID) {
-		this.arrivefromID = arrivefromID;
+	public void setclassLevelID(int classLevelID) {
+		this.classLevelID = classLevelID;
 	}
 
 

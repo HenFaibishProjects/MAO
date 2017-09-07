@@ -8,16 +8,16 @@ import com.Mao.BackEndDev.businessObjects.Materials.itemsContect.LenthSize;
 import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.EnumCatergoty;
 import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.EnumColor;
 import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.EnumsizesItems;
-import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.ItemList;
-import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.ItemList;
+import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.EnumItemList;
+import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.EnumItemList;
 
 public interface ItemsDao {
 	
 	void addItem();
 	
-	void ModidySubitemlistItem(int id ,ItemList subItemList) throws ClassNotFoundException, SQLException ;
+	void ModidySubEnumItemListItem(int id ,EnumItemList subEnumItemList) throws ClassNotFoundException, SQLException ;
 	
-	void ModidyietmListItem(int id ,ItemList ietmlist) throws ClassNotFoundException, SQLException ;
+	void ModidyietmListItem(int id ,EnumItemList ietmlist) throws ClassNotFoundException, SQLException ;
 	
 	void ModidyModelItem(int id ,String model) throws ClassNotFoundException, SQLException ;
 	

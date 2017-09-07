@@ -35,6 +35,8 @@ public class Currency {
 		this.auDollars = auDollars;
 	}
 
+	public Currency() {
+	}
 
 
 	public short getUsDollars() {

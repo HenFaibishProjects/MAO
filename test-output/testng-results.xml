@@ -2,16 +2,36 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="3209" started-at="2017-08-15T08:10:31Z" finished-at="2017-08-15T08:10:34Z">
+  <suite name="Default suite" duration-ms="533" started-at="2017-09-07T06:00:56Z" finished-at="2017-09-07T06:00:56Z">
     <groups>
+      <group name="addSizeToItem">
+        <method signature="StartNG.addSizeToItem(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.Mao.BackEndDev.StartNG@2f1de2d6]" name="addSizeToItem" class="com.Mao.BackEndDev.StartNG"/>
+      </group> <!-- addSizeToItem -->
     </groups>
-    <test name="Default test" duration-ms="3209" started-at="2017-08-15T08:10:31Z" finished-at="2017-08-15T08:10:34Z">
-      <class name="StartNG">
-        <test-method status="PASS" signature="mainng()[pri:0, instance:StartNG@3e6fa38a]" name="mainng" duration-ms="3192" started-at="2017-08-15T11:10:31Z" finished-at="2017-08-15T11:10:34Z">
+    <test name="Default test" duration-ms="533" started-at="2017-09-07T06:00:56Z" finished-at="2017-09-07T06:00:56Z">
+      <class name="com.Mao.BackEndDev.StartNG">
+        <test-method status="PASS" signature="addSizeToItem(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.Mao.BackEndDev.StartNG@2f1de2d6]" name="addSizeToItem" duration-ms="501" started-at="2017-09-07T09:00:56Z" data-provider="addSizeToItem" finished-at="2017-09-07T09:00:56Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[FSD323SAD]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[A4]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[notes]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- mainng -->
-      </class> <!-- StartNG -->
+        </test-method> <!-- addSizeToItem -->
+      </class> <!-- com.Mao.BackEndDev.StartNG -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

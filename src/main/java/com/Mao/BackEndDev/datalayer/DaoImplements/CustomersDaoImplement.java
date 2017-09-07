@@ -228,17 +228,22 @@ public class CustomersDaoImplement extends HibernateStructInfo  {
 		saveOrUpdate(address);
 	}
 
-	public void add(String address1, Object address2, String city, int zipCode, String region, String country,
+	public void add(String address1, String address2, String city, int zipCode, String region, String country,
 			String officialID, String email, String title, String gender, String fName, String mName, String lName,
-			String phone, DegreeName white, Stripes none, String comments, Durationmembership semester,
-			java.util.Date date, ParticipateClasses twotimesperweek, String notes, java.util.Date date2,
-			java.util.Date date3, float f, float weight, int bloodPressureSystolic, int bloodPressureDiastolic,
+			String phone, Degree degree, Stripes stripes, String comments, Durationmembership durationmembership,
+			java.util.Date startDate, ParticipateClasses participateClasses, String notes, java.util.Date birthDay,
+			java.util.Date measurementDate, int high, float weight, int bloodPressureSystolic, int bloodPressureDiastolic,
 			int pulsePressure, float fatPercentage) {
-		// TODO Auto-generated method stub
 		
+		Customers customer = new Customers(address1, address2, city, zipCode, region, country, 
+				officialID, email, title, gender, fName, mName, lName, phone, 
+				degree, stripes, comments, durationmembership, startDate, participateClasses, notes, birthDay,
+				measurementDate, high, weight, bloodPressureSystolic, bloodPressureDiastolic, pulsePressure, fatPercentage);
+				super.saveObject(customer); 
 	}
 
 	
+
 
 
 

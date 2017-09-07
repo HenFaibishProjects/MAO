@@ -19,8 +19,8 @@ public abstract class JdbcDbData  {
 	
 	protected static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
 	protected static final String DB_URL = "jdbc:mysql://localhost/mao";
-	protected static final String USER = "dbuser";
-	protected static final String PASS = "123456"; 
+	protected static final String USER = "maoadmin";
+	protected static final String PASS = "maoadmin"; 
 	protected static  Connection conn;
 	static DatabaseMetaData metadata;
 	static PreparedStatement ps = null ;

@@ -15,35 +15,46 @@ import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.EnumsizesItems;
 public class SizesItems {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int itemtsColorId;
-	private EnumsizesItems color;
+	private int itemtsSizeId;
+	private int itemId;
+	private String size;
 	private String  notes;
 
 
 	public SizesItems() {
 
 	}
+	
 
-	public SizesItems(EnumsizesItems color, String notes) {
+	public SizesItems(int itemId,String size, String notes) {
 		super();
-		this.color = color;
+		this.itemId = itemId;
+		this.size = size;
 		this.notes = notes;
 	}
 	public int getItemtsColorId() {
-		return itemtsColorId;
+		return itemtsSizeId;
 	}
 
-	public EnumsizesItems getColor() {
-		return color;
+	public String getSize() {
+		return size;
 	}
-	public void setColor(EnumsizesItems color) {
-		this.color = color;
+	public void setColor(String size) {
+		this.size = size;
 	}
 	public String getNotes() {
 		return notes;
 	}
 	public void setNotes(String notes) {
 		this.notes = notes;
+	}
+
+	public int getItemId() {
+		return itemId;
+	}
+
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
 	}
 
 

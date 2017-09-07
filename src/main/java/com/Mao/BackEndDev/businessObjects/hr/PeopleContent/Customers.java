@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.Arrivefrom;
+import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.ArivedFrom;
 import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.Degree;
 import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.DegreeName;
 import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.Stripes;
@@ -34,18 +34,18 @@ public class Customers extends Person {
 	protected Indices indices;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ArrivefromID")
-	protected Arrivefrom arrivedFrom;
-	
+	protected ArivedFrom arrivedFrom;
 	
 	
 	
 	
 	
 	public Customers(String address1, String address2, String city, int zipCode, String region, String country,
-			String officialID, String email, String title, String gender,String fName, String mName, String lName,String phone, Degree degree, Stripes stripes,String comments
-			 ,Durationmembership durationmembership, Date startDate,ParticipateClasses participateClasses, String notes,
-			 Date birthDay,
-			 Date measurementDate, int high, float weight, int bloodPressureSystolic,int bloodPressureDiastolic, int pulsePressure, float fatPercentage) {
+			String officialID, String email, String title, String gender,String fName, String mName, String lName,
+			String phone, Degree degree, Stripes stripes,String comments,Durationmembership durationmembership, 
+			Date startDate,ParticipateClasses participateClasses, String notes,Date birthDay,Date measurementDate,
+			int high, float weight, int bloodPressureSystolic,int bloodPressureDiastolic, int pulsePressure,
+			float fatPercentage) {
 		     
 		super(officialID, email, title, gender, fName, mName, lName, phone, degree, stripes, comments);
 		super.defaultAddress = new Address(address1, address2, city, zipCode, region, country);
@@ -67,6 +67,9 @@ public class Customers extends Person {
 	}
 	
 	
+
+
+
 
 	public String getOfficialID() {
 		return officialID;
@@ -169,12 +172,12 @@ public class Customers extends Person {
 	}
 
 
-	public Arrivefrom getArrivedFrom() {
+	public ArivedFrom getArrivedFrom() {
 		return arrivedFrom;
 	}
 
 
-	public void setArrivedFrom(Arrivefrom arrivedFrom) {
+	public void setArrivedFrom(ArivedFrom arrivedFrom) {
 		this.arrivedFrom = arrivedFrom;
 	}
 
