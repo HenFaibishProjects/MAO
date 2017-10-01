@@ -11,6 +11,8 @@ import javax.persistence.OneToOne;
 import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.Degree;
 import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.DegreeName;
 import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.Stripes;
+import com.Mao.BackEndDev.businessObjects.hr.Schools.School;
+import com.Mao.BackEndDev.datalayer.DaoInterfaces.SchoolDao;
 
 @MappedSuperclass
 public abstract class Person {
@@ -25,21 +27,15 @@ public abstract class Person {
 	protected String middleName;
 	protected String lastName;
 	protected String phone;
-	@OneToOne (cascade = CascadeType.ALL)
-	@JoinColumn(name = "degreeID")
-	private Degree degree;
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "addressID")
-	protected Address defaultAddress;
 	@Nonnull
 	private byte isActive=1;
 	protected String commentns;
+	protected School school;
 	
 	
 	
 	public Person(String officialID, String email, String title, String gender, String firstName, String middleName,
-			String lastName, String phone, Degree degree,
-			Stripes stripes , String commentns)
+			String lastName, String phone, String commentns)
 		 {
 		this.officialID = officialID;
 		this.email = email;
@@ -122,22 +118,6 @@ public abstract class Person {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
-	}
-
-	public Degree getDegree() {
-		return degree;
-	}
-
-	public void setDegree(Degree degree) {
-		this.degree = degree;
-	}
-
-	public Address getDefaultAddress() {
-		return defaultAddress;
-	}
-
-	public void setDefaultAddress(Address defaultAddress) {
-		this.defaultAddress = defaultAddress;
 	}
 
 	public byte getIsActive() {

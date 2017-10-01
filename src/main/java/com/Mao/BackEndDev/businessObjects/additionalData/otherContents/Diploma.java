@@ -1,6 +1,8 @@
 
 package com.Mao.BackEndDev.businessObjects.additionalData.otherContents;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,14 +16,42 @@ public class Diploma {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="DiplomaID")
-	int diplomaID;
+	private int diplomaID;
 	@Column(name="DiplomaName")
-	String diplomaName;
+	private String diplomaName;
+	private String schooleName;
+	private Date given;
 
+	
+	
+
+	public Diploma(String diplomaName, String schooleName, Date given) {
+		super();
+		this.diplomaName = diplomaName;
+		this.schooleName = schooleName;
+		this.given = given;
+	}
+	
 
 	public Diploma() {
 	}
-	
+
+	public String getSchooleName() {
+		return schooleName;
+	}
+
+	public void setSchooleName(String schooleName) {
+		this.schooleName = schooleName;
+	}
+
+	public Date getGiven() {
+		return given;
+	}
+
+	public void setGiven(Date given) {
+		this.given = given;
+	}
+
 	public Diploma(String DiplomaName) {
 		this.diplomaName = DiplomaName;
 	}

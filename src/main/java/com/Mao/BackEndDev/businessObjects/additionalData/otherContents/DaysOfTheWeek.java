@@ -14,7 +14,7 @@ public class DaysOfTheWeek {
 	@Column(name="DaysOfTheWeekID")
 	public int daysOfTheWeekID;
 	@Column(name="suppliyerID")
-	public int suppliyerID;
+	public String suppliyerID;
 	@Column(name="Sunday")
 	public short sunday;
 	@Column(name="Monday")
@@ -33,7 +33,7 @@ public class DaysOfTheWeek {
 	
 	
 	
-	public DaysOfTheWeek(int suppliyerID, short sunday, short monday, short tuesday, short wednesday,
+	public DaysOfTheWeek(String suppliyerID, short sunday, short monday, short tuesday, short wednesday,
 		short thursday, short friday, short saturday) {
 		this.suppliyerID = suppliyerID;
 		this.sunday = sunday;
@@ -56,7 +56,7 @@ public class DaysOfTheWeek {
 
 
 	public void setDaysOfTheWeekID(int daysOfTheWeekID) {
-		daysOfTheWeekID = daysOfTheWeekID;
+		this.daysOfTheWeekID = daysOfTheWeekID;
 	}
 
 
@@ -70,7 +70,7 @@ public class DaysOfTheWeek {
 
 
 	public void setSunday(short sunday) {
-		sunday = sunday;
+		this.sunday = sunday;
 	}
 
 
@@ -84,7 +84,7 @@ public class DaysOfTheWeek {
 
 
 	public void setMonday(short monday) {
-		monday = monday;
+		this.monday = monday;
 	}
 
 
@@ -98,7 +98,7 @@ public class DaysOfTheWeek {
 
 
 	public void setTuesday(short tuesday) {
-		tuesday = tuesday;
+		this.tuesday = tuesday;
 	}
 
 
@@ -112,7 +112,7 @@ public class DaysOfTheWeek {
 
 
 	public void setWednesday(short wednesday) {
-		wednesday = wednesday;
+		this.wednesday = wednesday;
 	}
 
 
@@ -126,7 +126,7 @@ public class DaysOfTheWeek {
 
 
 	public void setThursday(short thursday) {
-		thursday = thursday;
+		this.thursday = thursday;
 	}
 
 
@@ -140,7 +140,7 @@ public class DaysOfTheWeek {
 
 
 	public void setFriday(short friday) {
-		friday = friday;
+		this.friday = friday;
 	}
 
 
@@ -154,7 +154,7 @@ public class DaysOfTheWeek {
 
 
 	public void setSaturday(short saturday) {
-		saturday = saturday;
+		this.saturday = saturday;
 	}
 	
 

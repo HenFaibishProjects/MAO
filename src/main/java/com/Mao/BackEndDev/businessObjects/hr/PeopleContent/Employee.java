@@ -32,46 +32,26 @@ public class Employee extends Person {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "salaryID")
 	private Salary salary;
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "mATypeID")
-	private MaTypenew mAType;
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "diplomaID")
-	private Diploma diploma;
+	private int mAType;
+	private int isInstructor;
 	
 	public Employee(String address1, String address2, String city, int zipCode, String region, String country,
-			        String officialID, String email, String title, String gender,String fName, String mName, String lName,String phone, Degree degree,  DegreeName degreeName , Stripes stripes,String comments,
-			        String MAtype,String description,String DiplomaName,
+			        String officialID, String email, String title, String gender,String fName, String mName, String lName,String phone, String comments,
 			        SalTypeEnum salTypeEnum,float amount, Date givenDate,
-			        Date startDate,Date endDate)
+			        Date startDate,Date endDate,int isTrainer)
                 	{
-						super(officialID, email, title, gender, fName, mName, lName, phone, degree, stripes,comments);
-		                super.defaultAddress = new Address(address1, address2, city, zipCode, region, country);
-		    			this.mAType = new MaTypenew(MAtype,description);
-		    			this.diploma = new Diploma(DiplomaName);
-		    			this.salary = new Salary(salTypeEnumnumber(salTypeEnum), amount, givenDate);
+						super(officialID, email, title, gender, fName, mName, lName, phone, comments);
 		    			this.startDate = startDate;
 		    			this.endDate = endDate;
+		    			this.isInstructor = isTrainer;
 		    		}
 	
 	
+	public Employee()
+        	{
 
-	private int salTypeEnumnumber(SalTypeEnum salTypeEnum) {
-		int salTypeById=0;
-		switch (salTypeEnum.toString()) {
-		case ("ByHouer"):
-			salTypeById = 1;break;
-		case ("ByClass"):
-			salTypeById = 2;break;
-		case ("ByWeek"):
-			salTypeById = 3;break;
-		case ("ByMounth"):
-			salTypeById = 4;break;
-		case ("ByYear"):
-			salTypeById = 5;break;
-		}
-		return salTypeById;
-	}
+    		}
+	
 
 
 
@@ -138,25 +118,29 @@ public class Employee extends Person {
 	}
 
 
-	public MaTypenew getmAType() {
+	public int getmAType() {
 		return mAType;
 	}
 
 
-	public void setmAType(MaTypenew mAType) {
+	public void setmAType(int mAType) {
 		this.mAType = mAType;
 	}
 
 
 
-
-	public Diploma getDiploma() {
-		return diploma;
+	public int getIsInstructor() {
+		return isInstructor;
 	}
 
 
-	public void setDiploma(Diploma diploma) {
-		this.diploma = diploma;
+
+
+
+
+
+	public void setIsTrainer(int isInstructor) {
+		this.isInstructor = isInstructor;
 	}
 	
 	

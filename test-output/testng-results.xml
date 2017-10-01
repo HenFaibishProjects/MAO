@@ -2,35 +2,42 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="533" started-at="2017-09-07T06:00:56Z" finished-at="2017-09-07T06:00:56Z">
+  <suite name="Default suite" duration-ms="1540" started-at="2017-09-27T14:07:55Z" finished-at="2017-09-27T14:07:57Z">
     <groups>
-      <group name="addSizeToItem">
-        <method signature="StartNG.addSizeToItem(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.Mao.BackEndDev.StartNG@2f1de2d6]" name="addSizeToItem" class="com.Mao.BackEndDev.StartNG"/>
-      </group> <!-- addSizeToItem -->
     </groups>
-    <test name="Default test" duration-ms="533" started-at="2017-09-07T06:00:56Z" finished-at="2017-09-07T06:00:56Z">
+    <test name="Default test" duration-ms="1540" started-at="2017-09-27T14:07:55Z" finished-at="2017-09-27T14:07:57Z">
       <class name="com.Mao.BackEndDev.StartNG">
-        <test-method status="PASS" signature="addSizeToItem(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.Mao.BackEndDev.StartNG@2f1de2d6]" name="addSizeToItem" duration-ms="501" started-at="2017-09-07T09:00:56Z" data-provider="addSizeToItem" finished-at="2017-09-07T09:00:56Z">
+        <test-method status="PASS" signature="saleItemstoExistCustomer(java.util.Date, int, java.lang.String, float, java.lang.String)[pri:0, instance:com.Mao.BackEndDev.StartNG@63787180]" name="saleItemstoExistCustomer" duration-ms="1509" started-at="2017-09-27T17:07:56Z" data-provider="sellItemsExistingCustomer" finished-at="2017-09-27T17:07:57Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[FSD323SAD]]>
+                <![CDATA[Sun Jan 18 09:51:36 IST 1970]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[A4]]>
+                <![CDATA[2]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[notes]]>
+                <![CDATA[FSD32DSAAD]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[75.0]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[234234234423]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addSizeToItem -->
+        </test-method> <!-- saleItemstoExistCustomer -->
       </class> <!-- com.Mao.BackEndDev.StartNG -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

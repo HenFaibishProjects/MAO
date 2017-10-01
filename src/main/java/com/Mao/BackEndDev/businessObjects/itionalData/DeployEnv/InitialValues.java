@@ -98,113 +98,113 @@ public class InitialValues extends HibernateStructInfo{
 
 
 	public void addDegrees(){
-		Degree degree001 = new Degree(DegreeName.white, Stripes.None);
+		Degree degree001 = new Degree(DegreeName.white.toString(), Stripes.Three.toString());
 		super.saveObject(degree001);
-		Degree degree002 = new Degree(DegreeName.white, Stripes.One);
+		Degree degree002 = new Degree(DegreeName.white.toString(), Stripes.Four.toString());
 		super.saveObject(degree002);
-		Degree degree003 = new Degree(DegreeName.white, Stripes.Two);
+		Degree degree003 = new Degree(DegreeName.white.toString(), Stripes.Three.toString());
 		super.saveObject(degree003);
-		Degree degree004 = new Degree(DegreeName.white, Stripes.Three);
+		Degree degree004 = new Degree(DegreeName.white.toString(), Stripes.Three.toString());
 		super.saveObject(degree004);
-		Degree degree005 = new Degree(DegreeName.white, Stripes.Four);
+		Degree degree005 = new Degree(DegreeName.white.toString(), Stripes.Four.toString());
 		super.saveObject(degree005);
 
-		Degree degree006 = new Degree(DegreeName.gray, Stripes.None);
+		Degree degree006 = new Degree(DegreeName.gray.toString(), Stripes.Three.toString());
 		super.saveObject(degree006);
-		Degree degree007 = new Degree(DegreeName.gray, Stripes.One);
+		Degree degree007 = new Degree(DegreeName.gray.toString(), Stripes.Four.toString());
 		super.saveObject(degree007);
-		Degree degree008 = new Degree(DegreeName.gray, Stripes.Two);
+		Degree degree008 = new Degree(DegreeName.gray.toString(), Stripes.Three.toString());
 		super.saveObject(degree008);
-		Degree degree009 = new Degree(DegreeName.gray, Stripes.Three);
+		Degree degree009 = new Degree(DegreeName.gray.toString(), Stripes.Three.toString());
 		super.saveObject(degree009);
-		Degree degree010 = new Degree(DegreeName.gray, Stripes.Four);
+		Degree degree010 = new Degree(DegreeName.gray.toString(), Stripes.Four.toString());
 		super.saveObject(degree010);
 
-		Degree degree011 = new Degree(DegreeName.yellow, Stripes.None);
+		Degree degree011 = new Degree(DegreeName.yellow.toString(), Stripes.Three.toString());
 		super.saveObject(degree011);
-		Degree degree012 = new Degree(DegreeName.yellow, Stripes.One);
+		Degree degree012 = new Degree(DegreeName.yellow.toString(), Stripes.Four.toString());
 		super.saveObject(degree012);
-		Degree degree013 = new Degree(DegreeName.yellow, Stripes.Two);
+		Degree degree013 = new Degree(DegreeName.yellow.toString(), Stripes.Three.toString());
 		super.saveObject(degree013);
-		Degree degree014 = new Degree(DegreeName.yellow, Stripes.Three);
+		Degree degree014 = new Degree(DegreeName.yellow.toString(), Stripes.Three.toString());
 		super.saveObject(degree014);
-		Degree degree015 = new Degree(DegreeName.yellow, Stripes.Four);
+		Degree degree015 = new Degree(DegreeName.yellow.toString(), Stripes.Four.toString());
 		super.saveObject(degree015);
 
-		Degree degree016 = new Degree(DegreeName.orange, Stripes.None);
+		Degree degree016 = new Degree(DegreeName.orange.toString(), Stripes.Three.toString());
 		super.saveObject(degree016);
-		Degree degree017 = new Degree(DegreeName.orange, Stripes.One);
+		Degree degree017 = new Degree(DegreeName.orange.toString(), Stripes.Four.toString());
 		super.saveObject(degree017);
-		Degree degree018 = new Degree(DegreeName.orange, Stripes.Two);
+		Degree degree018 = new Degree(DegreeName.orange.toString(), Stripes.Three.toString());
 		super.saveObject(degree018);
-		Degree degree019 = new Degree(DegreeName.orange, Stripes.Three);
+		Degree degree019 = new Degree(DegreeName.orange.toString(), Stripes.Three.toString());
 		super.saveObject(degree019);
-		Degree degree020 = new Degree(DegreeName.orange, Stripes.Four);
+		Degree degree020 = new Degree(DegreeName.orange.toString(), Stripes.Four.toString());
 		super.saveObject(degree020);
 
-		Degree degree021 = new Degree(DegreeName.green, Stripes.None);
+		Degree degree021 = new Degree(DegreeName.green.toString(), Stripes.Three.toString());
 		super.saveObject(degree021);
-		Degree degree022 = new Degree(DegreeName.green, Stripes.One);
+		Degree degree022 = new Degree(DegreeName.green.toString(), Stripes.Four.toString());
 		super.saveObject(degree022);
-		Degree degree023 = new Degree(DegreeName.green, Stripes.Two);
+		Degree degree023 = new Degree(DegreeName.green.toString(), Stripes.Three.toString());
 		super.saveObject(degree023);
-		Degree degree024 = new Degree(DegreeName.green, Stripes.Three);
+		Degree degree024 = new Degree(DegreeName.green.toString(), Stripes.Three.toString());
 		super.saveObject(degree024);
-		Degree degree025 = new Degree(DegreeName.green, Stripes.Four);
+		Degree degree025 = new Degree(DegreeName.green.toString(), Stripes.Four.toString());
 		super.saveObject(degree025);
 
-		Degree degree026 = new Degree(DegreeName.blue, Stripes.None);
+		Degree degree026 = new Degree(DegreeName.blue.toString(), Stripes.Three.toString());
 		super.saveObject(degree026);
-		Degree degree1 = new Degree(DegreeName.blue, Stripes.One);
+		Degree degree1 = new Degree(DegreeName.blue.toString(), Stripes.Four.toString());
 		super.saveObject(degree1);
-		Degree degree027 = new Degree(DegreeName.blue, Stripes.Two);
+		Degree degree027 = new Degree(DegreeName.blue.toString(), Stripes.Three.toString());
 		super.saveObject(degree027);
-		Degree degree028 = new Degree(DegreeName.blue, Stripes.Three);
+		Degree degree028 = new Degree(DegreeName.blue.toString(), Stripes.Three.toString());
 		super.saveObject(degree028);
-		Degree degree029 = new Degree(DegreeName.blue, Stripes.Four);
+		Degree degree029 = new Degree(DegreeName.blue.toString(), Stripes.Four.toString());
 		super.saveObject(degree029);
 
-		Degree degree030 = new Degree(DegreeName.purple, Stripes.None);
+		Degree degree030 = new Degree(DegreeName.purple.toString(), Stripes.Three.toString());
 		super.saveObject(degree030);
-		Degree degree031 = new Degree(DegreeName.purple, Stripes.One);
+		Degree degree031 = new Degree(DegreeName.purple.toString(), Stripes.Four.toString());
 		super.saveObject(degree031);
-		Degree degree032 = new Degree(DegreeName.purple, Stripes.Two);
+		Degree degree032 = new Degree(DegreeName.purple.toString(), Stripes.Three.toString());
 		super.saveObject(degree032);
-		Degree degree033 = new Degree(DegreeName.purple, Stripes.Three);
+		Degree degree033 = new Degree(DegreeName.purple.toString(), Stripes.Three.toString());
 		super.saveObject(degree033);
-		Degree degree034 = new Degree(DegreeName.purple, Stripes.Four);
+		Degree degree034 = new Degree(DegreeName.purple.toString(), Stripes.Four.toString());
 		super.saveObject(degree034);
 
-		Degree degree035 = new Degree(DegreeName.brown, Stripes.None);
+		Degree degree035 = new Degree(DegreeName.brown.toString(), Stripes.Three.toString());
 		super.saveObject(degree035);
-		Degree degree036 = new Degree(DegreeName.brown, Stripes.One);
+		Degree degree036 = new Degree(DegreeName.brown.toString(), Stripes.Four.toString());
 		super.saveObject(degree036);
-		Degree degree037 = new Degree(DegreeName.brown, Stripes.Two);
+		Degree degree037 = new Degree(DegreeName.brown.toString(), Stripes.Three.toString());
 		super.saveObject(degree037);
-		Degree degree038 = new Degree(DegreeName.brown, Stripes.Three);
+		Degree degree038 = new Degree(DegreeName.brown.toString(), Stripes.Three.toString());
 		super.saveObject(degree038);
-		Degree degree039 = new Degree(DegreeName.brown, Stripes.Four);
+		Degree degree039 = new Degree(DegreeName.brown.toString(), Stripes.Four.toString());
 		super.saveObject(degree039);
 
-		Degree degreeb1 = new Degree(DegreeName.black, Stripes.None);
+		Degree degreeb1 = new Degree(DegreeName.black.toString(), Stripes.Three.toString());
 		super.saveObject(degreeb1);
-		Degree degreeb2 = new Degree(DegreeName.black1, Stripes.None);
+		Degree degreeb2 = new Degree(DegreeName.black1.toString(), Stripes.Three.toString());
 		super.saveObject(degreeb2);
-		Degree degreeb3 = new Degree(DegreeName.black2, Stripes.None);
+		Degree degreeb3 = new Degree(DegreeName.black2.toString(), Stripes.Three.toString());
 		super.saveObject(degreeb3);
-		Degree degreeb4 = new Degree(DegreeName.black3, Stripes.None);
+		Degree degreeb4 = new Degree(DegreeName.black3.toString(), Stripes.Three.toString());
 		super.saveObject(degreeb4);
-		Degree degreeb5 = new Degree(DegreeName.black4, Stripes.None);
+		Degree degreeb5 = new Degree(DegreeName.black4.toString(), Stripes.Three.toString());
 		super.saveObject(degreeb5);
-		Degree degreeb6 = new Degree(DegreeName.black5, Stripes.None);
+		Degree degreeb6 = new Degree(DegreeName.black5.toString(), Stripes.Three.toString());
 		super.saveObject(degreeb6);
-		Degree degreeb7 = new Degree(DegreeName.black6, Stripes.None);
+		Degree degreeb7 = new Degree(DegreeName.black6.toString(), Stripes.Three.toString());
 		super.saveObject(degreeb7);
-		Degree degreeb8 = new Degree(DegreeName.black7, Stripes.None);
+		Degree degreeb8 = new Degree(DegreeName.black7.toString(), Stripes.Three.toString().toString());
 		super.saveObject(degreeb8);
-		Degree degreeb9 = new Degree(DegreeName.black8, Stripes.None);
+		Degree degreeb9 = new Degree(DegreeName.black8.toString(), Stripes.Three.toString());
 		super.saveObject(degreeb9);
-		Degree degreeb10 = new Degree(DegreeName.black9, Stripes.None);
+		Degree degreeb10 = new Degree(DegreeName.black9.toString(), Stripes.Three.toString());
 		super.saveObject(degreeb10);
 
 
@@ -235,8 +235,8 @@ public class InitialValues extends HibernateStructInfo{
 
 		MaTypenew maTypenew8 = new MaTypenew("Sambo", null);
 		super.saveObject(maTypenew8);
-
-		MaTypenew maTypenew9 = new MaTypenew("Karate", null);
+		
+		MaTypenew maTypenew9 = new MaTypenew("ThaiBoxing", null);
 		super.saveObject(maTypenew9);
 
 		MaTypenew maTypenew10 = new MaTypenew("Aikido", null);
@@ -254,8 +254,7 @@ public class InitialValues extends HibernateStructInfo{
 		MaTypenew maTypenew14 = new MaTypenew("KongFu", null);
 		super.saveObject(maTypenew14);
 
-		MaTypenew maTypenew15 = new MaTypenew("ThaiBoxing", null);
-		super.saveObject(maTypenew15);
+		
 
 
 

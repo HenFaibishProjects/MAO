@@ -20,6 +20,7 @@ public class DropTables extends JdbcDbData {
 	public static String dropArivedFrom = "DROP TABLE arivedFrom";
 	public static String dropSalaryType = "DROP TABLE salaryType";
 	public static String dropClassLevel = "DROP TABLE classLevel";
+	public static String dropMaTypeToTrainer = "DROP TABLE MaTypeToTrainer";
 	public static String dropDegrees = "DROP TABLE degree";
 	public static String dropmatype = "DROP TABLE maTypeTable";
 	public static String dropMemberType = "DROP TABLE memberType";                
@@ -40,9 +41,14 @@ public class DropTables extends JdbcDbData {
 	public static String dropLenthsize = "DROP TABLE lenthsize ";
 	public static String droSsizeItems = "DROP TABLE  sizesitems";
 	public static String dropItems = "DROP TABLE Items";
+	public static String dropMatypetoinstructor = "DROP TABLE matypetoinstructor ";
+	public static String dropItemsbyspuuliyers = "DROP TABLE itemsbyspuuliyers ";
+	public static String dropMatypetrainer = "DROP TABLE matypetrainer ";
+	public static String dropStock = "DROP TABLE stock ";
+	public static String dropPurchaseitems = "DROP TABLE purchaseitems";
+	public static String dropSaleitems = "DROP TABLE saleitems";
 
-
-
+	
 
 	public static void doit() throws Exception {
 
@@ -70,6 +76,10 @@ public class DropTables extends JdbcDbData {
 			executeTheQuerty(dropClassLevel).executeUpdate();
 			System.out.println("classLevel deleted"); }
 
+		if (checkifTableExists("MaTypeToTrainer")==1)  {
+			executeTheQuerty(dropMaTypeToTrainer).executeUpdate();
+			System.out.println("MaTypeToTrainer deleted"); }
+
 		if (checkifTableExists("degree")==1)  {
 			executeTheQuerty(dropDegrees).executeUpdate();
 			System.out.println("degrees deleted"); }
@@ -77,6 +87,11 @@ public class DropTables extends JdbcDbData {
 		if (checkifTableExists("maTypeTable")==1)  {
 			executeTheQuerty(dropmatype).executeUpdate();
 			System.out.println("maTypeTable deleted"); }
+
+		if (checkifTableExists("matypetoinstructor")==1)  {
+			executeTheQuerty(dropMatypetoinstructor).executeUpdate();
+			System.out.println("Matypetoinstructor deleted"); }
+
 
 		if (checkifTableExists("diploma")==1)  {
 			executeTheQuerty(dropDiploma).executeUpdate();
@@ -114,7 +129,6 @@ public class DropTables extends JdbcDbData {
 			executeTheQuerty(dropInsurance).executeUpdate();
 			System.out.println("insurance deleted"); }
 
-
 		if (checkifTableExists("indices")==1)  {
 			executeTheQuerty(dropindices).executeUpdate();
 			System.out.println("indices deleted"); }
@@ -123,20 +137,40 @@ public class DropTables extends JdbcDbData {
 			executeTheQuerty(dropItemsColors).executeUpdate();
 			System.out.println("ItemsColors deleted"); }
 
-
 		if (checkifTableExists("lenthsize")==1)  {
 			executeTheQuerty(dropLenthsize).executeUpdate();
 			System.out.println("lenthsize deleted"); }
-
-
 
 		if (checkifTableExists("sizesitems")==1)  {
 			executeTheQuerty(droSsizeItems).executeUpdate();
 			System.out.println("sizeItems deleted"); }
 
+
+		if (checkifTableExists("purchaseitems")==1)  {
+			executeTheQuerty(dropPurchaseitems).executeUpdate();
+			System.out.println("purchaseitems deleted"); }
+
+		
+		if (checkifTableExists("saleitems")==1)  {
+			executeTheQuerty(dropSaleitems).executeUpdate();
+			System.out.println("saleitems deleted"); }
+		
+		
+		if (checkifTableExists("stock")==1)  {
+			executeTheQuerty(dropStock).executeUpdate();
+			System.out.println("stock deleted"); }
+
 		if (checkifTableExists("Items")==1)  {
 			executeTheQuerty(dropItems).executeUpdate();
 			System.out.println("Items deleted"); }
+
+		if (checkifTableExists("itemsbyspuuliyers")==1)  {
+			executeTheQuerty(dropItemsbyspuuliyers).executeUpdate();
+			System.out.println("Itemsbyspuuliyers deleted"); }
+
+		if (checkifTableExists("matypetrainer")==1)  {
+			executeTheQuerty(dropMatypetrainer).executeUpdate();
+			System.out.println("matypetrainer deleted"); }
 
 	}
 }

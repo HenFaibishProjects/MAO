@@ -15,7 +15,7 @@ public class Currency {
 	@Column(name="CurencyID")
 	public int curencyID;
 	@Column(name="suppliyerID")
-	public int suppliyerID;
+	public String suppliyerID;
 	@Column(name="USDollars")
 	public short usDollars;
 	@Column(name="Nis")
@@ -27,7 +27,7 @@ public class Currency {
 
 
 
-	public Currency(int suppliyerID, short usDollars, short nis, short euro, short auDollars) {
+	public Currency(String suppliyerID, short usDollars, short nis, short euro, short auDollars) {
 		this.suppliyerID = suppliyerID;
 		this.usDollars = usDollars;
 		this.nis = nis;
@@ -93,7 +93,7 @@ public class Currency {
 
 
 
-	public int getSuppliyerID() {
+	public String getSuppliyerID() {
 		return suppliyerID;
 	}
 

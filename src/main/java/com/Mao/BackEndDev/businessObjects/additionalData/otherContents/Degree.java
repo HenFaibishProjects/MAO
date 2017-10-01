@@ -16,15 +16,15 @@ public class Degree {
 	@Column(name="DegreeID")
 	int degreeID;
 	@Column(name="Belt")
-	DegreeName degreeName;
-    Stripes stripes;
+	String belt;
+    String stripes;
 
 	public Degree() {
 	}
 	
 	
-	public Degree(DegreeName degreeName,Stripes stripes) {
-		this.degreeName = degreeName;
+	public Degree(String belt,String stripes) {
+		this.belt = belt;
 		this.stripes = stripes;
 	}
 
@@ -40,12 +40,12 @@ public class Degree {
 
 
 	public String getDegreeName() {
-		return degreeName.toString();
+		return belt.toString();
 	}
 
 
-	public void setDegreeName(DegreeName degreeName) {
-		this.degreeName = degreeName;
+	public void setDegreeName(String degreeName) {
+		this.belt = degreeName;
 	}
 
 
@@ -54,7 +54,7 @@ public class Degree {
 	}
 
 
-	public void setStripes(Stripes stripes) {
+	public void setStripes(String stripes) {
 		this.stripes = stripes;
 	}
 

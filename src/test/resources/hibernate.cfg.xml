@@ -43,13 +43,18 @@
    <mapping class = "com.Mao.BackEndDev.businessObjects.additionalData.otherContents.ClassLevel"/>
    <mapping class = "com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Customers"/>
    <mapping class = "com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Indices"/>
+   <mapping class = "com.Mao.BackEndDev.businessObjects.hr.PeopleContent.MaTypeToInstructor"/>
+   <mapping class = "com.Mao.BackEndDev.businessObjects.hr.PeopleContent.MaTypeTrainer"/>
    <mapping class = "com.Mao.BackEndDev.businessObjects.hr.PeopleContent.MemberType"/>
    <mapping class = "com.Mao.BackEndDev.businessObjects.Materials.itemsContect.Items"/>
    <mapping class = "com.Mao.BackEndDev.businessObjects.Materials.itemsContect.ItemtsColors"/>
    <mapping class = "com.Mao.BackEndDev.businessObjects.Materials.itemsContect.LenthSize"/>
    <mapping class = "com.Mao.BackEndDev.businessObjects.Materials.itemsContect.SizesItems"/>
    <mapping class = "com.Mao.BackEndDev.businessObjects.Materials.itemsContect.ItemtsColors"/>
-   
+   <mapping class = "com.Mao.BackEndDev.businessObjects.Materials.itemsContect.ItemsBySpuuliers"/>
+   <mapping class = "com.Mao.BackEndDev.businessObjects.Materials.itemsContect.Stock"/>
+   <mapping class = "com.Mao.BackEndDev.businessObjects.Materials.itemsContect.PurchaseItems"/>
+   <mapping class = "com.Mao.BackEndDev.businessObjects.Materials.itemsContect.SaleItems"/>
    
    
    

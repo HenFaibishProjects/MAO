@@ -3,19 +3,17 @@ package com.Mao.BackEndDev;
 import java.util.Date;
 
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
-import com.Mao.BackEndDev.businessObjects.Materials.itemsContect.ItemtsColors;
 import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.AdditionalToItemColor;
 import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.EnumCatergoty;
 import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.EnumColor;
 import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.EnumItemList;
 import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.EnumsizesItems;
-import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.Degree;
-import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.DegreeName;
-import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.Stripes;
 import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Durationmembership;
 import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.ParticipateClasses;
 import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.SalTypeEnum;
+import com.Mao.BackEndDev.datalayer.DaoImplements.CustomersDaoImplement;
 
 public class DataPoviderInitialValues {
 
@@ -25,10 +23,9 @@ public class DataPoviderInitialValues {
 	public static Object[][] addingCustomers() throws Exception {
 		Date date = new Date();
 		date.setTime(1497096009);
-		Degree degree = new Degree(DegreeName.black, Stripes.None);
 		return new Object[][] {
 			{
-				"Lea-David", "", "Haifa", 2342342, "Haifa-Krayot", "Israel", "234234234423", "Roy.Dekel@solaredge.com", "MR", "Male", "Roy", "TheRock", "Dekel", "052-858745847", degree, Stripes.None, "An exemple Customer", Durationmembership.Semester, date, ParticipateClasses.TwoTimesPerWeek, "An exemple Customer", date, date, 178, 85f, 160, 80, 85, 18f},
+				"Lea-David", "", "Haifa", 2342342, "Haifa-Krayot", "Israel", "234234234423", "Roy.Dekel@solaredge.com", "MR", "Male", "Roy", "TheRock", "Dekel", "052-858745847", "An exemple Customer", Durationmembership.Semester, date, ParticipateClasses.TwoTimesPerWeek, "An exemple Customer", date, date, 178, 85f, 160, 80, 85, 18f},
 		};
 	}
 
@@ -38,8 +35,9 @@ public class DataPoviderInitialValues {
 		date.setTime(1497096009);
 		return new Object[][] {
 
-			{"harduf 36", "hatzav", "TelAviv", 34234, "Center", "Israel", "3321414123", "tonimanda@gmail.com", "Miss",   "Femail", "Toni", "Laura", "Manda", "052-52525252", DegreeName.black1,Stripes.None, "Exemple-Employee", "Karate", "test The System",  "GCenter", SalTypeEnum.ByHouer, 85f, date, date, date},
-			{"dardan 80", "etzyon", "Haifa",   2232,  "North",  "Israel", "3321414113", "elilevi@gmail.com",   "Mister", "Mail",   "Eli",   " " ,   "Levi",  "052-52525252", DegreeName.black2,Stripes.None, "Exemple-Employee", "Bjj",     "test The System", "GCenter", SalTypeEnum.ByClass, 180f, date, date, date},
+			{"ballon 12", "shdera", "Nesher",   221454,  "North",  "Israel", "2221414113", "davidlevi@gmail.com",   "Mister", "Mail",   "David",   " " ,   "Levi",  "054-51125252", "Exemple-Employee",     "test The System", "GCenter", SalTypeEnum.ByClass, 180f, date, date, date,1},
+			{"harduf 36", "hatzav", "TelAviv", 34234, "Center", "Israel", "3321414123", "tonimanda@gmail.com", "Miss",   "Femail", "Toni", "Laura", "Manda", "052-52525252", "Exemple-Employee",  "test The System",  "GCenter", SalTypeEnum.ByHouer, 85f, date, date, date,0},
+			{"dardan 80", "etzyon", "Haifa",   2232,  "North",  "Israel", "3321414113", "elilevi@gmail.com",   "Mister", "Mail",   "Eli",   " " ,   "Levi",  "052-52525252", "Exemple-Employee",    "test The System", "GCenter", SalTypeEnum.ByWeek, 18f, date, date, date,1},
 		};
 	}
 
@@ -49,7 +47,7 @@ public class DataPoviderInitialValues {
 		Date date = new Date();
 		date.setTime(1497096009);
 		return new Object[][] {
-			{ EnumItemList.BagsGloves,"GlovesPro","DR4","JVX",date,"FSD323SAD",35.5f,EnumCatergoty.Amature,"comment1",36,20f,30f,1.6f,"Israel",EnumColor.PURPLE.toString(),AdditionalToItemColor.logo.toString()}
+			{ EnumItemList.BagsGloves,"GlovesPro","DR5","J324X",date,"FSD32DSAAD",35.5f,EnumCatergoty.Pro,"comment2",36,20f,30f,1.6f,"Israel",EnumColor.LIGHTBLUE.toString(),AdditionalToItemColor.mixedColors.toString(),1}
 		};
 	}  
 
@@ -58,14 +56,118 @@ public class DataPoviderInitialValues {
 	@DataProvider(name = "addAnotherColorToTheItem")
 	public static Object[][] addAnotherColorToTheItem() throws Exception {
 		return new Object[][] {
-			{  "FSD323SAD",AdditionalToItemColor.logo.toString(),EnumColor.GREY.toString()}
+			{  "FSD32DSAAD",AdditionalToItemColor.logo.toString(),EnumColor.GREY.toString()}
 		};
 	} 
 
 	@DataProvider(name = "addSizeToItem")
 	public static Object[][] addSizeToItem() throws Exception {
 		return new Object[][] {
-			{"FSD323SAD", EnumsizesItems.A4.toString(),"notes",}
+			{"FSD32DSAAD", EnumsizesItems.A4.toString(),"notes",}
 		};
 	} 
+	@DataProvider(name = "addMATypeAndDiplomaPerInstructor")
+	public static Object[][] addMATypeAndDiplomaPerInstructor() throws Exception {
+		Date date = new Date();
+		date.setTime(1497096009);
+		return new Object[][] {
+			{   
+				"2221414113", "karate", "Black01", 0, "General", "Winagte", date	
+			}
+		};
+	} 
+
+	@DataProvider(name = "changeBelt")
+	public static Object[][] changeBelt() throws Exception {
+		return new Object[][] {
+			{   
+				"2221414113", "karate", "Black02"	
+			}
+		};
+	} 
+
+	@DataProvider(name = "changeNumberOfStripes")
+	public static Object[][] changeNumberOfStripes() throws Exception {
+		return new Object[][] {
+			{   
+				"2221414113", "karate", 1	
+			}
+		};
+	} 
+
+	@DataProvider(name = "changeDiplomaName")
+	public static Object[][] changeDiplomaName() throws Exception {
+		return new Object[][] {
+			{   
+				"2221414113", "karate", "Special"	
+			}
+		};
+	} 
+
+	@DataProvider(name = "changeDiplomaSchooleName")
+	public static Object[][] changeDiplomaSchooleName() throws Exception {
+		return new Object[][] {
+			{   
+				"2221414113", "karate", "UN-Tel Aviv"	
+			}
+		};
+	} 
+
+
+	@DataProvider(name = "addDegreeToSpecifiCustomer")
+	public static Object[][] addDegreeToSpecifiCustomer() throws Exception {
+		return new Object[][] {
+			{   
+				"234234234423", "karate", "Blue",2	
+			}
+		};
+	} 
+
+
+	@DataProvider(name = "changeDegreeToSpecifiCustomer")
+	public static Object[][] changeDegreeToSpecifiCustomer() throws Exception {
+		
+		return new Object[][] {
+			{   
+				"234234234423", "karate", "Blue",3
+			}
+		};
+	} 
+
+	@DataProvider(name = "purchaseItemsFromSupplier")
+	public static Object[][] purchaseItemsFromSupplier() throws Exception {
+		Date date = new Date();
+		date.setTime(1497096009);
+		return new Object[][] {
+			{   // Date purchaseDate, int quantityPurchase, String barCode,float pricePurchaseItems
+				date, 10, "FSD32DSAAD",45f
+			}
+		};
+	} 
+
+	@DataProvider(name = "sellItemsExistingCustomer")
+	public static Object[][] sellItemsExistingCustomer() throws Exception {
+		Date date = new Date();
+		date.setTime(1497096009);
+		return new Object[][] {
+			{    // Date sellDate, int quantityPurchase, String barCode,float priceSaleItems,String OfficialID
+				date, 2, "FSD32DSAAD",75f,"234234234423"
+			}
+		};
+	} 
+
+	@DataProvider(name = "sellItemsPublicCustomer")
+	public static Object[][] sellItemsPublicCustomer() throws Exception {
+		Date date = new Date();
+		date.setTime(1497096009);
+		return new Object[][] {
+			{    // Date sellDate, int quantityPurchase, String barCode,float priceSaleItems
+				date, 2, "FSD32DSAAD",80f
+			}
+		};
+	} 
+
+	
+	
+
 }

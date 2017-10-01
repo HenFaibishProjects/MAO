@@ -28,8 +28,6 @@ public class Items  {
 	protected String manufacturer;
 	protected Date firstArrived;
 	protected String barCode;
-	@OneToMany(mappedBy = "suplyCode")
-	protected List<Supplier> supliyerShops = new ArrayList<Supplier>(); 
 	protected float weight;
 	protected EnumCatergoty category;
 	protected String comments;
@@ -47,7 +45,6 @@ public class Items  {
 		this.manufacturer = manufacturer;
 		this.firstArrived = firstArrived;
 		this.barCode = barCode;
-		this.supliyerShops = null;
 		this.weight = weight;
 		this.category = category;
 		this.comments = comments;
@@ -118,16 +115,6 @@ public class Items  {
 
 	public void setBarode(String barode) {
 		this.barCode = barode;
-	}
-
-
-	public List<Supplier> getSupliyerShops() {
-		return supliyerShops;
-	}
-
-
-	public void setSupliyerShops(List<Supplier> supliyerShops) {
-		this.supliyerShops = supliyerShops;
 	}
 
 

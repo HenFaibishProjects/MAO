@@ -35,6 +35,7 @@ public class Customers extends Person {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ArrivefromID")
 	protected ArivedFrom arrivedFrom;
+
 	
 	
 	
@@ -42,22 +43,21 @@ public class Customers extends Person {
 	
 	public Customers(String address1, String address2, String city, int zipCode, String region, String country,
 			String officialID, String email, String title, String gender,String fName, String mName, String lName,
-			String phone, Degree degree, Stripes stripes,String comments,Durationmembership durationmembership, 
+			String phone,String comments,Durationmembership durationmembership, 
 			Date startDate,ParticipateClasses participateClasses, String notes,Date birthDay,Date measurementDate,
 			int high, float weight, int bloodPressureSystolic,int bloodPressureDiastolic, int pulsePressure,
 			float fatPercentage) {
 		     
-		super(officialID, email, title, gender, fName, mName, lName, phone, degree, stripes, comments);
-		super.defaultAddress = new Address(address1, address2, city, zipCode, region, country);
-		this.birthDay = birthDay;
-		this.indices = new Indices(new Date(), high, weight, bloodPressureSystolic, bloodPressureDiastolic, pulsePressure, fatPercentage);
+		super(officialID, email, title, gender, fName, mName, lName, phone, comments);
+		this.indices = new Indices(startDate, high, weight, bloodPressureSystolic, bloodPressureDiastolic, pulsePressure, fatPercentage);
 		this.memberType = new MemberType(durationmembership, startDate, participateClasses, notes);
+		this.birthDay = birthDay;
 		this.arrivedFrom = null;
 	}
 	
 	
 	public Customers(Boolean IsAnOccasionalCustomer) {
-		super("00000000", null, null, null, null, null, null, null, null, null, "This is an AnOccasionalCustomer"); 
+		super("00000000", null, null, null, null, null, null, null, "This is an AnOccasionalCustomer"); 
 		this.birthDay = null;
 		this.arrivedFrom = null;
 		

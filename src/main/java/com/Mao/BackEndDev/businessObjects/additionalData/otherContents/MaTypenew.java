@@ -34,6 +34,11 @@ public class MaTypenew {
 	}
 	
 	
+	public MaTypenew(String type) {
+		this.type = type;
+		this.description = "";
+	}
+	
 	//****** Getters and Setters ******************
 	
 	public int getId() {

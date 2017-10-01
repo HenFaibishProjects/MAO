@@ -20,7 +20,7 @@ import com.Mao.BackEndDev.datalayer.DaoInterfaces.SuplierDao;
 import com.Mao.BackEndDev.datalayer.DbConnections.HibernateStructInfo;
 
 
-public class SuplierDaoImplement extends HibernateStructInfo implements SuplierDao {
+public class SuplierDaoImplement extends HibernateStructInfo {
 
 	static final Logger LOG = LoggerFactory.getLogger(SuplierDaoImplement.class);
 	
@@ -30,19 +30,28 @@ public class SuplierDaoImplement extends HibernateStructInfo implements SuplierD
 	public Currency currency;
 	 
 	
- 
-
-	
-	public void addSuppliyerWithHibernate(short usDollars, short nis , short euro , short auDollars ,short sunday, short monday, short tuesday,short  wednesday, short thursday, short friday, short saturday,
-			int suplyCode, String name, String id, String phone ,String website,String email ,
+	public void addSuppliyerWithHibernate(short usDollars, short nis , short euro , short auDollars ,short sunday, 
+			short monday, short tuesday,short  wednesday, short thursday, short friday, short saturday,
+			String suplyCode, String name, String id, String phone ,String website,String email ,
 			String address1 , String address2 , String city , String country , String region , int zipCode)
 	{
 		Supplier supplier = new Supplier (
 				usDollars,  nis ,  euro ,  auDollars ,   //Currency
 				sunday, monday, tuesday, wednesday, thursday, friday, saturday,  //Days of the week
 				address1, address2,city,zipCode,region,country, // Address
-				name,id,phone ,website,email, null); //other columns
-		super.saveObject(supplier);   
+				name,id,phone ,website,email); //other columns
+		
+		Currency currency = new Currency(suplyCode, usDollars, nis, euro, auDollars);
+		DaysOfTheWeek daysOfTheWeek = new DaysOfTheWeek(suplyCode, sunday, monday, tuesday, wednesday, thursday, friday, saturday);
+		Address supplier_default_address = new Address(suplyCode,address1,address2,city,zipCode,region,country);
+		
+		super.saveObject(currency);  
+		super.saveObject(daysOfTheWeek); 
+		super.saveObject(supplier_default_address); 
+		super.saveObject(supplier);
+
+		 
+		
 
 	}
 
@@ -170,6 +179,9 @@ public class SuplierDaoImplement extends HibernateStructInfo implements SuplierD
 		System.out.println(address.toString());
 		saveOrUpdate(address);
 	}
+
+
+	
 
 
 }

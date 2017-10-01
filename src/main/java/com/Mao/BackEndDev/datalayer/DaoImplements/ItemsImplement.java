@@ -9,6 +9,7 @@ import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.Mao.BackEndDev.businessObjects.Materials.itemsContect.Items;
+import com.Mao.BackEndDev.businessObjects.Materials.itemsContect.ItemsBySpuuliers;
 import com.Mao.BackEndDev.businessObjects.Materials.itemsContect.ItemtsColors;
 import com.Mao.BackEndDev.businessObjects.Materials.itemsContect.LenthSize;
 import com.Mao.BackEndDev.businessObjects.Materials.itemsContect.SizesItems;
@@ -19,6 +20,7 @@ import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.EnumItemList;
 import com.Mao.BackEndDev.businessObjects.Materials.itemsEnums.EnumsizesItems;
 import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Employee;
 import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Salary;
+import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Supplier;
 import com.Mao.BackEndDev.datalayer.DbConnections.HibernateStructInfo;
 
 public class ItemsImplement extends HibernateStructInfo  {
@@ -37,6 +39,14 @@ public class ItemsImplement extends HibernateStructInfo  {
 
 	}
 
+	
+	public Supplier getUniqueObjectResultBySupplier(int suplyCode){  
+		beginTranscation();
+		Criteria criteria = session.createCriteria(Supplier.class);
+		criteria.add(Restrictions.eq("suplyCode", suplyCode));
+		return (Supplier) criteria.uniqueResult();
+
+	}
 
 //	public LenthSize getUniqueObjectResultByBarCodeLenthSize(String barCode){  
 //		beginTranscation();
@@ -87,6 +97,11 @@ public class ItemsImplement extends HibernateStructInfo  {
 		super.saveObject(sizesItems);
 }
 	
+	public void addItemsBySpuuliyers(String barCode,int code , Date entress) {
+		ItemsBySpuuliers itemsBySpuuliyers = new ItemsBySpuuliers(getUniqueObjectResultByBarCode(barCode).getItemnumber(),getUniqueObjectResultBySupplier(code).getId(),entress);
+		super.saveObject(itemsBySpuuliyers);
+	}
+	//ItemsBySpuuliyers
 
 	public void setsubitemlist(String barCode,EnumItemList subitemlist){
 		items = getUniqueObjectResultByBarCode(barCode);

@@ -25,15 +25,6 @@ public class Supplier {
 	protected String phone; 
 	protected String website;
 	protected String email;  
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "addressID")
-	protected Address supplier_default_address;
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "DaysOfTheWeek")
- 	protected DaysOfTheWeek daysOfTheWeek;
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "Currency")
- 	protected Currency currency;
 	String taxScan;
 	@Nonnull
 	private byte isActive=1;
@@ -44,10 +35,7 @@ public class Supplier {
 	
 	}
 	
-	public Supplier(short usDollars, short nis , short euro , short auDollars ,short sunday, short monday, short tuesday,short  wednesday, short thursday, short friday, short saturday ,String address1, String address2, String city, int zipCode, String region, String country, String name, String id, String phone ,String website,String email, ArrayList<DaysOfTheWeekEnum> daysOfTheWeek) {
-		this.currency = new Currency(suplyCode, usDollars, nis, euro, auDollars);
-		this.daysOfTheWeek = new DaysOfTheWeek(suplyCode, sunday, monday, tuesday, wednesday, thursday, friday, saturday);
-		this.supplier_default_address = new Address(address1,address2,city,zipCode,region,country);
+	public Supplier(short usDollars, short nis , short euro , short auDollars ,short sunday, short monday, short tuesday,short  wednesday, short thursday, short friday, short saturday ,String address1, String address2, String city, int zipCode, String region, String country, String name, String id, String phone ,String website,String email) {
 		this.name = name;
 		this.id = id;
 		this.phone = phone;
@@ -113,21 +101,6 @@ public class Supplier {
 		this.email = email;
 	}
 
-	public Address getSupplier_default_address() {
-		return supplier_default_address;
-	}
-
-	public void setSupplier_default_address(Address supplier_default_address) {
-		this.supplier_default_address = supplier_default_address;
-	}
-
-	public DaysOfTheWeek getDaysOfTheWeek() {
-		return daysOfTheWeek;
-	}
-
-	public void setDaysOfTheWeek(DaysOfTheWeek daysOfTheWeek) {
-		this.daysOfTheWeek = daysOfTheWeek;
-	}
 
 	public String getTaxScan() {
 		return taxScan;

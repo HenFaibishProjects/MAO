@@ -17,7 +17,8 @@ public class Address  {
 	
        @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	   @Column(name="addressID")
-       public int addressID;   
+       public int addressID; 
+       public String personIdOrSupplierCode;
 	   @Column(name="address1")
 	   public String address1;	
 	   @Column(name="address2")
@@ -37,8 +38,9 @@ public class Address  {
 		
 	   
 	   
-	public Address(String address1, String address2, String city, int zipCode, String region, String country) {
+	public Address(String personIdOrSupplierCode,String address1, String address2, String city, int zipCode, String region, String country) {
 		super();
+		this.personIdOrSupplierCode = personIdOrSupplierCode;
 		this.address1 = address1;
 		this.address2 = address2;
 		this.city = city;
@@ -87,6 +89,15 @@ public class Address  {
 	}
 	public void setCountry(String country) {
 		this.country = country;
+	}
+	   public String getPersonIdOrSupplierCode() {
+		return personIdOrSupplierCode;
+	}
+
+
+
+	public void setPersonIdOrSupplierCode(String personIdOrSupplierCode) {
+		this.personIdOrSupplierCode = personIdOrSupplierCode;
 	}
 	
 	
