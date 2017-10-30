@@ -55,7 +55,11 @@
    <mapping class = "com.Mao.BackEndDev.businessObjects.Materials.itemsContect.Stock"/>
    <mapping class = "com.Mao.BackEndDev.businessObjects.Materials.itemsContect.PurchaseItems"/>
    <mapping class = "com.Mao.BackEndDev.businessObjects.Materials.itemsContect.SaleItems"/>
-   
+   <mapping class = "com.Mao.BackEndDev.businessObjects.hr.Schools.Account"/>
+   <mapping class = "com.Mao.BackEndDev.businessObjects.hr.Schools.Role"/>
+   <mapping class = "com.Mao.BackEndDev.businessObjects.hr.Schools.School"/>
+   <mapping class = "com.Mao.BackEndDev.businessObjects.hr.Schools.SchoolOutpostAddress"/>
+   <mapping class = "com.Mao.BackEndDev.businessObjects.hr.Schools.Outpost"/>
    
    
  

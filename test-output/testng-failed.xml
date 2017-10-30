@@ -5,7 +5,7 @@
     <classes>
       <class name="com.Mao.BackEndDev.StartNG">
         <methods>
-          <include name="saleItemstoPublicCustomer"/>
+          <include name="addNewSchool" invocation-numbers="0"/>
         </methods>
       </class> <!-- com.Mao.BackEndDev.StartNG -->
     </classes>

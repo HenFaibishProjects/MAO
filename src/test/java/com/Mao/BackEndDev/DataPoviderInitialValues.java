@@ -126,7 +126,7 @@ public class DataPoviderInitialValues {
 
 	@DataProvider(name = "changeDegreeToSpecifiCustomer")
 	public static Object[][] changeDegreeToSpecifiCustomer() throws Exception {
-		
+
 		return new Object[][] {
 			{   
 				"234234234423", "karate", "Blue",3
@@ -167,7 +167,19 @@ public class DataPoviderInitialValues {
 		};
 	} 
 
-	
-	
+	@DataProvider(name = "addNewSchool")
+	public static Object[][] addNewSchool() throws Exception {
+		Date date = new Date();
+		date.setTime(1497096009);
+		//String name, String mainTelNumber, String personIdOrSupplierCode,String address1, String address2, String city, int zipCode, String region, String country, String commnets,
+		//String managerFullName, String email, String wbesite,
+		//String useNname, String password, Date creationTime
+		return new Object[][] {
+			{"HP99123","MMA Israel","09-9873231","999209320","David Pinkas",null,"Netania",23121,"Sharon","Israel",null,"Amir Boaron","mmaisrael@mma.com","www.mmaisrael.co.il","amirb","password",date}};
+
+	}
+
+
+
 
 }

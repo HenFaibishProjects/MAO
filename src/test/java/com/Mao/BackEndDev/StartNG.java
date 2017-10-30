@@ -24,12 +24,14 @@ import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.Stripes;
 import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Durationmembership;
 import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.ParticipateClasses;
 import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.SalTypeEnum;
+import com.Mao.BackEndDev.businessObjects.hr.Schools.Role;
 import com.Mao.BackEndDev.businessObjects.itionalData.DeployEnv.DropTables;
 import com.Mao.BackEndDev.businessObjects.itionalData.DeployEnv.InitialValues;
 import com.Mao.BackEndDev.datalayer.DaoImplements.CustomersDaoImplement;
 import com.Mao.BackEndDev.datalayer.DaoImplements.EmployeeDaoImpl;
 import com.Mao.BackEndDev.datalayer.DaoImplements.ItemsImplement;
 import com.Mao.BackEndDev.datalayer.DaoImplements.PurchaseImplement;
+import com.Mao.BackEndDev.datalayer.DaoImplements.SchoolImplement;
 import com.Mao.BackEndDev.datalayer.DaoImplements.SellingImplement;
 import com.Mao.BackEndDev.datalayer.DaoImplements.SuplierDaoImplement;
 
@@ -204,6 +206,16 @@ public class StartNG {
 		SellingImplement sellingImplement =new SellingImplement();
 		sellingImplement.addSalePublicCustomer(sellDate, quantityPurchase, barCode, priceSaleItems);	
 		}
+	
+	@Test(enabled = true,dataProviderClass = DataPoviderInitialValues.class, dataProvider = "addNewSchool")
+	public void addNewSchool(String uniqueId,String name, String mainTelNumber, String personIdOrSupplierCode,String address1, String address2, String city, int zipCode, String region, String country, String commnets,
+			String managerFullName, String email, String wbesite,
+			String useNname, String password, Date creationTime) {
+		SchoolImplement schoolImplement = new SchoolImplement();
+		schoolImplement.addScoole(uniqueId,name, mainTelNumber, personIdOrSupplierCode, address1, address2, city, zipCode, region, country, commnets, managerFullName, email, wbesite, useNname, password, creationTime);
+		
+	}
+	
 }
 
 

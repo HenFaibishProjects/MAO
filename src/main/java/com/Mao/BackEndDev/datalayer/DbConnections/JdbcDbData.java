@@ -58,4 +58,8 @@ public abstract class JdbcDbData  {
 		return x;
 	}
 	
+	public static void initdb() throws SQLException, ClassNotFoundException{
+		JdbcDbDataa();
+	}
+	
 }

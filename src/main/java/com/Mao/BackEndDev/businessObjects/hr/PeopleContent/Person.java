@@ -30,6 +30,8 @@ public abstract class Person {
 	@Nonnull
 	private byte isActive=1;
 	protected String commentns;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "schoolID")
 	protected School school;
 	
 	

@@ -19,6 +19,7 @@ import com.Mao.BackEndDev.businessObjects.additionalData.otherContents.Stripes;
 import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.Durationmembership;
 import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.ParticipateClasses;
 import com.Mao.BackEndDev.businessObjects.hr.PeopleContent.SalTypeEnum;
+import com.Mao.BackEndDev.businessObjects.hr.Schools.Role;
 import com.Mao.BackEndDev.datalayer.DaoImplements.CustomersDaoImplement;
 import com.Mao.BackEndDev.datalayer.DaoImplements.EmployeeDaoImpl;
 import com.Mao.BackEndDev.datalayer.DaoImplements.SuplierDaoImplement;
@@ -30,6 +31,13 @@ public class InitialValues extends HibernateStructInfo{
 
 	public void initialHRValuesIntoDB(){
 
+		try {
+			addRoles();
+		} catch (Exception e) {
+			LOG.error("Can not populate table Role");
+			e.printStackTrace();
+		}
+		
 		try {
 			addArivedFrom();
 		} catch (Exception e) {
@@ -63,6 +71,26 @@ public class InitialValues extends HibernateStructInfo{
 			e.printStackTrace();
 		}
 
+	}
+
+
+	private void addRoles() {
+		
+		Role role = new Role("MAOAdmin");
+		super.saveObject(role);
+		Role role1 = new Role("SchoolAdmin");
+		super.saveObject(role1);
+		Role role2 = new Role("OutPostAdmin");
+		super.saveObject(role2);
+		Role role3 = new Role("SchoolOperator");
+		super.saveObject(role3);
+		Role role4 = new Role("OutpostOperator");
+		super.saveObject(role4);
+		Role role5 = new Role("SchoolViewer");
+		super.saveObject(role5);
+		Role role6 = new Role("OutpostViewer");
+		super.saveObject(role6);
+		
 	}
 
 
@@ -254,13 +282,8 @@ public class InitialValues extends HibernateStructInfo{
 		MaTypenew maTypenew14 = new MaTypenew("KongFu", null);
 		super.saveObject(maTypenew14);
 
-		
-
-
 
 	}
-
-
 
 }
 

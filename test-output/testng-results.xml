@@ -2,42 +2,98 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="1540" started-at="2017-09-27T14:07:55Z" finished-at="2017-09-27T14:07:57Z">
+  <suite name="Default suite" duration-ms="821" started-at="2017-10-30T15:42:50Z" finished-at="2017-10-30T15:42:51Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="1540" started-at="2017-09-27T14:07:55Z" finished-at="2017-09-27T14:07:57Z">
+    <test name="Default test" duration-ms="821" started-at="2017-10-30T15:42:50Z" finished-at="2017-10-30T15:42:51Z">
       <class name="com.Mao.BackEndDev.StartNG">
-        <test-method status="PASS" signature="saleItemstoExistCustomer(java.util.Date, int, java.lang.String, float, java.lang.String)[pri:0, instance:com.Mao.BackEndDev.StartNG@63787180]" name="saleItemstoExistCustomer" duration-ms="1509" started-at="2017-09-27T17:07:56Z" data-provider="sellItemsExistingCustomer" finished-at="2017-09-27T17:07:57Z">
+        <test-method status="PASS" signature="addNewSchool(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.util.Date)[pri:0, instance:com.Mao.BackEndDev.StartNG@4b1d6571]" name="addNewSchool" duration-ms="800" started-at="2017-10-30T17:42:50Z" data-provider="addNewSchool" finished-at="2017-10-30T17:42:51Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Sun Jan 18 09:51:36 IST 1970]]>
+                <![CDATA[HP99123]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[2]]>
+                <![CDATA[MMA Israel]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[FSD32DSAAD]]>
+                <![CDATA[09-9873231]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[75.0]]>
+                <![CDATA[999209320]]>
               </value>
             </param>
             <param index="4">
               <value>
-                <![CDATA[234234234423]]>
+                <![CDATA[David Pinkas]]>
+              </value>
+            </param>
+            <param index="5">
+              <value is-null="true"/>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[Netania]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[23121]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[Sharon]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[Israel]]>
+              </value>
+            </param>
+            <param index="10">
+              <value is-null="true"/>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[Amir Boaron]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[mmaisrael@mma.com]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[www.mmaisrael.co.il]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[amirb]]>
+              </value>
+            </param>
+            <param index="15">
+              <value>
+                <![CDATA[password]]>
+              </value>
+            </param>
+            <param index="16">
+              <value>
+                <![CDATA[Sun Jan 18 09:51:36 IST 1970]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- saleItemstoExistCustomer -->
+        </test-method> <!-- addNewSchool -->
       </class> <!-- com.Mao.BackEndDev.StartNG -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
